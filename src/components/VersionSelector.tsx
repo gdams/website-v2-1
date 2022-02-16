@@ -1,11 +1,10 @@
-import React, { useRef, useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { ChoiceGroup } from "office-ui-fabric-react";
 
 import { versions, defaultVersion } from '../util/defaults'
 
 const VersionSelector = ({updater, releaseType, Table}) => {
   const [version, udateVersion] = useState({version: defaultVersion});
-  const ref = useRef<HTMLDivElement | null>(null);
 
   const [releases, setReleases] = useState(null);
 
@@ -29,7 +28,7 @@ const VersionSelector = ({updater, releaseType, Table}) => {
   }
   return (
     <>
-      <div ref={ref} className="btn-container">
+      <div className="btn-container">
         <form id="version-selector" className="btn-form">
           <h3>Choose a Version</h3>
           <ChoiceGroup

@@ -25,8 +25,7 @@ const TemurinReleases = () => (
           </div>
         </div>
       </div>
-      <DownloadDropdowns updaterAction={loadLatestAssets} />
-      <DownloadTable />
+      <DownloadDropdowns updaterAction={loadLatestAssets} Table={DownloadTable} />
       <ChecksumModal />
     </section>
   </Layout>
