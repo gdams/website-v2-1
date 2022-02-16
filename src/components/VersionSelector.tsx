@@ -2,10 +2,8 @@ import React, { useRef, useState, useCallback, useEffect } from 'react';
 import { ChoiceGroup } from "office-ui-fabric-react";
 
 import { versions, defaultVersion } from '../util/defaults'
-import TemurinArchiveTable from './TemurinArchiveTable'
-import { getAssetsForVersion } from '../hooks';
 
-const VersionSelector = () => {
+const VersionSelector = ({updater, releaseType, Table}) => {
   const [version, udateVersion] = useState({version: defaultVersion});
   const ref = useRef<HTMLDivElement | null>(null);
 
@@ -13,7 +11,7 @@ const VersionSelector = () => {
 
   useEffect(() => {
     (async () => {
-      setReleases(await getAssetsForVersion(version.version));
+      setReleases(await updater(version.version, releaseType));
     })();
   }, [version.version]);
 
@@ -41,7 +39,7 @@ const VersionSelector = () => {
             options={dropdownOptions} />
         </form>
       </div>
-      <TemurinArchiveTable results={releases}/>
+      <Table results={releases}/>
     </>
   );
 };
