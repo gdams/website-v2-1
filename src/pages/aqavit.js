@@ -35,7 +35,8 @@ const AqavitHome = () => (
         <div className='container-fluid py-5'>
           <h2>The AQAvit Name</h2>
           <p>The AQAvit project gets its name from Adoptium Quality Assurance ‘AQA’ and ‘vit’ for vitality and speed.
-            As the project engages with vendors and enterprise consumers, the test suite is expanded and improved to keep pace with the latest Java releases and to continuously raise the quality bar through collaboration and rigour.</p>
+            As the project engages with vendors and enterprise consumers, the test suite is expanded and improved to keep pace with the latest Java releases and to continuously raise the quality bar through collaboration and rigour.
+          </p>
         </div>
       </div>
       <div className='p-3 mb-4 bg-dark rounded-3 text-start'>
@@ -44,8 +45,8 @@ const AqavitHome = () => (
           <p>
             As listed in the <a href='https://projects.eclipse.org/projects/adoptium.aqavit/developer' className='link-light'>Developer Resources</a> section of the Eclipse Foundation&nbsp;
             <a href='https://projects.eclipse.org/projects/adoptium.aqavit' className='link-light'>AQAvit project</a> page, AQAvit is comprised of many repositories.
-            The central one is the <a href='https://github.com/adoptium/aqa-tests' className='link-light'>aqa-tests</a> repository which houses the project’s test definition files, 
-            much of the project’s documentation and is the base for running the AQAvit test suite. 
+            The central one is the <a href='https://github.com/adoptium/aqa-tests' className='link-light'>aqa-tests</a> repository which houses the project’s test definition files,
+            much of the project’s documentation and is the base for running the AQAvit test suite.
             To participate in the project, people are invited to join the <Link to='/slack' className='link-light'>Adoptium Slack workspace</Link> and ask questions in the <code>#testing-aqavit</code> channel.
           </p>
         </div>
