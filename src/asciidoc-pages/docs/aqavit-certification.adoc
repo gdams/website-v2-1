@@ -1,0 +1,7 @@
+= AQAvit Certification
+:page-authors: gdams, smlambert, llxia
+Version 0.1, 17.02.2022
+
+The AQAvit project was created to “make quality certain to happen.” AQAvit certification is achieved through the process of running and passing a prescribed and versioned set of tests in the AQAvit test suite. As per the Eclipse Foundation Quality Verification Software License (QVSL) section 5b, a distributor who wants to certify their distributions then shares a summary of the test results by which certification was achieved.
+
+AQAvit certification is one of the criteria for listing in the Adoptium Marketplace. Leveraging the AQAvit test suite to ensure the quality of the binaries listed in the Adoptium Marketplace not only communicates to consumers how serious we are about quality, but also consolidates the good verification practices of the Adoptium Working Group members under a centralized effort. AQAvit aligns its test suite standards with the ever-changing requirements of the user base.
