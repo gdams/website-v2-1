@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import Seo from '../components/Seo'
@@ -31,17 +31,30 @@ const AqavitHome = () => (
           </div>
         </div>
       </div>
-      <div className="p-3 mb-4 bg-dark rounded-3 text-start">
-        <div className="container-fluid py-5 text-white">
-          <h2>AQAvit Certification</h2>
-          <p>The AQAvit project was created to “make quality certain to happen.” AQAvit certification is achieved through the process of running and passing a prescribed and versioned set of tests in the AQAvit test suite.</p>
-          <a href="/docs/aqavit-certification" className="btn btn-outline-light" type="button">Learn how to get certified</a>
+      <div className='p-3 mb-4 bg-light rounded-3 text-start'>
+        <div className='container-fluid py-5'>
+          <h2>The AQAvit Name</h2>
+          <p>The AQAvit project gets its name from Adoptium Quality Assurance ‘AQA’ and ‘vit’ for vitality and speed.
+            As the project engages with vendors and enterprise consumers, the test suite is expanded and improved to keep pace with the latest Java releases and to continuously raise the quality bar through collaboration and rigour.</p>
         </div>
       </div>
-      <div className="p-3 mb-4 bg-light rounded-3 text-start">
-        <div className="container-fluid py-5">
-          <h2>Why AQAvit?</h2>
-          <p>The AQAvit project gets its name from Adoptium Quality Assurance ‘AQA’ and ‘vit’ for vitality and speed. As the project engages with vendors and enterprise consumers, the test suite is expanded and improved to keep pace with the latest Java releases and to continuously raise the quality bar through collaboration and rigour.</p>
+      <div className='p-3 mb-4 bg-dark rounded-3 text-start'>
+        <div className='container-fluid py-5 text-white'>
+          <h2>AQAvit Project Central</h2>
+          <p>
+            As listed in the <a href='https://projects.eclipse.org/projects/adoptium.aqavit/developer' className='link-light'>Developer Resources</a> section of the Eclipse Foundation&nbsp;
+            <a href='https://projects.eclipse.org/projects/adoptium.aqavit' className='link-light'>AQAvit project</a> page, AQAvit is comprised of many repositories.
+            The central one is the <a href='https://github.com/adoptium/aqa-tests' className='link-light'>aqa-tests</a> repository which houses the project’s test definition files, 
+            much of the project’s documentation and is the base for running the AQAvit test suite. 
+            To participate in the project, people are invited to join the <Link to='/slack' className='link-light'>Adoptium Slack workspace</Link> and ask questions in the <code>#testing-aqavit</code> channel.
+          </p>
+        </div>
+      </div>
+      <div className='p-3 mb-4 bg-light rounded-3 text-start'>
+        <div className='container-fluid py-5'>
+          <h2>AQAvit Verification</h2>
+          <p>The AQAvit project was created to “make quality certain to happen.” AQAvit certification is achieved through the process of running and passing a prescribed and versioned set of tests in the AQAvit test suite.</p>
+          <a href='/docs/aqavit-verification' className='btn btn-outline-dark' type='button'>Learn how to run AQAvit</a>
         </div>
       </div>
     </section>
