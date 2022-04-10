@@ -36,11 +36,11 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-transformer-asciidoc`,
+      resolve: 'gatsby-transformer-asciidoc',
       options: {
-        safe: `server`,
-        attributes: {},
-      },
+        safe: 'server',
+        attributes: {}
+      }
     },
     {
       resolve: 'gatsby-plugin-google-tagmanager',
