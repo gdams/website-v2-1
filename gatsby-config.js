@@ -35,7 +35,13 @@ module.exports = {
         defaultLanguage: 'en'
       }
     },
-    'gatsby-transformer-asciidoc',
+    {
+      resolve: `gatsby-transformer-asciidoc`,
+      options: {
+        safe: `server`,
+        attributes: {},
+      },
+    },
     {
       resolve: 'gatsby-plugin-google-tagmanager',
       options: {
