@@ -32,7 +32,7 @@ const ChecksumModal = () => {
 
   return (
     <>
-      <div className="modal fade" id="checksumModal" tabIndex={-1} aria-labelledby="checksumModalLabel" aria-hidden="true" style={{zIndex: '10000'}}>
+      <div className="modal fade" id="checksumModal" aria-labelledby="checksumModalLabel">
           <div className="modal-dialog modal-lg">
             <div className="modal-content">
               <div className="modal-header">
