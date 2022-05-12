@@ -40,6 +40,11 @@ const ChecksumModal = () => {
                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div className="modal-body">
+                The checksum is used to ensure the file has not been corrupted during download.
+                You should compare the checksum of the file you received with the value below to ensure the file you received is complete and unmodified.
+                <br />
+                On Windows use <code>certUtil -hashfile file SHA256</code>, on Linux use <code>sha256sum file</code>, and on macOS use <code>shasum -a 256 file</code>.
+                <br />
               <input
                 className="text-start"
                 readOnly
