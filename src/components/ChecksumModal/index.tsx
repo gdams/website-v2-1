@@ -43,11 +43,11 @@ const ChecksumModal = () => {
                 <p>
                 The checksum is used to ensure the file has not been corrupted during download.
                 You should compare the checksum of the file you received with the value below to ensure the file you received is complete and unmodified.
-                <p/>
+                </p>
                 <p>
                   On Windows use <code>certUtil -hashfile <var>file</var> SHA256</code>,
                   on Linux use <code>sha256sum <var>file</var></code>, and on macOS use <code>shasum -a 256 <var>file</var></code>.
-                <p/>
+                </p>
               <input
                 className="text-start"
                 readOnly
