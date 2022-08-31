@@ -22,7 +22,7 @@ const NavBar = ({siteTitle}): JSX.Element => {
     >
       <div className="container-fluid">
         <Link to="/" className="navbar-brand ms-5" aria-label="Homepage Link">
-          <Logo style={{ paddingLeft: '.2em', paddingRight: '.2em', height: '1.9em' }} />
+          <Logo alt="Adoptium Logo" style={{ paddingLeft: '.2em', paddingRight: '.2em', height: '1.9em' }} />
         </Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navbar"
                 aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">

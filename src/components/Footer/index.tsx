@@ -22,7 +22,7 @@ const Footer = (): JSX.Element => {
           <footer className="row row-cols-4 py-5 border-top">
 
             <div className="col-sm-3 col-12">
-              <h5>Eclipse Foundation</h5>
+              <p className="h5 pb-1">Eclipse Foundation</p>
               <ul className="nav flex-column">
                 <li className="nav-item mb-2"><a href="https://www.eclipse.org/org/" className="nav-link p-0 text-muted">About Us</a></li>
                 <li className="nav-item mb-2"><a href="https://www.eclipse.org/org/foundation/contact.php" className="nav-link p-0 text-muted">Contact Us</a></li>
@@ -36,7 +36,7 @@ const Footer = (): JSX.Element => {
             </div>
 
             <div className="col-sm-3 col-12">
-              <h5>Legal</h5>
+            <p className="h5 pb-1">Legal</p>
               <ul className="nav flex-column">
                 <li className="nav-item mb-2"><a href="https://www.eclipse.org/legal/privacy.php" className="nav-link p-0 text-muted">Privacy Policy</a></li>
                 <li className="nav-item mb-2"><a href="https://www.eclipse.org/legal/termsofuse.php" className="nav-link p-0 text-muted">Terms of Use</a></li>
@@ -47,7 +47,7 @@ const Footer = (): JSX.Element => {
             </div>
 
             <div className="col-sm-3 col-12">
-              <h5>Useful Links</h5>
+            <p className="h5 pb-1">Useful Links</p>
               <ul className="nav flex-column">
                 <li className="nav-item mb-2"><a href="https://bugs.eclipse.org/bugs/" className="nav-link p-0 text-muted">Report a Bug</a></li>
                 <li className="nav-item mb-2"><a href="https://help.eclipse.org/" className="nav-link p-0 text-muted">Documentation</a></li>
@@ -59,7 +59,7 @@ const Footer = (): JSX.Element => {
             </div>
 
             <div className="col-sm-3 col-12">
-              <h5>Other</h5>
+            <p className="h5 pb-1">Other</p>
               <ul className="nav flex-column">
                 <li className="nav-item mb-2"><a href="https://www.eclipse.org/ide/" className="nav-link p-0 text-muted">IDE and Tools</a></li>
                 <li className="nav-item mb-2"><a href="https://www.eclipse.org/projects" className="nav-link p-0 text-muted">Projects</a></li>

@@ -21,9 +21,11 @@ exports[`Footer component renders correctly 1`] = `
         <div
           class="col-sm-3 col-12"
         >
-          <h5>
+          <p
+            class="h5 pb-1"
+          >
             Eclipse Foundation
-          </h5>
+          </p>
           <ul
             class="nav flex-column"
           >
@@ -112,9 +114,11 @@ exports[`Footer component renders correctly 1`] = `
         <div
           class="col-sm-3 col-12"
         >
-          <h5>
+          <p
+            class="h5 pb-1"
+          >
             Legal
-          </h5>
+          </p>
           <ul
             class="nav flex-column"
           >
@@ -173,9 +177,11 @@ exports[`Footer component renders correctly 1`] = `
         <div
           class="col-sm-3 col-12"
         >
-          <h5>
+          <p
+            class="h5 pb-1"
+          >
             Useful Links
-          </h5>
+          </p>
           <ul
             class="nav flex-column"
           >
@@ -244,9 +250,11 @@ exports[`Footer component renders correctly 1`] = `
         <div
           class="col-sm-3 col-12"
         >
-          <h5>
+          <p
+            class="h5 pb-1"
+          >
             Other
-          </h5>
+          </p>
           <ul
             class="nav flex-column"
           >
@@ -441,10 +449,13 @@ exports[`Footer component renders correctly 1`] = `
       >
         <button
           aria-expanded="false"
+          aria-label="Language Selector"
           class="text-left text-white dropdown-toggle btn btn-primary"
           id="dropdown-flags"
           type="button"
-        />
+        >
+          Text
+        </button>
       </div>
     </form>
   </div>

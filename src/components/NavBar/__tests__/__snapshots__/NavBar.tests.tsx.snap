@@ -17,6 +17,7 @@ exports[`NavBar component navbar renders correctly 1`] = `
         hreflang="en"
       >
         <img
+          alt="Adoptium Logo"
           style="padding-left: .2em; padding-right: .2em; height: 1.9em;"
         />
       </a>
