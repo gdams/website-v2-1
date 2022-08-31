@@ -32,7 +32,7 @@ const Layout = ({ children }) => {
         <Navbar siteTitle={data.site.siteMetadata?.title || 'Title'} />
         <Banner />
         <main>
-          <main>{children}</main>
+          {children}
         </main>
         <Footer />
       </div>

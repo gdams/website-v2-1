@@ -21,7 +21,7 @@ const Navbar = ({siteTitle}): JSX.Element => {
       style={{ height: '7rem', paddingTop: '1.25em', paddingBottom: '1.25em', position: 'relative', zIndex: '10000' }}
     >
       <div className="container-fluid">
-        <Link to="/" className="navbar-brand ms-5">
+        <Link to="/" className="navbar-brand ms-5" aria-label="Homepage Link">
           <Logo style={{ paddingLeft: '.2em', paddingRight: '.2em', height: '1.9em' }} />
         </Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navbar"
@@ -70,10 +70,10 @@ const Navbar = ({siteTitle}): JSX.Element => {
               </ul>
             </li>
             <li className="nav-item dropdown">
-              <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Further Information
               </Link>
-              <ul className="dropdown-menu bg-primary" aria-labelledby="navbarDropdown">
+              <ul className="dropdown-menu bg-primary" aria-labelledby="navbarDropdown2">
                 <li><ExactNavLink className="dropdown-item" to="/news">News & Events</ExactNavLink></li>
                 <li><ExactNavLink className="dropdown-item" to="/about">About</ExactNavLink></li>
                 <li><ExactNavLink className="dropdown-item" to="/members">Members</ExactNavLink></li>
@@ -87,10 +87,10 @@ const Navbar = ({siteTitle}): JSX.Element => {
           </ul>
         </div>
         <ul className="nav col-md-5 col-9 pb-4 justify-content-end list-unstyled d-flex hide-on-mobile p-3">
-          <li className="ms-3"><a style={navbarIcon} target="_blank" rel="noopener noreferrer" href="https://twitter.com/adoptium"><FaTwitter size={25} /></a></li>
-          <li className="ms-3"><a style={navbarIcon} target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/c/EclipseAdoptium"><FaYoutube size={25} /></a></li>
-          <li className="ms-3"><a style={navbarIcon} target="_blank" rel="noopener noreferrer" href="https://github.com/adoptium"><FaGithub size={25} /></a></li>
-          <li className="ms-3"><Link style={navbarIcon} target="_blank" rel="noopener noreferrer" to="/slack"><FaSlack size={25} /></Link></li>
+          <li className="ms-3"><a style={navbarIcon} target="_blank" aria-label="Adoptium Twitter Account" rel="noopener noreferrer" href="https://twitter.com/adoptium"><FaTwitter size={25} /></a></li>
+          <li className="ms-3"><a style={navbarIcon} target="_blank" aria-label="Adoptium YouTube Account" rel="noopener noreferrer" href="https://www.youtube.com/c/EclipseAdoptium"><FaYoutube size={25} /></a></li>
+          <li className="ms-3"><a style={navbarIcon} target="_blank" aria-label="Adoptium GitHub Account" rel="noopener noreferrer" href="https://github.com/adoptium"><FaGithub size={25} /></a></li>
+          <li className="ms-3"><Link style={navbarIcon} target="_blank" aria-label="Adoptium Slack Account" rel="noopener noreferrer" to="/slack"><FaSlack size={25} /></Link></li>
         </ul>
       </div>
     </nav>

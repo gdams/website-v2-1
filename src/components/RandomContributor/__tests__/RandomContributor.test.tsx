@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import RandomContributor from '..';
 import { useOnScreen } from '../../../hooks/useOnScreen';
 import { useAdoptiumContributorsApi } from '../../../hooks/useAdoptiumContributorsApi';
-import { createRandomContributorViewData, createRandomContributorViewData1Contribution } from '../../../../test/__fixtures__/hooks';
+import { createRandomContributorViewData, createRandomContributorViewData1Contribution } from '../../../__fixtures__/hooks';
 
 jest.mock('../../../hooks/useOnScreen');
 jest.mock('../../../hooks/useAdoptiumContributorsApi');

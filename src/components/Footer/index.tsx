@@ -74,10 +74,10 @@ const Footer = (): JSX.Element => {
               <span className="text-muted">Copyright © Eclipse Foundation. All Rights Reserved.</span>
             </div>
             <ul className="nav col-md-5 col-9 pb-4 justify-content-end list-unstyled d-flex">
-              <li className="ms-3"><a className="text-muted" href="https://twitter.com/adoptium"><FaTwitter size={25} /></a></li>
-              <li className="ms-3"><a className="text-muted" href="https://www.youtube.com/c/EclipseAdoptium"><FaYoutube size={25} /></a></li>
-              <li className="ms-3"><a className="text-muted" href="https://github.com/adoptium"><FaGithub size={25} /></a></li>
-              <li className="ms-3"><Link className="text-muted" to="/slack"><FaSlack size={25} /></Link></li>
+              <li className="ms-3"><a className="text-muted" aria-label="Adoptium Twitter Account" href="https://twitter.com/adoptium"><FaTwitter size={25} /></a></li>
+              <li className="ms-3"><a className="text-muted" aria-label="Adoptium YouTube Account" href="https://www.youtube.com/c/EclipseAdoptium"><FaYoutube size={25} /></a></li>
+              <li className="ms-3"><a className="text-muted" aria-label="Adoptium GitHub Account" href="https://github.com/adoptium"><FaGithub size={25} /></a></li>
+              <li className="ms-3"><Link className="text-muted" aria-label="Adoptium Slack Account" to="/slack"><FaSlack size={25} /></Link></li>
             </ul>
             <div className="col-12 d-flex ">
                 <span className="text-muted">Java and OpenJDK are trademarks or registered trademarks of Oracle and/or its affiliates. Other names may be trademarks of their respective owners.</span>

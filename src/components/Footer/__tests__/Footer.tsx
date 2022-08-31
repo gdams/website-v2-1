@@ -18,7 +18,7 @@ jest.mock("@reach/router", () => {
   };
 });
 
-describe('DocumentationCard component', () => {
+describe('Footer component', () => {
   it('renders correctly', () => {
     const { container } = render(
       <Footer />

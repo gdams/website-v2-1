@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DocumentationCard component renders correctly 1`] = `
+exports[`Footer component renders correctly 1`] = `
 <div>
   <section
     class="bottom-info"
@@ -328,6 +328,7 @@ exports[`DocumentationCard component renders correctly 1`] = `
             class="ms-3"
           >
             <a
+              aria-label="Adoptium Twitter Account"
               class="text-muted"
               href="https://twitter.com/adoptium"
             >
@@ -350,6 +351,7 @@ exports[`DocumentationCard component renders correctly 1`] = `
             class="ms-3"
           >
             <a
+              aria-label="Adoptium YouTube Account"
               class="text-muted"
               href="https://www.youtube.com/c/EclipseAdoptium"
             >
@@ -372,6 +374,7 @@ exports[`DocumentationCard component renders correctly 1`] = `
             class="ms-3"
           >
             <a
+              aria-label="Adoptium GitHub Account"
               class="text-muted"
               href="https://github.com/adoptium"
             >
@@ -394,6 +397,7 @@ exports[`DocumentationCard component renders correctly 1`] = `
             class="ms-3"
           >
             <a
+              aria-label="Adoptium Slack Account"
               class="text-muted"
               href="/slack"
               hreflang="en"
