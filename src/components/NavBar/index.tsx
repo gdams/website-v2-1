@@ -13,7 +13,7 @@ const ExactNavLink = props => (
   <Link getProps={isActive}{...props} />
 )
 
-const Navbar = ({siteTitle}): JSX.Element => {
+const NavBar = ({siteTitle}): JSX.Element => {
   const {t} = useTranslation();
 
   return (
@@ -101,12 +101,12 @@ const navbarIcon = ({
   color: 'rgba(255, 255, 255, 0.55)'
 });
 
-Navbar.propTypes = {
+NavBar.propTypes = {
   siteTitle: PropTypes.string,
 }
 
-Navbar.defaultProps = {
+NavBar.defaultProps = {
   siteTitle: ``,
 }
 
-export default Navbar
+export default NavBar
