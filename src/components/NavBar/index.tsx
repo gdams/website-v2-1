@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { Link, useTranslation } from 'gatsby-plugin-react-i18next';
 import { FaTwitter, FaYoutube, FaGithub, FaSlack } from 'react-icons/fa';
 
-import Logo from '../images/adoptium-logo-dark.svg';
+import Logo from '../../images/adoptium-logo-dark.svg';
 
 const isActive = ({ isCurrent }) => {
   return isCurrent ? { className: "nav-link active" } : {className: "nav-link"}
