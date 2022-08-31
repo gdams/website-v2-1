@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import Footer from '..';
-import '../__mocks__/intersectionObserverMock';
+import '../../../../test/__mocks__/intersectionObserverMock';
 
 jest.mock('react-i18next', () => ({
   useTranslation: (): {} => ({ t: (key: string): string => key }),
