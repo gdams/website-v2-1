@@ -54,13 +54,13 @@ describe('useAdoptiumContributorsApi', () => {
     });
     await waitFor(() => {
       expect(fetchMock.mock.calls[0][0]).toMatch(
-        /https:\/\/api.github.com\/repos\/adoptium\/.+\/contributors\?per_page=1/
+        /https:\/\/api\.github\.com\/repos\/adoptium\/.+\/contributors\?per_page=1/
       );
     });
     await waitFor(() => {
       expect(
         fetchMock.mock.calls[1][0]).toMatch(
-          /https:\/\/api.github.com\/repos\/adoptium\/.+\/contributors\?per_page=1&page=/
+          /https:\/\/api\.github\.com\/repos\/adoptium\/.+\/contributors\?per_page=1&page=/
       )
     });
   });
@@ -85,7 +85,7 @@ describe('useAdoptiumContributorsApi', () => {
     await waitFor(() => {
       expect(
         fetchMock.mock.calls[0][0]).toMatch(
-          /https:\/\/api.github.com\/repos\/adoptium\/.+\/contributors\?per_page=1&page=/
+          /https:\/\/api\.github\.com\/repos\/adoptium\/.+\/contributors\?per_page=1&page=/
       )
     });
   });
@@ -116,13 +116,13 @@ describe('useAdoptiumContributorsApi', () => {
     });
     await waitFor(() => {
       expect(fetchMock.mock.calls[0][0]).toMatch(
-        /https:\/\/api.github.com\/repos\/adoptium\/.+\/contributors\?per_page=1/
+        /https:\/\/api\.github\.com\/repos\/adoptium\/.+\/contributors\?per_page=1/
       );
     });
     await waitFor(() => {
       expect(
         fetchMock.mock.calls[1][0]).toMatch(
-          /https:\/\/api.github.com\/repos\/adoptium\/.+\/contributors\?per_page=1&page=/
+          /https:\/\/api\.github\.com\/repos\/adoptium\/.+\/contributors\?per_page=1&page=/
         )
     });
   });

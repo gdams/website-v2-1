@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import LinkText from '..';
 
-describe('EditLink component', () => {
+describe('LinkText component', () => {
 
   it('internal link renders correctly', () => {
     const { container } = render(

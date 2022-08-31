@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EditLink component external URL renders correctly 1`] = `
+exports[`LinkText component external URL renders correctly 1`] = `
 <div>
   <a
     href="https://external-link.com"
@@ -12,7 +12,7 @@ exports[`EditLink component external URL renders correctly 1`] = `
 </div>
 `;
 
-exports[`EditLink component internal link renders correctly 1`] = `
+exports[`LinkText component internal link renders correctly 1`] = `
 <div>
   <a
     href="/page1"
