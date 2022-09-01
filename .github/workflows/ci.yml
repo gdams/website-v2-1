@@ -7,9 +7,6 @@ on:
   pull_request:
     branches: [ main ]
 
-env:
-  NODE_OPTIONS: --max-old-space-size=4096
-
 jobs:
   ci:
     name: Run CI
@@ -24,7 +21,7 @@ jobs:
 
       - run: npm install --legacy-peer-deps
 
-      - run: npm run coverage
+      - run: npm run test-ci
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
