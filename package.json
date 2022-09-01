@@ -97,7 +97,7 @@
     "clean": "gatsby clean",
     "test": "jest",
     "coverage": "jest --coverage",
-    "test-ci": "jest --coverage --maxConcurrency=2  --maxWorkers=2"
+    "test-ci": "jest --coverage --maxConcurrency=4  --maxWorkers=4"
   },
   "repository": {
     "type": "git",
