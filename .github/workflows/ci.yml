@@ -21,7 +21,7 @@ jobs:
 
       - run: npm install --legacy-peer-deps
 
-      - run: npm run coverage --- --maxConcurrency=1 --maxWorkers=50%
+      - run: npm run coverage
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
