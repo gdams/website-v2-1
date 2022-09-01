@@ -133,7 +133,6 @@
       "util-node/**/**.(ts|tsx|js)"
     ],
     "testEnvironment": "jsdom",
-    "coverageProvider": "v8",
     "reporters": [
       "default",
       "github-actions"
