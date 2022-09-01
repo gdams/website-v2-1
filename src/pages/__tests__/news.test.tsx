@@ -9,7 +9,7 @@ expect.extend(toHaveNoViolations);
 describe('News page', () => {
   it('renders correctly', () => {
     const { container } = render(<News />);
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+    // eslint-disable-next-line
     const pageContent = container.querySelector('main');
 
     expect(pageContent).toMatchSnapshot();
