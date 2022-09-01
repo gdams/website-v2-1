@@ -96,7 +96,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "jest",
-    "coverage": "jest --coverage --maxConcurrency=2  --maxWorkers=50% "
+    "coverage": "jest --coverage --maxConcurrency=2  --maxWorkers=50%"
   },
   "repository": {
     "type": "git",
