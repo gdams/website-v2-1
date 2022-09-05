@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import '../../../../test/__mocks__/intersectionObserverMock';
+import { describe, expect, it, vi } from 'vitest'
 import Layout from '..';
 
 describe('Layout component', () => {

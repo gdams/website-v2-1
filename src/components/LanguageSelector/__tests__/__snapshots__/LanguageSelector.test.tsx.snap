@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`DocumentationCard component renders correctly 1`] = `
+exports[`Language Selector component > renders correctly 1`] = `
 <div>
   <div
     class="App lngg"
@@ -18,7 +18,7 @@ exports[`DocumentationCard component renders correctly 1`] = `
           id="dropdown-flags"
           type="button"
         >
-          Text
+          &lt;&gt;Text&lt;/&gt;
         </button>
       </div>
     </form>

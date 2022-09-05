@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`AuthorsList component renders correctly 1`] = `
+exports[`AuthorsList component > renders correctly 1`] = `
 <div>
   <p
     class="h5"

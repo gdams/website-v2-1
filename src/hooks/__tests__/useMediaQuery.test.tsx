@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
+import { describe, expect, it, vi } from 'vitest'
 import { useMediaQuery } from '../useMediaQuery';
 
 describe('useMediaQuery', () => {
@@ -21,10 +22,10 @@ describe('useMediaQuery', () => {
   it('should return true for matched query', () => {
     Object.defineProperty(window, 'matchMedia', {
       writable: true,
-      value: jest.fn().mockImplementation(() => ({
+      value: vi.fn().mockImplementation(() => ({
         matches: true,
-        addEventListener: jest.fn(),
-        removeEventListener: jest.fn(),
+        addEventListener: vi.fn(),
+        removeEventListener: vi.fn(),
       })),
     });
 
@@ -35,10 +36,10 @@ describe('useMediaQuery', () => {
   it('should return false for not-matched query', () => {
     Object.defineProperty(window, 'matchMedia', {
       writable: true,
-      value: jest.fn().mockImplementation(() => ({
+      value: vi.fn().mockImplementation(() => ({
         matches: false,
-        addEventListener: jest.fn(),
-        removeEventListener: jest.fn(),
+        addEventListener: vi.fn(),
+        removeEventListener: vi.fn(),
       })),
     });
 
@@ -47,16 +48,16 @@ describe('useMediaQuery', () => {
   });
 
   it('should subscribe for media changes', () => {
-    const listenerMock = jest.fn().mockImplementation((event, handler) => {
+    const listenerMock = vi.fn().mockImplementation((event, handler) => {
       handler();
     });
 
     Object.defineProperty(window, 'matchMedia', {
       writable: true,
-      value: jest.fn().mockImplementation(() => ({
+      value: vi.fn().mockImplementation(() => ({
         matches: false,
         addEventListener: listenerMock,
-        removeEventListener: jest.fn(),
+        removeEventListener: vi.fn(),
       })),
     });
 
@@ -65,16 +66,16 @@ describe('useMediaQuery', () => {
   });
 
   it("should support MediaQueryList's old event listeners", () => {
-    const listenerMock = jest.fn().mockImplementation(handler => {
+    const listenerMock = vi.fn().mockImplementation(handler => {
       handler();
     });
 
     Object.defineProperty(window, 'matchMedia', {
       writable: true,
-      value: jest.fn().mockImplementation(() => ({
+      value: vi.fn().mockImplementation(() => ({
         matches: false,
         addListener: listenerMock,
-        removeListener: jest.fn(),
+        removeListener: vi.fn(),
       })),
     });
 

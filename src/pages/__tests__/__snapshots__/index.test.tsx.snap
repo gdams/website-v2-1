@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`Index page renders correctly 1`] = `
+exports[`Index page > renders correctly 1`] = `
 <main>
   <section
     class="home"
@@ -29,15 +29,15 @@ exports[`Index page renders correctly 1`] = `
                 <h1
                   class="display-4"
                 >
-                  Text
+                  &lt;&gt;Text&lt;/&gt;
                   <br />
-                  Text
+                  &lt;&gt;Text&lt;/&gt;
                 </h1>
               </div>
               <p
                 class="mt-3 text-center text-md-start"
               >
-                Text
+                &lt;&gt;Text&lt;/&gt;
               </p>
             </div>
             <div
@@ -54,7 +54,6 @@ exports[`Index page renders correctly 1`] = `
                 <a
                   class="btn btn-lg btn-primary mt-3 py-3 text-white"
                   href="/temurin/releases"
-                  hreflang="en"
                 >
                   <svg
                     fill="currentColor"
@@ -74,9 +73,8 @@ exports[`Index page renders correctly 1`] = `
                 <a
                   class="btn btn-outline-dark mt-3"
                   href="/temurin/archive"
-                  hreflang="en"
                 >
-                  Text
+                  &lt;&gt;Text&lt;/&gt;
                    
                   <svg
                     fill="currentColor"
@@ -110,10 +108,10 @@ exports[`Index page renders correctly 1`] = `
         <h2
           class="text-pink"
         >
-          Text
+          &lt;&gt;Text&lt;/&gt;
         </h2>
         <p>
-          Text
+          &lt;&gt;Text&lt;/&gt;
         </p>
         <div
           class="btn-group"
@@ -121,16 +119,14 @@ exports[`Index page renders correctly 1`] = `
           <a
             class="btn btn-lg btn-primary m-3 text-white"
             href="/join"
-            hreflang="en"
           >
-            Text
+            &lt;&gt;Text&lt;/&gt;
           </a>
           <a
             class="btn btn-lg btn-secondary m-3"
             href="/members"
-            hreflang="en"
           >
-            Text
+            &lt;&gt;Text&lt;/&gt;
           </a>
         </div>
       </div>

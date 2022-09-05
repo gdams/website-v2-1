@@ -1,4 +1,5 @@
 import { shuffle } from "../shuffle";
+import { describe, expect, it } from 'vitest'
 
 describe("shuffle", () => {
     let testArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];

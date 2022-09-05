@@ -1,4 +1,5 @@
 import { fetchExtension } from "../fetchExtension";
+import { describe, expect, it } from 'vitest'
 
 describe("fetchExtension", () => {
     it("should convert file.tar.gz to tar.gz", () => {

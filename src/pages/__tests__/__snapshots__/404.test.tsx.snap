@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`404 page renders correctly 1`] = `
+exports[`404 page > renders correctly 1`] = `
 <main>
   <div
     class="container text-center my-5"

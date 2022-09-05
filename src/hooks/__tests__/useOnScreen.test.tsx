@@ -1,5 +1,6 @@
 import React, { MutableRefObject, useRef } from 'react';
 import { render } from '@testing-library/react';
+import { afterEach, describe, expect, it, vi } from 'vitest'
 import { useOnScreen } from '../useOnScreen';
 
 describe('useOnScreen', () => {
@@ -23,13 +24,13 @@ describe('useOnScreen', () => {
   });
 
   it('should observe ref for appearing on screen', () => {
-    const observeMock = jest.fn();
+    const observeMock = vi.fn();
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    window.IntersectionObserver = jest.fn(() => {
+    window.IntersectionObserver = vi.fn(() => {
       return {
-        disconnect: jest.fn,
+        disconnect: vi.fn,
         observe: observeMock,
       };
     });
@@ -39,11 +40,11 @@ describe('useOnScreen', () => {
   });
 
   it('should disconnect on first intersection with observeOnce option', () => {
-    const disconnectMock = jest.fn();
+    const disconnectMock = vi.fn();
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    window.IntersectionObserver = jest.fn(cb => {
+    window.IntersectionObserver = vi.fn(cb => {
       return {
         disconnect: disconnectMock,
         observe: () => {
@@ -55,7 +56,7 @@ describe('useOnScreen', () => {
                 isIntersecting: true,
               },
             ],
-            jest.fn() as unknown as IntersectionObserver
+            vi.fn() as unknown as IntersectionObserver
           );
         },
       };
@@ -69,11 +70,11 @@ describe('useOnScreen', () => {
   });
 
   it('should not disconnect on first intersection with observeOnce=false option', () => {
-    const disconnectMock = jest.fn();
+    const disconnectMock = vi.fn();
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    window.IntersectionObserver = jest.fn(cb => {
+    window.IntersectionObserver = vi.fn(cb => {
       return {
         disconnect: disconnectMock,
         observe: () => {
@@ -85,7 +86,7 @@ describe('useOnScreen', () => {
                 isIntersecting: true,
               },
             ],
-            jest.fn() as unknown as IntersectionObserver
+            vi.fn() as unknown as IntersectionObserver
           );
         },
       };

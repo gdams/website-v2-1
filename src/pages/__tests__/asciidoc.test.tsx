@@ -1,11 +1,9 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import AllAsciidocPages from '../../templates/asciidocTemplate';
-import { axe, toHaveNoViolations } from 'jest-axe';
+import { axe } from 'vitest-axe';
 import { createAsciidocData } from '../../__fixtures__/page';
-import '../../../test/__mocks__/intersectionObserverMock';
 
-expect.extend(toHaveNoViolations);
 let mockData = createAsciidocData();
 
 describe('Asciidoc pages', () => {

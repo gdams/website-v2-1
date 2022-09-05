@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`Footer component renders correctly 1`] = `
+exports[`Footer component > renders correctly 1`] = `
 <div>
   <section
     class="bottom-info"
@@ -408,7 +408,6 @@ exports[`Footer component renders correctly 1`] = `
               aria-label="Adoptium Slack Account"
               class="text-muted"
               href="/slack"
-              hreflang="en"
             >
               <svg
                 fill="currentColor"
@@ -454,7 +453,7 @@ exports[`Footer component renders correctly 1`] = `
           id="dropdown-flags"
           type="button"
         >
-          Text
+          &lt;&gt;Text&lt;/&gt;
         </button>
       </div>
     </form>

@@ -1,10 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { axe, toHaveNoViolations } from 'jest-axe';
+import { axe } from 'vitest-axe';
 import Join from '../join';
-import '../../../test/__mocks__/intersectionObserverMock';
-
-expect.extend(toHaveNoViolations);
 
 describe('Join page', () => {
   it('renders correctly', () => {

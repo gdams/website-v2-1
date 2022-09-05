@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`News page renders correctly 1`] = `
+exports[`News page > renders correctly 1`] = `
 <main>
   <div
     class="docs-header p-5 text-center"

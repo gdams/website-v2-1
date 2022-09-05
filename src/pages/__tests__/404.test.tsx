@@ -1,10 +1,8 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { axe, toHaveNoViolations } from 'jest-axe';
+import { axe } from 'vitest-axe';
+import { describe, expect, it } from 'vitest'
 import NotFound from '../404';
-import '../../../test/__mocks__/intersectionObserverMock';
-
-expect.extend(toHaveNoViolations);
 
 describe('404 page', () => {
   it('renders correctly', () => {

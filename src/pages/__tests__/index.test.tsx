@@ -1,10 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { axe, toHaveNoViolations } from 'jest-axe';
+import { axe } from 'vitest-axe';
 import Index from '../index';
-import '../../../test/__mocks__/intersectionObserverMock';
-
-expect.extend(toHaveNoViolations);
 
 describe('Index page', () => {
   it('renders correctly', () => {

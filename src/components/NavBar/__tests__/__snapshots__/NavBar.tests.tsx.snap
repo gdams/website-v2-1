@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`NavBar component navbar renders correctly 1`] = `
+exports[`NavBar component > navbar renders correctly 1`] = `
 <div>
   <nav
     class="navbar navbar-expand-lg navbar-dark bg-purple"
@@ -10,11 +10,9 @@ exports[`NavBar component navbar renders correctly 1`] = `
       class="container-fluid"
     >
       <a
-        aria-current="page"
         aria-label="Homepage Link"
         class="navbar-brand ms-5"
         href="/"
-        hreflang="en"
       >
         <img
           alt="Adoptium Logo"
@@ -45,10 +43,7 @@ exports[`NavBar component navbar renders correctly 1`] = `
             class="nav-item"
           >
             <a
-              aria-current="page"
-              class="nav-link active"
               href="/"
-              hreflang="en"
             >
               Home
             </a>
@@ -57,9 +52,7 @@ exports[`NavBar component navbar renders correctly 1`] = `
             class="nav-item"
           >
             <a
-              class="nav-link"
               href="/marketplace"
-              hreflang="en"
             >
               Marketplace
             </a>
@@ -68,9 +61,7 @@ exports[`NavBar component navbar renders correctly 1`] = `
             class="nav-item"
           >
             <a
-              class="nav-link"
               href="/docs"
-              hreflang="en"
             >
               Documentation
             </a>
@@ -79,9 +70,7 @@ exports[`NavBar component navbar renders correctly 1`] = `
             class="nav-item"
           >
             <a
-              class="nav-link"
               href="/docs/faq"
-              hreflang="en"
             >
               FAQ
             </a>
@@ -93,8 +82,7 @@ exports[`NavBar component navbar renders correctly 1`] = `
               aria-expanded="false"
               class="nav-link dropdown-toggle"
               data-bs-toggle="dropdown"
-              href="/#"
-              hreflang="en"
+              href="#"
               id="navbarDropdown"
               role="button"
             >
@@ -106,27 +94,24 @@ exports[`NavBar component navbar renders correctly 1`] = `
             >
               <li>
                 <a
-                  class="nav-link"
+                  class="dropdown-item"
                   href="/temurin"
-                  hreflang="en"
                 >
                   Eclipse Temurin
                 </a>
               </li>
               <li>
                 <a
-                  class="nav-link"
+                  class="dropdown-item"
                   href="/aqavit"
-                  hreflang="en"
                 >
                   Eclipse AQAvit
                 </a>
               </li>
               <li>
                 <a
-                  class="nav-link"
+                  class="dropdown-item"
                   href="/jmc"
-                  hreflang="en"
                 >
                   Eclipse Mission Control
                 </a>
@@ -140,8 +125,7 @@ exports[`NavBar component navbar renders correctly 1`] = `
               aria-expanded="false"
               class="nav-link dropdown-toggle"
               data-bs-toggle="dropdown"
-              href="/#"
-              hreflang="en"
+              href="#"
               id="navbarDropdown2"
               role="button"
             >
@@ -153,45 +137,40 @@ exports[`NavBar component navbar renders correctly 1`] = `
             >
               <li>
                 <a
-                  class="nav-link"
+                  class="dropdown-item"
                   href="/news"
-                  hreflang="en"
                 >
                   News & Events
                 </a>
               </li>
               <li>
                 <a
-                  class="nav-link"
+                  class="dropdown-item"
                   href="/about"
-                  hreflang="en"
                 >
                   About
                 </a>
               </li>
               <li>
                 <a
-                  class="nav-link"
+                  class="dropdown-item"
                   href="/members"
-                  hreflang="en"
                 >
                   Members
                 </a>
               </li>
               <li>
                 <a
-                  class="nav-link"
+                  class="dropdown-item"
                   href="/sponsors"
-                  hreflang="en"
                 >
                   Sponsors
                 </a>
               </li>
               <li>
                 <a
-                  class="nav-link"
+                  class="dropdown-item"
                   href="/temurin/buttons"
-                  hreflang="en"
                 >
                   Promote
                 </a>
@@ -308,7 +287,6 @@ exports[`NavBar component navbar renders correctly 1`] = `
           <a
             aria-label="Adoptium Slack Account"
             href="/slack"
-            hreflang="en"
             rel="noopener noreferrer"
             style="color: rgba(255, 255, 255, 0.55);"
             target="_blank"
