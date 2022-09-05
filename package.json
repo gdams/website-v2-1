@@ -85,6 +85,9 @@
     "adoptium",
     "gatsby"
   ],
+  "engines": {
+    "node": "16.x"
+  },
   "license": "0BSD",
   "scripts": {
     "build": "gatsby build",
