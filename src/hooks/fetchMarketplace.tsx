@@ -65,17 +65,12 @@ export async function getAllPkgsForVersion(
     }
 
     let url = baseUrl + '/v1/assets/latestForVendors' + params;
-    let json = await getPkgs(url);
+    let json = await makeRequest(url);
     const data = JSON.parse(json);
     return data
 }
 
-async function getPkgs(url) {
-    let response = await makeRequest("GET", url);
-    return response;
-}
-
-async function makeRequest(method, url): Promise<apiData> {
+async function makeRequest(url): Promise<apiData> {
     const response = await fetch(url);
     const apiResult = await response.text();
     return apiResult
