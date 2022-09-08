@@ -12,7 +12,7 @@ const ReleaseNotesRender = (): null | JSX.Element => {
   const { allReleaseNotes } = useStaticQuery(
     graphql`
       query {
-        allReleaseNotes {
+        allReleaseNotes(sort: {fields: id}) {
           edges {
             node {
               id
@@ -39,16 +39,28 @@ const ReleaseNotesRender = (): null | JSX.Element => {
         <span>Please ensure that you have a specified a version using the version URL parameter: <code>?version=x.x.x</code></span>
         </>
       )}
-      {filteredReleaseNotes && (
-          filteredReleaseNotes.map(
-            (issue, i): string | JSX.Element =>
-              issue && (
-                <>
-                <span><a href={issue.node.link}>{issue.node.title}</a></span>
-                <br/>
-                </>
-              )
-            )
+      {(filteredReleaseNotes.length > 0) ? (
+          <table className='table text-start table-sm table-striped align-middle table-hover'>
+            <thead className='table-dark'>
+              <tr>
+                <th style={{ width: '15%' }} scope='col'>Issue</th>
+                <th scope='col'>Title</th>
+              </tr>
+            </thead>
+              <tbody>
+              {filteredReleaseNotes.map(
+                (issue, i): string | JSX.Element =>
+                  issue && (
+                    <tr>
+                      <td><a target='_blank' rel='noopener noreferrer' href={issue.node.link}>{issue.node.id}</a></td>
+                      <td>{issue.node.title}</td>
+                    </tr>
+                  )
+                )}
+              </tbody>
+            </table>
+        ) : (
+          <span>There are no available release notes for this version.</span>
         )}
       </div>
     </div>

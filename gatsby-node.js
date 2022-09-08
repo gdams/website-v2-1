@@ -72,10 +72,12 @@ exports.sourceNodes = async ({ actions }) => {
 
     // map into these results and create nodes
     res.items.map((issue) => {
+      const bugID = issue.link.replace(/^.*\/([^/]*)/, "$1");
+      const title = issue.title.replace(`[${bugID}]`, '');
       // Create your node object
       const releaseNoteNode = {
         // Required fields
-        id: `${issue.link.replace(/^.*\/([^/]*)/, "$1")}`, // fetch bug id from URL
+        id: bugID,
         parent: `__SOURCE__`,
         internal: {
           type: `ReleaseNotes`, // name of the graphQL query --> allReleaseNotes {}
@@ -86,7 +88,7 @@ exports.sourceNodes = async ({ actions }) => {
         version: version,
 
         // Other fields that you want to query with graphQl
-        title: issue.title,
+        title: title,
         link: issue.link,
         // etc...
       }
