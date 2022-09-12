@@ -35,7 +35,6 @@ export default function Template ({ data, pageContext }) {
                         issue.node.component.length ? issue.node.component.map((component) =>
                         (<td> {component.name} </td>)) : '/'
                       }
-                      <td>{issue.node.component.join(",")}</td>
                       <td>{issue.node.priority}</td>
                       <td>{issue.node.title}</td>
                     </tr>
