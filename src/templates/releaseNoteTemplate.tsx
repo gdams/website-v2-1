@@ -19,7 +19,9 @@ export default function Template ({ data, pageContext }) {
           <table className='table text-start table-sm table-striped align-middle table-hover'>
             <thead className='table-dark'>
               <tr>
-                <th style={{ width: '15%' }} scope='col'>Issue</th>
+                <th scope='col'>Issue</th>
+                <th scope='col'>Component</th>
+                <th scope='col'>Priority</th>
                 <th scope='col'>Title</th>
               </tr>
             </thead>
@@ -29,6 +31,12 @@ export default function Template ({ data, pageContext }) {
                   issue && (
                     <tr>
                       <td><a target='_blank' rel='noopener noreferrer' href={issue.node.link}>{issue.node.id}</a></td>
+                      {
+                        issue.node.component.length ? issue.node.component.map((component) =>
+                        (<td> {component.name} </td>)) : '/'
+                      }
+                      <td>{issue.node.component.join(",")}</td>
+                      <td>{issue.node.priority}</td>
                       <td>{issue.node.title}</td>
                     </tr>
                   )
@@ -50,6 +58,10 @@ export const pageQuery = graphql`
           id
           title
           link
+          priority
+          component {
+            name
+          }
         }
       }
     }

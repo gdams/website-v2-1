@@ -1,11 +1,8 @@
 const axios = require('axios');
 const crypto = require('crypto');
-const Parser = require('rss-parser');
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 const createMultilingualRedirects = require('./i18n-redirects');
-
-let parser = new Parser();
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -88,46 +85,46 @@ exports.sourceNodes = async ({ actions }) => {
   const { createNode } = actions;
   // List of versions to get release notes for
   const versions = ['openjdk8u342', '11.0.16', '17.0.4', '18.0.2']
-  const baseUrl = 'https://bugs.openjdk.org/sr';
+  const baseUrl = 'https://bugs.openjdk.org/rest/api/latest';
   for (let version of versions) {
-    const url = `${baseUrl}/jira.issueviews:searchrequest-rss/temp/SearchRequest.xml?jqlQuery=project+%3D+JDK+AND+fixVersion+%3D+${version}&tempMax=1000`;
-    const res = await parser.parseURL(url);
+    const url = `${baseUrl}/search?jql=project=JDK AND fixVersion=${version}&maxResults=1000`;
+    axios.get(url).then(res => {
+      // map into these results and create nodes
+      res.data.issues.map((issue) => {
+        // Create your node object
+        const releaseNoteNode = {
+          // Required fields
+          id: issue.key,
+          parent: `__SOURCE__`,
+          internal: {
+            type: `ReleaseNotes`, // name of the graphQL query --> allReleaseNotes {}
+            // contentDigest will be added just after
+            // but it is required
+          },
+          children: [],
+          version: issue.fields.fixVersions[0].name.replace('openjdk', ''), // remove openjdk prefix from 8u
 
-    // map into these results and create nodes
-    res.items.map((issue) => {
-      const bugID = issue.link.replace(/^.*\/([^/]*)/, "$1");
-      const title = issue.title.replace(`[${bugID}]`, '');
-      // Create your node object
-      const releaseNoteNode = {
-        // Required fields
-        id: bugID,
-        parent: `__SOURCE__`,
-        internal: {
-          type: `ReleaseNotes`, // name of the graphQL query --> allReleaseNotes {}
-          // contentDigest will be added just after
-          // but it is required
-        },
-        children: [],
-        version: version.replace('openjdk', ''), // remove openjdk prefix from 8u
+          // Other fields that you want to query with graphQl
+          title: issue.fields.summary,
+          priority: issue.fields.priority.id,
+          component: issue.fields.components,
+          link: `https://bugs.openjdk.org/browse/${issue.key}`,
+          // etc... 
+        }
 
-        // Other fields that you want to query with graphQl
-        title: title,
-        link: issue.link,
-        // etc... 
-      }
+        // Get content digest of node. (Required field)
+        const contentDigest = crypto
+          .createHash(`md5`)
+          .update(JSON.stringify(releaseNoteNode))
+          .digest(`hex`);
+        // add it to userNode
+        releaseNoteNode.internal.contentDigest = contentDigest;
 
-      // Get content digest of node. (Required field)
-      const contentDigest = crypto
-        .createHash(`md5`)
-        .update(JSON.stringify(releaseNoteNode))
-        .digest(`hex`);
-      // add it to userNode
-      releaseNoteNode.internal.contentDigest = contentDigest;
-
-      // Create node with the gatsby createNode() API
-      createNode(releaseNoteNode);
-    });
-  }
+        // Create node with the gatsby createNode() API
+        createNode(releaseNoteNode);
+      });
+    }
+  )};
 
   return;
 }
