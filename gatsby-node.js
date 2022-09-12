@@ -46,6 +46,29 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     })
   })
+
+  const releaseNoteTemplate = path.resolve('./src/templates/releaseNoteTemplate.tsx')
+
+  const releaseNoteResults = await graphql(`
+    {
+      allReleaseNotes {
+        group(field: version) {
+          distinct(field: version)
+        }
+      }
+    }
+  `)
+
+  releaseNoteResults.data.allReleaseNotes.group.forEach(({ distinct }) => {
+    // Create page for each release note version
+    createPage({
+      path: `/release-notes/${distinct.toString()}`,
+      component: releaseNoteTemplate,
+      context: {
+        version: distinct.toString()
+      }
+    })
+  })
 }
 
 exports.onCreateNode = async ({ node, actions, getNode, loadNodeContent }) => {
@@ -64,7 +87,7 @@ exports.onCreateNode = async ({ node, actions, getNode, loadNodeContent }) => {
 exports.sourceNodes = async ({ actions }) => {
   const { createNode } = actions;
   // List of versions to get release notes for
-  const versions = ['openjdk8u342', '11.0.16', '17.0.4', '18.0.2' ]
+  const versions = ['openjdk8u342', '11.0.16', '17.0.4', '18.0.2']
   const baseUrl = 'https://bugs.openjdk.org/sr';
   for (let version of versions) {
     const url = `${baseUrl}/jira.issueviews:searchrequest-rss/temp/SearchRequest.xml?jqlQuery=project+%3D+JDK+AND+fixVersion+%3D+${version}&tempMax=1000`;
@@ -85,12 +108,12 @@ exports.sourceNodes = async ({ actions }) => {
           // but it is required
         },
         children: [],
-        version: version,
+        version: version.replace('openjdk', ''), // remove openjdk prefix from 8u
 
         // Other fields that you want to query with graphQl
         title: title,
         link: issue.link,
-        // etc...
+        // etc... 
       }
 
       // Get content digest of node. (Required field)
