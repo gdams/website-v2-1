@@ -1,8 +1,8 @@
-const axios = require('axios');
-const crypto = require('crypto');
-const path = require('path');
-const { createFilePath } = require('gatsby-source-filesystem');
-const createMultilingualRedirects = require('./i18n-redirects');
+const axios = require('axios')
+const crypto = require('crypto')
+const path = require('path')
+const { createFilePath } = require('gatsby-source-filesystem')
+const createMultilingualRedirects = require('./i18n-redirects')
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -82,42 +82,42 @@ exports.onCreateNode = async ({ node, actions, getNode, loadNodeContent }) => {
 }
 
 exports.sourceNodes = async ({ actions }) => {
-  const { createNode } = actions;
+  const { createNode } = actions
   // fetch release versions from API
-  let { data } = await axios.get('https://api.adoptium.net/v3/info/release_versions?page_size=100&release_type=ga&vendor=eclipse');
-  const OPENJDK_API = 'https://bugs.openjdk.org/rest/api/latest';
-  for (let version of data.versions) {
+  const { data } = await axios.get('https://api.adoptium.net/v3/info/release_versions?page_size=100&release_type=ga&vendor=eclipse')
+  const OPENJDK_API = 'https://bugs.openjdk.org/rest/api/latest'
+  for (const version of data.versions) {
     let apiVersion
-    let openjdkVersion = version.openjdk_version
+    const openjdkVersion = version.openjdk_version
     if (version.adopt_build_number) {
-      continue; // skip versions that have an adopt_build_number
+      continue // skip versions that have an adopt_build_number
     }
 
     if (version.major === 8) {
-      apiVersion = `openjdk8u${version.security}`;
+      apiVersion = `openjdk8u${version.security}`
     } else {
-      apiVersion = `${version.major}.${version.minor}.${version.security}`;
+      apiVersion = `${version.major}.${version.minor}.${version.security}`
     }
 
     if (version.patch) {
-      apiVersion = `${apiVersion}.${version.patch}`;
+      apiVersion = `${apiVersion}.${version.patch}`
     }
 
     if (version.security === 0) {
-      apiVersion = version.major;
+      apiVersion = version.major
     }
 
-    const url = `${OPENJDK_API}/search?jql=project=JDK AND fixVersion=${apiVersion}&maxResults=1000`;
-    let { data } = await axios.get(url);
+    const url = `${OPENJDK_API}/search?jql=project=JDK AND fixVersion=${apiVersion}&maxResults=1000`
+    const { data } = await axios.get(url)
     // map into these results and create nodes
     data.issues.map((issue) => {
       // Create your node object
       const releaseNoteNode = {
         // Required fields
         id: issue.key,
-        parent: `__SOURCE__`,
+        parent: '__SOURCE__',
         internal: {
-          type: `ReleaseNotes`, // name of the graphQL query --> allReleaseNotes {}
+          type: 'ReleaseNotes' // name of the graphQL query --> allReleaseNotes {}
           // contentDigest will be added just after
           // but it is required
         },
@@ -128,23 +128,22 @@ exports.sourceNodes = async ({ actions }) => {
         title: issue.fields.summary,
         priority: issue.fields.priority.id,
         component: issue.fields.components,
-        subcomponent: `${issue.fields.components[0].name}${issue.fields.customfield_10008?.name ? "/" + issue.fields.customfield_10008?.name : ''}`,
-        link: `https://bugs.openjdk.org/browse/${issue.key}`,
-        // etc... 
+        subcomponent: `${issue.fields.components[0].name}${issue.fields.customfield_10008?.name ? '/' + issue.fields.customfield_10008?.name : ''}`,
+        link: `https://bugs.openjdk.org/browse/${issue.key}`
+        // etc...
       }
 
       // Get content digest of node. (Required field)
       const contentDigest = crypto
-        .createHash(`md5`)
+        .createHash('md5')
         .update(JSON.stringify(releaseNoteNode))
-        .digest(`hex`);
+        .digest('hex')
       // add it to userNode
-      releaseNoteNode.internal.contentDigest = contentDigest;
+      releaseNoteNode.internal.contentDigest = contentDigest
 
       // Create node with the gatsby createNode() API
-      createNode(releaseNoteNode);
+      createNode(releaseNoteNode)
     }
-  )};
-
-  return;
+    )
+  };
 }
