@@ -35,6 +35,7 @@ function renderReleases(pkgs) {
   pkgs.forEach((aRelease) => {
     const release = {
         release_name: aRelease.release_name,
+        openjdk_version: aRelease.version_data.openjdk_version,
         release_link: aRelease.release_link,
         timestamp: aRelease.timestamp,
         platforms: {},

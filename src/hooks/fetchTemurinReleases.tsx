@@ -44,6 +44,7 @@ function renderReleases(pkgs) {
         if (binary_type == 'SOURCES') {
             releases['source'] = releaseAsset;
         }
+        releases['releaseName'] = releaseAsset.version.openjdk_version;
         if (!['INSTALLER', 'JDK', 'JRE'].includes(binary_type)) {
             return;
         }

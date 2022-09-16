@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Link, Trans, useI18next } from 'gatsby-plugin-react-i18next';
-import { FaDownload } from 'react-icons/fa';
+import { FaDownload, FaList } from 'react-icons/fa';
 import { MdVerifiedUser } from 'react-icons/md';
 import { capitalize } from '../util/capitalize';
 import { localeDate } from "../util/localeDate";
@@ -8,9 +8,13 @@ import { localeDate } from "../util/localeDate";
 const TemurinDownloadTable = ({results}) => {
     const { language } = useI18next();
 
+    let releaseName
     let source = false
-    if (results && results.source) {
-        source = results.source
+    if (results) {
+        releaseName = results.releaseName
+        if (results.source) {
+            source = results.source
+        }
     }
     return (
         <>
@@ -19,6 +23,7 @@ const TemurinDownloadTable = ({results}) => {
         ):
             <></>
         }
+        <span><Link to={`/temurin/release-notes/${releaseName}`}><FaList /> <Trans>Release Notes</Trans></Link></span>
         <table id="download-table" className="table table-bordered releases-table" style={{borderSpacing: '0 10px', borderCollapse: 'separate'}}>
             <tbody className="table-light">
             {results ? (

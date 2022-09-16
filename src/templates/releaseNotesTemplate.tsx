@@ -3,6 +3,7 @@ import React from 'react'
 import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit';
+import { Trans } from 'gatsby-plugin-react-i18next'
 
 import Layout from '../components/Layout'
 import Seo from '../components/Seo'
@@ -37,8 +38,7 @@ export default function Template ({ data, pageContext }) {
     <Layout>
       <Seo title={`Release Notes - ${pageContext.version}`} />
       <section className='py-5 container-xxl'>
-        <h1 className='fw-light text-center'>{`Release Notes - ${pageContext.version}`}</h1>
-        
+        <h1 className='fw-light text-center'><Trans>Release Notes</Trans>{` - ${pageContext.version}`}</h1>
         <ToolkitProvider
           keyField='node.id'
           data={ releaseNotes }
@@ -50,7 +50,7 @@ export default function Template ({ data, pageContext }) {
               <>
                 <div className="p-5">
                   <SearchBar className="" { ...props.searchProps } />
-                  <BootstrapTable striped hover bodyClasses="text-nowrap" pagination={ paginationFactory() } { ...props.baseProps } />
+                  <BootstrapTable striped hover bodyClasses="text-nowrap" pagination={ paginationFactory({sizePerPage: 20, showTotal: true}) } { ...props.baseProps } />
                 </div>
               </>
             )
