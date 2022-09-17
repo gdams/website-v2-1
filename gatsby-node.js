@@ -110,7 +110,7 @@ exports.sourceNodes = async ({ actions }) => {
     const url = `${OPENJDK_API}/search?jql=project=JDK AND fixVersion=${apiVersion}&maxResults=1000`
     const { data } = await axios.get(url)
     // map into these results and create nodes
-    data.issues.map((issue) => {
+    for (const issue of data.issues) {
       // Create your node object
       const releaseNoteNode = {
         // Required fields
@@ -144,6 +144,5 @@ exports.sourceNodes = async ({ actions }) => {
       // Create node with the gatsby createNode() API
       createNode(releaseNoteNode)
     }
-    )
   };
 }
