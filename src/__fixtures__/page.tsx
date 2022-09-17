@@ -1,6 +1,8 @@
 import {
+    AllReleaseNotes,
     AsciidocPage,
     File,
+    ReleaseNotePage
 } from '../types';
 
 export const createAsciidocData = (): {
@@ -31,3 +33,23 @@ export const createAsciidocData = (): {
         relativePath: 'test.adoc',
     }
 });
+
+export const createReleaseNoteData = (): {
+    allReleaseNotes: AllReleaseNotes;
+  } => ({
+    allReleaseNotes: {
+        edges: [
+            {
+                node: {
+                    id: 'release-note-1',
+                    version: '1.0.0',
+                    title: 'Release Note title',
+                    priority: 1,
+                    component: 'component1',
+                    link: 'https://release-note.com',
+                }
+            }
+        ]
+    }
+});
+

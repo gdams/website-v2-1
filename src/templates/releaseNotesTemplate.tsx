@@ -18,7 +18,7 @@ export default function Template ({ data, pageContext }) {
     dataField: 'node.link',
     text: 'Issue',
     formatter: (cell, row) => (
-      <a href={row.node.link}>{row.node.id}</a>
+      <a target='_blank' rel='noopener noreferrer' href={row.node.link}>{row.node.id}</a>
     ),
     sort: true
   }, {
