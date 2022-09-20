@@ -313,6 +313,9 @@ exports[`Layout component > renders correctly with data 1`] = `
         </ul>
       </div>
     </nav>
+    <div>
+      mock-banner
+    </div>
     <main>
       mock-children
     </main>
