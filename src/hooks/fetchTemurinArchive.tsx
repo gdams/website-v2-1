@@ -9,10 +9,12 @@ let releases: TemurinReleases[] = []
 export async function getAssetsForVersion(
   version: number,
   releaseType: any,
-  numBuilds?: number,
-  buildDate?: Date
+  numBuilds: number,
+  buildDate: Date,
+  page: number
 ): Promise<TemurinReleases[] | null> {
   let url = new URL(`${baseUrl}/assets/feature_releases/${version}/${releaseType}?vendor=eclipse`);
+  url.searchParams.append('page', page.toString());
   if (numBuilds) {
     url.searchParams.append('page_size', numBuilds.toString());
   }

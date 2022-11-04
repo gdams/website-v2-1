@@ -22,14 +22,15 @@ const VersionSelector = ({updater, releaseType, Table}) => {
 
   const [version, udateVersion] = useState(selectedVersion.toString());
   const [numBuilds, udateNumBuilds] = useState(5);
+  const [page, updatePage] = useState(0);
   const [buildDate, updateBuildDate] = useState(new Date());  
   const [releases, setReleases] = useState(null);
 
   useEffect(() => {
     (async () => {
-      setReleases(await updater(version, releaseType, numBuilds, buildDate));
+      setReleases(await updater(version, releaseType, numBuilds, buildDate, page));
     })();
-  }, [version, numBuilds, buildDate]);
+  }, [version, numBuilds, buildDate, page]);
 
   const setVersion = useCallback((version) => {
     setURLParam('version', version);
@@ -74,7 +75,7 @@ const VersionSelector = ({updater, releaseType, Table}) => {
           />
         </div>
       )}
-      <Table results={releases}/>
+      <Table results={releases} updatePage={updatePage}/>
     </>
   );
 };
