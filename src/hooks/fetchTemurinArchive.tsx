@@ -21,6 +21,10 @@ export async function getAssetsForVersion(
   if (buildDate) {
     url.searchParams.append('before', moment(buildDate).format('Y-MM-DD'));
   }
+  // Expose total page count in header for pagination
+  if (releaseType == 'ga') {
+    url.searchParams.append('show_page_count', 'true');
+  }
   releases = []
   const packages = await getPkgs(url)
   let pkgsFound: TemurinReleases[] = []
