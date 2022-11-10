@@ -12,7 +12,7 @@ export async function getAssetsForVersion(
   numBuilds: number,
   buildDate: Date,
   page: number
-): Promise<TemurinReleases[] | null> {
+): Promise<ReturnedReleases | null> {
   let url = new URL(`${baseUrl}/assets/feature_releases/${version}/${releaseType}?vendor=eclipse`);
   url.searchParams.append('page', page.toString());
   if (numBuilds) {
@@ -26,20 +26,22 @@ export async function getAssetsForVersion(
     url.searchParams.append('show_page_count', 'true');
   }
   releases = []
-  const packages = await getPkgs(url)
+  const response = await getPkgs(url)
+  const packages = await response.json()
+  const pagecount = Number(response.headers.get('pagecount'))
   let pkgsFound: TemurinReleases[] = []
   for (let pkg of packages) {
       pkgsFound.push(pkg);
   }
-  return renderReleases(pkgsFound);
+  return renderReleases(pkgsFound, pagecount);
 }
 
 async function getPkgs(url: URL) {
   let response = await fetch(url)
-  return response.json();
+  return response;
 }
 
-function renderReleases(pkgs) {
+function renderReleases(pkgs, pagecount) {
   pkgs.forEach((aRelease) => {
     const release: TemurinReleases = {
         release_name: aRelease.release_name,
@@ -89,7 +91,12 @@ function renderReleases(pkgs) {
     });
     releases.push(release);
   })
-  return releases
+  return {releases, pagecount}
+}
+
+export interface ReturnedReleases {
+  releases: TemurinReleases[];
+  pagecount: number;
 }
 
 export interface TemurinReleases {

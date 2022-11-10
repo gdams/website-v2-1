@@ -17,8 +17,8 @@ const TemurinArchiveTable = ({results, updatePage}) => {
         <div id="archive-list">
             <table id='archive-table' className='table table-borderless table-condensed archive-container' style={{ borderSpacing: '0 20px', borderCollapse: 'separate'}}>
                 <tbody className="table-light">
-                    {results ? (
-                        results.map(
+                    {results && results.releases ? (
+                        results.releases.map(
                             (release, i): string | JSX.Element =>
                                 release && (
                                     <tr key={i} className="release-row">
@@ -110,10 +110,10 @@ const TemurinArchiveTable = ({results, updatePage}) => {
                     }
                 </tbody>
             </table>
-            {results && (
+            {results && results.pagecount && (
                 <Pagination
                     className='pt-3 d-flex justify-content-center'
-                    count={results.length}
+                    count={results.pagecount}
                     onChange={handlePageClick}
                     showFirstButton
                     showLastButton

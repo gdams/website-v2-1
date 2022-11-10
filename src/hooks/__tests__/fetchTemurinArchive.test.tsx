@@ -6,7 +6,10 @@ import { createMockTemurinFeatureReleaseAPI  } from '../../__fixtures__/hooks';
 let mockResponse = [createMockTemurinFeatureReleaseAPI(false)];
 
 global.fetch = vi.fn(() => Promise.resolve({
-  json: () => Promise.resolve(mockResponse)
+  json: () => Promise.resolve(mockResponse),
+  headers: {
+    get: () => '3'
+  }
 }));
 
 afterEach(() => {
