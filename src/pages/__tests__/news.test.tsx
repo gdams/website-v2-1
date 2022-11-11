@@ -1,11 +1,11 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, waitFor } from '@testing-library/react';
 import { useOnScreen } from '../../hooks/useOnScreen';
 import { describe, expect, it, vi } from 'vitest'
 import { fetchNewsItems } from '../../hooks/fetchNews';
 import { createRandomNewsAndEventsData } from '../../__fixtures__/hooks';
 import { axe } from 'vitest-axe';
-import News from '../news';
+import News, { Head } from '../news';
 
 vi.mock('../../hooks/useOnScreen');
 vi.mock('../../hooks/fetchNews');
@@ -54,6 +54,16 @@ describe('News page', () => {
     const { getByLabelText } = render(<News />);
     let next = getByLabelText('Go to last page');
     fireEvent.click(next);
+  });
+
+  it('head renders correctly', () => {
+    const { container } = render(<Head />);
+    // eslint-disable-next-line
+    const title = container.querySelector('title');
+
+    waitFor(() => {
+      expect(title).toHaveTextContent('News & Events | Adoptium');
+    });
   });
 
   it('has no accessibility violations', async () => {
