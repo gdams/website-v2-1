@@ -1,7 +1,7 @@
 name: Blog Date Validator
 
 on:
-  pull_reqest:
+  pull_request:
     paths: [ content/blog/** ]
     branches: [ main ]
 
