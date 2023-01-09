@@ -1,5 +1,7 @@
-= About Eclipse Adoptium(R)
-:page-authors: gdams, karianna, tellison, parkerm, lasombra, hendrikebbers, davew16, akdsco
+---
+title: 'About Eclipse Adoptium&reg;'
+authors: gdams, karianna, tellison, parkerm, lasombra, hendrikebbers, davew16, akdsco
+---
 
 The mission of the Eclipse Adoptium Top-Level Project is to produce
 high-quality runtimes and associated technology for use within the Java
@@ -20,7 +22,7 @@ servers, modern cloud platforms, and large mainframes. The Eclipse
 Adoptium project is the continuation of the original AdoptOpenJDK
 mission.
 
-== Scope
+## Scope
 
 Eclipse Adoptium provides runtime binaries that are high performance,
 enterprise-caliber, cross-platform, open-source licensed, Java SE
@@ -57,8 +59,8 @@ actions" to obtain and test with runtimes within Git’s workflow,
 "TKG" the test-kit generation framework, "Bumblebench" the
 microbenchmarking framework, and more.
 
-== License(s)
+## License(s)
 
 * Build scripts and other code to produce the binaries, the website and
-other build infrastructure are licensed under https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0].
-* OpenJDK code itself is licensed under https://openjdk.java.net/legal/gplv2+ce.html[GPL v2 with Classpath Exception] (GPLv2+CE) and https://openjdk.java.net/legal/assembly-exception.html[GPL v2 with Assembly Exception] (GPLv2+Assembly).
+other build infrastructure are licensed under [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+* OpenJDK code itself is licensed under [GPL v2 with Classpath Exception](https://openjdk.java.net/legal/gplv2+ce.html) (GPLv2+CE) and [GPL v2 with Assembly Exception](https://openjdk.java.net/legal/assembly-exception.html) (GPLv2+Assembly).

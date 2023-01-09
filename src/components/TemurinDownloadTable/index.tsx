@@ -1,12 +1,15 @@
 import * as React from "react"
-import { Link, Trans, useI18next } from 'gatsby-plugin-react-i18next';
 import { FaDownload } from 'react-icons/fa';
 import { MdVerifiedUser } from 'react-icons/md';
 import { capitalize } from '../../util/capitalize';
 import { localeDate } from '../../util/localeDate';
 
+import LocalizedLink from "../LocalizedLink"
+import useTranslations from "../useTranslations";
+
 const TemurinDownloadTable = ({results}) => {
-    const { language } = useI18next();
+    const {sourceCodeArchive} = useTranslations();
+    // const { language } = useI18next();
 
     let source
     if (results && results.source) {
@@ -15,7 +18,7 @@ const TemurinDownloadTable = ({results}) => {
     return (
     <>
         {source &&
-            <span><a href={source.binary.package.link}>{source.release_name} <Trans>Source Code Archive</Trans></a></span>
+            <span><a href={source.binary.package.link}>{source.release_name} {sourceCodeArchive}</a></span>
         }
         <table id="download-table" className="table table-bordered releases-table" style={{borderSpacing: '0 10px', borderCollapse: 'separate'}}>
             <tbody className="table-light">
@@ -30,7 +33,7 @@ const TemurinDownloadTable = ({results}) => {
                                     </a>
                                     <span className="text-white d-block m-2">
                                         Temurin <MdVerifiedUser data-toggle="tooltip" data-placement="bottom" title="This build is JCK certified" size={25} style={{ color: '#537FB9' }}/>
-                                        <Link to='/aqavit'>
+                                        <LocalizedLink to='/aqavit'>
                                             <img
                                                 src='/images/aqavit-icon.png'
                                                 width={25}
@@ -40,7 +43,7 @@ const TemurinDownloadTable = ({results}) => {
                                                 title="This build is AQAvit Verified"
                                                 className='img-fluid'
                                             />
-                                        </Link>
+                                        </LocalizedLink>
                                     </span>
                                     <span className="text-white text-muted">{localeDate(pkg.release_date, language)}</span>
                                 </td>
@@ -110,7 +113,7 @@ const BinaryTable = ({ checksum, link, extension, type, size, os, arch, version 
                                 data-bs-toggle="modal"
                                 data-bs-target="#checksumModal"
                                 data-bs-checksum={checksum}>
-                                <small><Trans>Checksum</Trans></small>
+                                {/* <small><Trans>Checksum</Trans></small> */}
                             </a>
                         </span>
                     </td>
@@ -119,9 +122,9 @@ const BinaryTable = ({ checksum, link, extension, type, size, os, arch, version 
                 </tbody></table>
             </td>
             <td className="align-middle">
-                <Link to="/download" state={{ link: link, os: os, arch: arch, pkg_type: type, java_version: version }} className="btn btn-primary" style={{width: "6em"}}>
+                <LocalizedLink to="/download" state={{ link: link, os: os, arch: arch, pkg_type: type, java_version: version }} className="btn btn-primary" style={{width: "6em"}}>
                     <FaDownload /> {extension}
-                </Link>
+                </LocalizedLink>
             </td>
         </tr>
     )

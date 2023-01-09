@@ -1,4 +1,4 @@
-import { Link } from 'gatsby-plugin-react-i18next';
+import LocalizedLink from '../../LocalizedLink';
 import React from 'react';
 import ShellBox from '../../ShellBox';
 import '../InstallTabs.scss';
@@ -26,12 +26,12 @@ export const PureLinuxPanel = (): JSX.Element => {
         <span className="install__text__no-select">$</span>
         <span className="install-text-command">zypper install </span>temurin-17-jdk
       </ShellBox>
-      <Link
+      <LocalizedLink
         className="install__docs-button"
         to="/installation/linux"
       >
       Read documentation
-      </Link>
+      </LocalizedLink>
     </div>
   );
 };

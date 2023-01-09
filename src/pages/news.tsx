@@ -7,10 +7,8 @@ import { Pagination } from '@mui/material'
 import CircularProgress from '@mui/material/CircularProgress';
 import TimelineContent from '@mui/lab/TimelineContent'
 import TimelineDot from '@mui/lab/TimelineDot'
-import { graphql } from 'gatsby'
 import moment from 'moment';
 
-import Layout from '../components/Layout'
 import Seo from '../components/Seo'
 import PageHeader from '../components/PageHeader'
 import { fetchNewsItems, useOnScreen } from '../hooks';
@@ -26,7 +24,7 @@ const NewsPage = (): JSX.Element => {
   };
 
   return (
-    <Layout>
+    <>
       <PageHeader title='News & Events' subtitle='Follow the latest updates from the Eclipse Adoptium Project' />
       <section className='text-center container-flex'>
         <div className='row py-lg-5 w-75 m-auto'>
@@ -93,7 +91,7 @@ const NewsPage = (): JSX.Element => {
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   );
 };
 
@@ -102,17 +100,3 @@ export default NewsPage
 export const Head = () => (
   <Seo title='News & Events' />
 )
-
-export const query = graphql`
-  query ($language: String!) {
-    locales: allLocale(filter: {language: {eq: $language}}) {
-      edges {
-        node {
-          ns
-          data
-          language
-        }
-      }
-    }
-  }
-`

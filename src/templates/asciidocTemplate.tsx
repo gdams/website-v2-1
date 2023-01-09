@@ -4,7 +4,6 @@ import React, { useEffect } from 'react'
 
 import highlightCode from '../util/highlightCode'
 import asciidocFormatter from '../util/asciidocFormatter'
-import Layout from '../components/Layout'
 import EditLink from '../components/EditLink'
 import AuthorsList from '../components/AuthorList'
 import InstallTabs from '../components/InstallTabs'
@@ -23,33 +22,31 @@ const AsciidocTemplate = ({ data }) => {
   const pageAuthorList = pageAttributes.authors || ''
   const { relativePath } = file
   return (
-    <Layout>
-      <section className='py-5 px-3'>
-        <div className='asciidoc-container container-adoc row' id='asciidoc-container'>
-          <div className='col-lg-3 hide-on-mobile'>
-            {/* Leaving space for a table of contents (side bar) */}
-          </div>
-          <div className='asciidoc col-lg-6 col-md-12'>
-            <h1 className='pb-4 fw-light text-center' dangerouslySetInnerHTML={{ __html: document.title }} />
-            {fields.slug === '/installation/' && (
-              <section className='adopt-demo-container hide-on-mobile my-5'>
-                <div className='adopt-demo mx-auto'>
-                  <InstallTabs />
-                </div>
-              </section>
-            )}
-            <div
-              className='asciidoc-content'
-              dangerouslySetInnerHTML={{ __html: html }}
-            />
-          <hr className='m-5' />
-          <AuthorsList authors={pageAuthorList.split(',')} />
-          <EditLink relativePath={relativePath} />
-          </div>
-          <div className='col-lg-3 hide-on-mobile'></div>
+    <section className='py-5 px-3'>
+      <div className='asciidoc-container container-adoc row' id='asciidoc-container'>
+        <div className='col-lg-3 hide-on-mobile'>
+          {/* Leaving space for a table of contents (side bar) */}
         </div>
-      </section>
-    </Layout>
+        <div className='asciidoc col-lg-6 col-md-12'>
+          <h1 className='pb-4 fw-light text-center' dangerouslySetInnerHTML={{ __html: document.title }} />
+          {fields.slug === '/installation/' && (
+            <section className='adopt-demo-container hide-on-mobile my-5'>
+              <div className='adopt-demo mx-auto'>
+                <InstallTabs />
+              </div>
+            </section>
+          )}
+          <div
+            className='asciidoc-content'
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
+        <hr className='m-5' />
+        <AuthorsList authors={pageAuthorList.split(',')} />
+        <EditLink relativePath={`asciidoc-pages/${relativePath}`} />
+        </div>
+        <div className='col-lg-3 hide-on-mobile'></div>
+      </div>
+    </section>
   )
 }
 
@@ -64,7 +61,7 @@ export const Head = ({ data: { asciidoc: { document } } }) => {
 };
 
 export const pageQuery = graphql`
-  query($id: String!, $language: String!) {
+  query($id: String!) {
     asciidoc(id: { eq: $id }) {
       html
       document {
@@ -80,15 +77,6 @@ export const pageQuery = graphql`
     }
     file(childAsciidoc: {id: {eq: $id }}) {
       relativePath
-    }
-    locales: allLocale(filter: {language: {eq: $language}}) {
-      edges {
-        node {
-          ns
-          data
-          language
-        }
-      }
     }
   }
 `

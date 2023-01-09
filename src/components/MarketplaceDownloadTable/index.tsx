@@ -1,25 +1,26 @@
 import * as React from "react"
-import { Link, Trans, useI18next } from 'gatsby-plugin-react-i18next';
+import LocalizedLink from '../LocalizedLink';
 import { FaDownload } from 'react-icons/fa';
 import { TiWarning } from 'react-icons/ti';
 import { capitalize } from '../../util/capitalize';
 import { getImageForDistribution } from '../../hooks'
 import { fetchExtension } from '../../util/fetchExtension';
 import { localeDate } from '../../util/localeDate';
+import { LocaleContext } from "../Layout"
 
-const DownloadTable = ({results}) => {
-    const { language } = useI18next();
+const DownloadTable = ({results, pageContext}) => {
+    const { locale } = React.useContext(LocaleContext)
 
     return (
         <table id="download-table" className="table table-bordered releases-table" style={{borderSpacing: '0 10px', borderCollapse: 'separate'}}>
             <thead className="table-dark">
                 <tr className="table-head">
-                    <td className="table-head"><Trans>Build Version</Trans></td>
+                    {/* <td className="table-head"><Trans>Build Version</Trans></td>
                     <td className="table-head"><Trans>Distribution</Trans></td>
                     <td className="table-head"><Trans>Vendor</Trans></td>
                     <td className="table-head"><Trans>Operating System</Trans></td>
                     <td className="table-head"><Trans>Architecture</Trans></td>
-                    <td className="table-head"><Trans>Download</Trans></td>
+                    <td className="table-head"><Trans>Download</Trans></td> */}
                 </tr>
             </thead>
             <tbody className="table-light">
@@ -32,7 +33,7 @@ const DownloadTable = ({results}) => {
                                     <br></br>
                                     <span>{pkg.binary.image_type == 'jdk' ? 'JDK' : 'JRE'}</span>
                                     <br></br>
-                                    <span className="text-white text-muted">{localeDate(pkg.binary.timestamp, language)}</span>
+                                    <span className="text-white text-muted">{localeDate(pkg.binary.timestamp, locale)}</span>
                                     <span>
                                         {(Math.floor((Date.now() - new Date(pkg.binary.timestamp).getTime()) / (1000 * 60 * 60 * 24)) > 180) &&
                                             <span className="text-warning">
@@ -112,15 +113,15 @@ const BinaryTable = ({ checksum, link, filename, os, arch, pkgType, javaVersion,
                 <table><tbody>
                 <tr>
                     <td>
-                        <a href="" data-bs-toggle="modal" data-bs-target="#checksumModal" data-bs-checksum={checksum}><Trans>Checksum</Trans> (SHA256)</a>
+                        {/* <a href="" data-bs-toggle="modal" data-bs-target="#checksumModal" data-bs-checksum={checksum}><Trans>Checksum</Trans> (SHA256)</a> */}
                     </td>
                 </tr>
                 </tbody></table>
             </td>
             <td className="align-middle">
-                <Link to="/download" state={{ link: link, os: os, arch: arch, pkg_type: pkgType, java_version: javaVersion, vendor: vendor }} className="btn btn-primary" style={{width: "6em"}}>
+                <LocalizedLink to="/download" state={{ link: link, os: os, arch: arch, pkg_type: pkgType, java_version: javaVersion, vendor: vendor }} className="btn btn-primary" style={{width: "6em"}}>
                     <FaDownload /> {fetchExtension(filename)}
-                </Link>
+                </LocalizedLink>
             </td>
         </tr>
     )

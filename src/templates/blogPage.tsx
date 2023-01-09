@@ -1,8 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Link } from 'gatsby-plugin-react-i18next'
+import LocalizedLink from '../components/LocalizedLink';
 
-import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 import AuthorData from '../json/authors.json';
 import ArticlePreview from '../components/ArticlePreview';
@@ -13,58 +12,56 @@ const BlogPage = ({ data, pageContext }) => {
   const previousPageLink = previousPageNumber === 1 ? '/blog' : `/blog/page/${previousPageNumber}`;
 
   return (
-    <Layout>
-        <section className='py-5 container'>
-            <div className='row py-lg-5'>
-                <div className='col-lg-9 col-md-9 mx-auto'>
-                    {posts.map(({ node }) => {
-                        const title = node.frontmatter.title;
-                        const author = AuthorData[node.frontmatter.author];
+    <section className='py-5 container'>
+        <div className='row py-lg-5'>
+            <div className='col-lg-9 col-md-9 mx-auto'>
+                {posts.map(({ node }) => {
+                    const title = node.frontmatter.title;
+                    const author = AuthorData[node.frontmatter.author];
 
-                        return (
-                            <ArticlePreview
-                                key={node.fields.slug}
-                                author={author.name}
-                                date={node.frontmatter.date}
-                                postPath={node.fields.postPath}
-                                title={title}
-                                description={node.frontmatter.description}
-                                identifier={node.frontmatter.author}
-                                excerpt={node.excerpt}
-                                tags={node.frontmatter.tags}
-                            />
-                        );
-                    })}
-                    <div>
-                        <ul
-                        style={{
-                            display: 'flex',
-                            flexWrap: 'wrap',
-                            justifyContent: 'space-between',
-                            listStyle: 'none',
-                            padding: 0,
-                        }}
-                        >
-                        <li>
-                            {previousPageNumber && (
-                            <Link to={previousPageLink} rel='prev'>
-                                ← Previous page
-                            </Link>
-                            )}
-                        </li>
-                        <li>
-                            {nextPageNumber && (
-                            <Link to={`/blog/page/${nextPageNumber}`} rel='next'>
-                                Next page →
-                            </Link>
-                            )}
-                        </li>
-                        </ul>
-                    </div>
+                    return (
+                        <ArticlePreview
+                            key={node.fields.slug}
+                            author={author.name}
+                            date={node.frontmatter.date}
+                            postPath={node.fields.postPath}
+                            title={title}
+                            description={node.frontmatter.description}
+                            identifier={node.frontmatter.author}
+                            excerpt={node.excerpt}
+                            tags={node.frontmatter.tags}
+                        />
+                    );
+                })}
+                <div>
+                    <ul
+                    style={{
+                        display: 'flex',
+                        flexWrap: 'wrap',
+                        justifyContent: 'space-between',
+                        listStyle: 'none',
+                        padding: 0,
+                    }}
+                    >
+                    <li>
+                        {previousPageNumber && (
+                        <LocalizedLink to={previousPageLink} rel='prev'>
+                            ← Previous page
+                        </LocalizedLink>
+                        )}
+                    </li>
+                    <li>
+                        {nextPageNumber && (
+                        <LocalizedLink to={`/blog/page/${nextPageNumber}`} rel='next'>
+                            Next page →
+                        </LocalizedLink>
+                        )}
+                    </li>
+                    </ul>
                 </div>
             </div>
-        </section>
-    </Layout>
+        </div>
+    </section>
   );
 };
 
@@ -80,7 +77,7 @@ export const Head = ({ pageContext }) => {
 };
 
 export const blogPageQuery = graphql`
-  query blogPageQuery($skip: Int!, $limit: Int!, $language: String!) {
+  query blogPageQuery($skip: Int!, $limit: Int!) {
     site {
       siteMetadata {
         title
@@ -103,15 +100,6 @@ export const blogPageQuery = graphql`
           }
         }
       }
-    }
-    locales: allLocale(filter: {language: {eq: $language}}) {
-        edges {
-          node {
-            ns
-            data
-            language
-          }
-        }
     }
   }
 `;

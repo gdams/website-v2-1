@@ -6,6 +6,19 @@
 
 const path = require('path')
 
+const markdownSources = [
+  'blog',
+  'mdx-docs',
+];
+
+const gatsbyFsMarkdownSources = markdownSources.map(name => ({
+  resolve: 'gatsby-source-filesystem',
+  options: {
+    name,
+    path: path.resolve(__dirname, `./content/${name}`),
+  },
+}));
+
 module.exports = {
   siteMetadata: {
     title: 'Adoptium',
@@ -26,38 +39,20 @@ module.exports = {
         ignore: ['**/*.md']
       }
     },
+    ...gatsbyFsMarkdownSources,
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        name: 'blog',
-        path: path.join(__dirname, 'content/blog')
-      }
+        path: path.join(__dirname, 'locales/translations'),
+        name: 'translations',
+        ignore: ['**/*.md']
+      },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'assets',
         path: path.join(__dirname, 'static/images/authors')
-      }
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'locale',
-        path: path.join(__dirname, 'locales'),
-        ignore: ['**/*.md']
-      }
-    },
-    {
-      resolve: 'gatsby-plugin-react-i18next',
-      options: {
-        localeJsonSourceName: 'locale',
-        languages: ['en', 'en-GB', 'es', 'de', 'zh-CN'],
-        defaultLanguage: 'en',
-        i18nextOptions: {
-          transSupportBasicHtmlNodes: true,
-          transKeepBasicHtmlNodesFor: ['u', 'a']
-        }
       }
     },
     {
@@ -132,6 +127,7 @@ module.exports = {
               maxWidth: 720
             }
           },
+          'gatsby-remark-autolink-headers',
           'gatsby-remark-prismjs',
           'gatsby-remark-copy-linked-files',
           'gatsby-remark-smartypants'

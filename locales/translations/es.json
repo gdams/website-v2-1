@@ -1,0 +1,8 @@
+{
+    "prebuiltOpenjdk": "OpenJDK Preconstruido",
+    "binariesForFree": "¡Binarios Gratis!",
+    "intro": "Java™ es el lenguaje de programación y la plataforma líderes en el mundo. El Grupo de Trabajo de Adoptium promueve y admite tiempos de ejecución de alta calidad, certificados por TCK y tecnología asociada para su uso en todo el ecosistema Java. Eclipse Temurin es el nombre de la distribución OpenJDK de Adoptium.",
+    "changeLanguage": "Cambiar idioma",
+    "marketplaceDescription": "Java™ es el lenguaje de programación y la plataforma de software líder en el mundo.<br>El Marketplace de Adoptium ofrece entornos de ejecución Java de alta calidad, certificados por TCK y verificados por AQAvit, para su descarga",
+    "sourceCodeArchive": "Archivo de codigo fuente"
+}

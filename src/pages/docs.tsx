@@ -2,14 +2,12 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import { FaDownload, FaQuestion, FaGithub, FaBox, FaInfoCircle, FaGlobe, FaGem, FaUserFriends, FaLock } from 'react-icons/fa'
 
-import Layout from '../components/Layout'
 import Seo from '../components/Seo'
 import DocumentationHeader from '../components/DocumentationHeader'
 import DocumentationCard from '../components/DocumentationCard'
 
 const DocumentationPage = ({ data }) => (
-  <Layout>
-
+  <>
     <DocumentationHeader data={data} />
 
     <div className='page-content'>
@@ -109,8 +107,7 @@ const DocumentationPage = ({ data }) => (
         </div>
       </div>
     </div>
-
-  </Layout>
+  </>
 )
 
 export default DocumentationPage
@@ -120,19 +117,10 @@ export const Head = () => (
 )
 
 export const query = graphql`
-  query ($language: String!) {
+  query {
     localSearchDocs {
       index
       store
-    }
-    locales: allLocale(filter: {language: {eq: $language}}) {
-      edges {
-        node {
-          ns
-          data
-          language
-        }
-      }
     }
   }
 `

@@ -1,6 +1,5 @@
 import * as React from 'react'
 import PropTypes from 'prop-types'
-import { useStaticQuery, graphql } from 'gatsby'
 import SSRProvider from 'react-bootstrap/SSRProvider'
 
 import NavBar from '../NavBar'
@@ -8,18 +7,10 @@ import Banner from '../Banner'
 import Footer from '../Footer'
 import './layout.scss'
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+const LocaleContext = React.createContext({locale: {}})
 
-  return (
+const Layout = ({ children, pageContext: { locale } }) => (
+  <LocaleContext.Provider value={{ locale }}>
     <SSRProvider>
       <div
         className='container-fluid p-0'
@@ -37,11 +28,11 @@ const Layout = ({ children }) => {
         <Footer />
       </div>
     </SSRProvider>
-  )
-}
+  </LocaleContext.Provider>
+)
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired
 }
 
-export default Layout
+export { Layout, LocaleContext }

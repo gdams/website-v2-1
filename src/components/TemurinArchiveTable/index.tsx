@@ -1,13 +1,15 @@
 import * as React from "react"
-import { Link, Trans, useI18next } from 'gatsby-plugin-react-i18next';
 import { FaDownload } from 'react-icons/fa';
 import { Pagination } from '@mui/material';
 import { MdVerifiedUser } from 'react-icons/md';
 import { capitalize } from '../../util/capitalize';
 import { localeDate } from '../../util/localeDate';
+import LocalizedLink from '../LocalizedLink';
+import useTranslations from '../useTranslations';
 
 const TemurinArchiveTable = ({results, updatePage}) => {
-    const { language } = useI18next();
+    const {sourceCodeArchive} = useTranslations();
+    // const { language } = useI18next();
 
     const handlePageClick = (event: React.ChangeEvent<unknown>, page: number) => {
         updatePage(page - 1);
@@ -28,7 +30,7 @@ const TemurinArchiveTable = ({results, updatePage}) => {
                                                     <h2 className = "pt-5" style={{fontSize: "1.5rem"}}>{release.release_name}</h2>
                                                 </a>
                                                 <MdVerifiedUser data-toggle="tooltip" data-placement="bottom" title="This build is JCK certified" size={30} style={{ color: '#537FB9' }}/>
-                                                <Link to='/aqavit'>
+                                                <LocalizedLink to='/aqavit'>
                                                     <img
                                                         src='/images/aqavit-icon.png'
                                                         width={25}
@@ -38,10 +40,10 @@ const TemurinArchiveTable = ({results, updatePage}) => {
                                                         title="This build is AQAvit Verified"
                                                         className='img-fluid'
                                                     />
-                                                </Link>
+                                                </LocalizedLink>
                                                 <h4 className="pt-3 pb-3" style={{fontSize: ".8rem"}}>{localeDate(release.timestamp, language)}</h4>
                                                 {release.source_url &&
-                                                    <span><a href={release.source_url} className="link-light"><FaDownload /> <Trans>Source Code Archive</Trans></a></span>
+                                                    <span><a href={release.source_url} className="link-light"><FaDownload /> {sourceCodeArchive}</a></span>
                                                 }
                                             </div>
                                         </td>
@@ -92,7 +94,7 @@ const TemurinArchiveTable = ({results, updatePage}) => {
                                                                                 />
                                                                             </td>
                                                                             <td>
-                                                                                <a href="" data-bs-toggle="modal" data-bs-target="#checksumModal" data-bs-checksum={asset.checksum}><Trans>Checksum</Trans></a>
+                                                                                {/* <a href="" data-bs-toggle="modal" data-bs-target="#checksumModal" data-bs-checksum={asset.checksum}><Trans>Checksum</Trans></a> */}
                                                                             </td>
                                                                         </tr>
                                                                     )
@@ -138,8 +140,8 @@ const DownloadButton = ({ link, type, size, platform, version, installer }: Down
     let os: string = capitalize(platform.split("-")[0])
     let arch: string = platform.split("-")[1]
     return (
-        <Link to="/download" state={{ link: link, os: os, arch: arch, pkg_type: type, java_version: version }} className={installer ? `btn btn-primary` : `btn btn-secondary`} style={{width: "9em"}}>
+        <LocalizedLink to="/download" state={{ link: link, os: os, arch: arch, pkg_type: type, java_version: version }} className={installer ? `btn btn-primary` : `btn btn-secondary`} style={{width: "9em"}}>
             {type} {!installer ? (size + " MB") : ""}
-        </Link>
+        </LocalizedLink>
     )
 }

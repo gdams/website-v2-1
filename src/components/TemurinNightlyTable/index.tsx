@@ -1,10 +1,10 @@
 import * as React from "react"
-import { Link, Trans, useI18next } from 'gatsby-plugin-react-i18next';
+import LocalizedLink from "../LocalizedLink"
 import { capitalize } from '../../util/capitalize';
 import { localeDate } from '../../util/localeDate';
 
 const TemurinNightlyTable = ({results}) => {
-    const { language } = useI18next();
+    // const { language } = useI18next();
 
     return (
         <div id="nightly-list">
@@ -33,13 +33,13 @@ const TemurinNightlyTable = ({results}) => {
                                                             <td>{capitalize(asset.os)} {asset.architecture}</td>
                                                             <td>{asset.type}</td>
                                                             <td>{localeDate(release.timestamp, language)}</td>
-                                                            <td><Link to="/download" state={{ link: asset.link, os: capitalize(key.split("-")[0]), arch: key.split("-")[1], pkg_type: asset.type, java_version: 'nightly' }}>{`${asset.extension} (${asset.size} MB)`}</Link></td>
+                                                            <td><LocalizedLink to="/download" state={{ link: asset.link, os: capitalize(key.split("-")[0]), arch: key.split("-")[1], pkg_type: asset.type, java_version: 'nightly' }}>{`${asset.extension} (${asset.size} MB)`}</LocalizedLink></td>
                                                             {asset.installer_link ? (
-                                                                <td><Link to="/download" state={{ link: asset.installer_link }}>{asset.installer_extension}</Link></td>
+                                                                <td><LocalizedLink to="/download" state={{ link: asset.installer_link }}>{asset.installer_extension}</LocalizedLink></td>
                                                             ) :
                                                                 <td>Not Available</td>
                                                             }
-                                                            <td><a href="" data-bs-toggle="modal" data-bs-target="#checksumModal" data-bs-checksum={asset.checksum}><Trans>Checksum</Trans></a></td>
+                                                            {/* <td><a href="" data-bs-toggle="modal" data-bs-target="#checksumModal" data-bs-checksum={asset.checksum}><Trans>Checksum</Trans></a></td> */}
                                                         </tr>
                                                     )
                                             )

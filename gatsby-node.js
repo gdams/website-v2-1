@@ -3,14 +3,122 @@ const fs = require('fs')
 const { pipeline } = require('stream')
 const { promisify } = require('util')
 const { createFilePath } = require('gatsby-source-filesystem')
-const createMultilingualRedirects = require('./i18n-redirects')
+
+const locales = require('./locales/i18n')
+const { localizedSlug, findKey, removeTrailingSlash } = require('./src/util/gatsby-node-helpers')
+
+exports.onCreatePage = ({ page, actions }) => {
+  const { createPage, deletePage } = actions
+
+  // First delete the incoming page that was automatically created by Gatsby
+  // So everything in src/pages/
+  // Don't do anything to the page if context has a locale already set
+  if (page.context.locale && page.context.locale !== 'en') {
+    return
+  } else {
+    deletePage(page)
+  }
+
+  // Grab the keys ('en' & 'de') of locales and map over them
+  Object.keys(locales).map( lang=> {
+    // Use the values defined in "locales" to construct the path
+    let localizedPath = locales[lang].default
+    ? page.path
+    : `${locales[lang].path}${page.path}`
+
+    // Check if a localized version of the page exists
+    if (page.component.includes('mdx-docs')) {
+      if (lang !== 'en') {
+        if (fs.existsSync(`./contents/mdx-docs${page.path}index.${lang}.md`)) {
+          return
+        }
+      }
+    }
+
+    // Set the lang as 'en' if a localized version doesn't exist
+    if (page.context.locale) {
+      lang = 'en'
+    }
+
+    return createPage({
+      // Pass on everything from the original page
+      ...page,
+      // Since page.path returns with a trailing slash (e.g. "/de/")
+      // We want to remove that
+      path: removeTrailingSlash(localizedPath),
+      // Pass in the locale as context to every page
+      // This context also gets passed to the src/components/layout file
+      // This should ensure that the locale is available on every page
+      context: {
+        ...page.context,
+        locale: lang,
+        dateFormat: locales[lang].dateFormat,
+      },
+    })
+  })
+}
+
+exports.onCreateNode = async ({ node, actions, getNode }) => {
+  const { createNodeField } = actions
+
+  if (node.internal.type === 'Asciidoc') {
+    const value = createFilePath({ node, getNode })
+    createNodeField({
+      name: 'slug',
+      node,
+      value
+    })
+  } else if (node.internal.type === 'Mdx') {
+
+    // Use path.basename
+    // https://nodejs.org/api/path.html#path_path_basename_path_ext
+    const name = path.basename(node.internal.contentFilePath, `.md`)
+
+    // Check if post.name is "index" -- because that's the file for default language
+    // (In this case "en")
+    const isDefault = name === `index`
+
+    // Find the key that has "default: true" set (in this case it returns "en")
+    const defaultKey = findKey(locales, o => o.default === true)
+
+    // Files are defined with "name-with-dashes.lang.md"
+    // name returns "name-with-dashes.lang"
+    // So grab the lang from that string
+    // If it's the default language, pass the locale for that
+    const lang = isDefault ? defaultKey : name.split(`.`)[1]
+
+    createNodeField({ node, name: `locale`, value: lang })
+    createNodeField({ node, name: `isDefault`, value: isDefault })
+
+    const slug = createFilePath({ node, getNode })
+    const date = new Date(node.frontmatter.date)
+    const year = date.getFullYear()
+    const zeroPaddedMonth = `${date.getMonth() + 1}`.padStart(2, '0')
+
+    createNodeField({
+      name: 'slug',
+      node,
+      value: slug
+    })
+    createNodeField({
+      name: 'postPath',
+      node,
+      value: `/blog/${year}/${zeroPaddedMonth}${slug}`
+    })
+  }
+}
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  // Create Asciidoc pages.
-  const asciidocTemplate = path.resolve('./src/templates/asciidocTemplate.tsx')
+  const templates = path.resolve(__dirname, './src/templates/');
+  const authorPage = `${templates}/authorPage.tsx`;
+  const tagTemplate =`${templates}/tagPage.tsx`;
+  const blogPost = `${templates}/blogPost.tsx`;
+  const mdxdocTemplate = `${templates}/docsPage.tsx`;
+  const asciidocTemplate = `${templates}/asciidocTemplate.tsx`;
 
+  // Create Asciidoc pages.
   const asciidocResults = await graphql(`
     {
       allAsciidoc {
@@ -33,9 +141,6 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
 
   asciidocResults.data.allAsciidoc.edges.forEach(({ node }) => {
-    const articleNodes = asciidocResults.data.allAsciidoc.edges
-    createMultilingualRedirects(actions, articleNodes, node)
-    // Create page for each asciidoc file
     createPage({
       path: node.fields.slug,
       component: asciidocTemplate,
@@ -47,7 +152,6 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Create author pages
   const authorJson = require('./src/json/authors.json')
-  const authorPage = path.resolve('./src/templates/authorPage.tsx')
 
   for (const author of Object.keys(authorJson)) {
     fs.open(`./static/images/authors/${author}.jpg`, 'r', async function (err, fd) {
@@ -72,14 +176,72 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   }
 
-  // Create blog posts pages.
-  const tagTemplate = path.resolve('./src/templates/tagPage.tsx')
-  const blogPost = path.resolve('./src/templates/blogPost.tsx')
+  // Create MDX docs pages.
+  const docsResults = await graphql(`
+    {
+      docs: allFile(filter: {
+        sourceInstanceName: { eq: "mdx-docs" },
+        childMdx: { internal: { type: { eq: "Mdx" } } }
+      }) {
+        edges {
+          node {
+            relativeDirectory
+            relativePath
+            childMdx {
+              fields {
+                locale
+                isDefault
+              }
+              frontmatter {
+                title
+              }
+              internal {
+                contentFilePath
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
 
+  if (docsResults.errors) {
+    throw docsResults.errors
+  }
+
+  const docs = docsResults.data.docs.edges
+
+  docs.forEach(({ node: doc }) => {
+    const title = doc.childMdx.frontmatter.title
+    const slug = doc.relativeDirectory
+    const relativePath = doc.relativePath
+
+    // Use the fields created in exports.onCreateNode
+    const locale = doc.childMdx.fields.locale
+    const isDefault = doc.childMdx.fields.isDefault
+
+    createPage({
+      path: localizedSlug({ isDefault, locale, slug }),
+      component: `${mdxdocTemplate}?__contentFilePath=${doc.childMdx.internal.contentFilePath}`,
+      context: {
+        // Pass both the "title" and "locale" to find a unique file
+        // Only the title would not have been sufficient as articles could have the same title
+        // in different languages, e.g. because an english phrase is also common in german
+        locale,
+        title,
+        relativePath,
+      }
+    })
+  })
+
+  // Create blog posts pages.
   const blogPostResults = await graphql(
     `
       {
-        allMdx(sort: {frontmatter: {date: DESC}}) {
+        allMdx(
+          filter: {internal: {contentFilePath: { regex: "/blog/" }}}
+          sort: {frontmatter: {date: DESC}}
+        ) {
           edges {
             node {
               fields {
@@ -163,33 +325,4 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     })
   })
-}
-
-exports.onCreateNode = async ({ node, actions, getNode, loadNodeContent }) => {
-  const { createNodeField } = actions
-
-  if (node.internal.type === 'Asciidoc') {
-    const value = createFilePath({ node, getNode })
-    createNodeField({
-      name: 'slug',
-      node,
-      value
-    })
-  } else if (node.internal.type === 'Mdx') {
-    const slug = createFilePath({ node, getNode })
-    const date = new Date(node.frontmatter.date)
-    const year = date.getFullYear()
-    const zeroPaddedMonth = `${date.getMonth() + 1}`.padStart(2, '0')
-
-    createNodeField({
-      name: 'slug',
-      node,
-      value: slug
-    })
-    createNodeField({
-      name: 'postPath',
-      node,
-      value: `/blog/${year}/${zeroPaddedMonth}${slug}`
-    })
-  }
 }

@@ -1,7 +1,7 @@
 import React, { useRef, useState, useCallback, useEffect } from 'react';
 import { useLocation } from '@reach/router';
 import queryString from 'query-string';
-import { Trans } from 'gatsby-plugin-react-i18next';
+
 import VendorSelector from '../VendorSelector'
 import { detectOS, UserOS } from '../../util/detectOS';
 import { setURLParam } from '../../util/setURLParam';
@@ -95,7 +95,7 @@ const DownloadDropdowns = ({updaterAction, marketplace, Table}) => {
             {marketplace && <VendorSelector checkboxRef={checkboxRef} setCheckbox={setCheckbox} />}
             <div className="input-group mb-5 row g-2">
                 <div className="input-group-prepend flex-colunm col-12 col-md-3">
-                    <label className="px-2 fw-bold" htmlFor="os"><Trans>Operating System</Trans></label>
+                    {/* <label className="px-2 fw-bold" htmlFor="os"><Trans>Operating System</Trans></label> */}
                     <select id="os-filter" aria-label="OS Filter" data-testid="os-filter" onChange={(e) => setOS(e.target.value)} value={os} className="form-select form-select-sm">
                         <option key="any" value="any">Any</option>
                         {oses.map(
@@ -106,7 +106,7 @@ const DownloadDropdowns = ({updaterAction, marketplace, Table}) => {
                     </select>
                 </div>
                 <div className="input-group-prepend flex-colunm col-12 col-md-3">
-                    <label className="px-2 fw-bold" htmlFor="arch"><Trans>Architecture</Trans></label>
+                    {/* <label className="px-2 fw-bold" htmlFor="arch"><Trans>Architecture</Trans></label> */}
                     <select id="arch-filter" aria-label="Architecture Filter" data-testid="arch-filter" onChange={(e) => setArch(e.target.value)} value={arch} className="form-select form-select-sm">
                         <option key="any" value="any">Any</option>
                         {arches.map(
@@ -117,7 +117,7 @@ const DownloadDropdowns = ({updaterAction, marketplace, Table}) => {
                     </select>
                 </div>
                 <div className="input-group-prepend flex-colunm col-12 col-md-3">
-                    <label className="px-2 fw-bold" htmlFor="package-type"><Trans>Package Type</Trans></label>
+                    {/* <label className="px-2 fw-bold" htmlFor="package-type"><Trans>Package Type</Trans></label> */}
                     <select id="package-type-filter" aria-label="Package Type Filter" data-testid="package-type-filter" onChange={(e) => setPackageType(e.target.value)} value={packageType} className="form-select form-select-sm">
                         <option key="any" value="any">Any</option>
                         {packageTypes.map(
@@ -128,7 +128,7 @@ const DownloadDropdowns = ({updaterAction, marketplace, Table}) => {
                     </select>
                 </div>
                 <div className="input-group-prepend flex-colunm col-12 col-md-3">
-                    <label className="px-2 fw-bold" htmlFor="version"><Trans>Version</Trans></label>
+                    {/* <label className="px-2 fw-bold" htmlFor="version"><Trans>Version</Trans></label> */}
                     <select id="version-filter" aria-label="Version Filter" data-testid="version-filter" onChange={(e) => setVersion(e.target.value)} value={version} className="form-select form-select-sm">
                         {versionList.map(
                             (version, i): number | JSX.Element => version && (

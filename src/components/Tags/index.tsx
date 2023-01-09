@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaTag } from 'react-icons/fa';
-import { Link } from 'gatsby-plugin-react-i18next';
+import LocalizedLink from '../LocalizedLink';
 
 const Tags = (props) => {
 
@@ -13,9 +13,9 @@ const Tags = (props) => {
   return (
     <>
       {tags.map(tag => (
-        <Link className='badge bg-secondary text-dark m-2' key={tag} to={`/blog/tags/${tag}`}>
+        <LocalizedLink className='badge bg-secondary text-dark m-2' key={tag} to={`/blog/tags/${tag}`}>
           <FaTag style={{marginRight: '.75em'}}/>{tag}
-        </Link>
+        </LocalizedLink>
       ))}
     </>
   );

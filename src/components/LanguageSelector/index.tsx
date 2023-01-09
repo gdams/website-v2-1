@@ -1,15 +1,17 @@
 import React from 'react';
-import { useI18next, Trans } from 'gatsby-plugin-react-i18next';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Form from 'react-bootstrap/Form';
-import { useLocation } from '@reach/router';
 import Flag from 'react-world-flags'
 import ISO6391 from 'iso-639-1';
+import locales from '../../../locales/i18n';
+import useTranslations from '../../components/useTranslations'
+import { LocaleContext } from '../Layout';
+
 import './LanguageSelector.scss';
 
 const LanguageSelector = (): JSX.Element => {
-  const {languages, changeLanguage} = useI18next();
-  const location = useLocation();
+  const { locale } = React.useContext(LocaleContext)
+  const { changeLanguage } = useTranslations()
 
   function ISO3166(lng: string) {
     // Convert locale to ISO 3166-1 alpha-2 https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
@@ -42,29 +44,39 @@ const LanguageSelector = (): JSX.Element => {
       <Form>
         <Dropdown>
           <Dropdown.Toggle aria-label="Language Selector" id="dropdown-flags" className="text-left text-white">
-            <Trans>Change Language</Trans>
+            {changeLanguage}
           </Dropdown.Toggle>
           <Dropdown.Menu className="dropdown-menu">
-            {languages.map((lng: string) => (
-              <Dropdown.Item
-                id={lng}
-                data-testid={lng}
-                key={lng}
-                eventKey={lng}
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (location.pathname.includes('index')) {
-                    let newPath = location.pathname.split("/index")[0].slice(3)
-                    changeLanguage(lng, newPath);
+            {Object.keys(locales).map(function(key) {
+              console.log(locale)
+              let localeLink
+              if (key === locale) {
+                localeLink = location.pathname
+              } else {
+                if (key === 'en') {
+                  localeLink = location.pathname.replace(`/${locale}/`, '/')
+                } else {
+                  if (locale === 'en') {
+                    localeLink = `/${key}${location.pathname}`
                   } else {
-                    changeLanguage(lng);
+                    localeLink = location.pathname.replace(`/${locale}/`, `/${key}/`)
                   }
-                }}
-              >
-                <Flag code={ISO3166(lng)} width='35' /> 
-                {ISO6391.getNativeName(ISO639(lng))}
-              </Dropdown.Item>
-            ))}
+                }
+              }
+              return (
+                <Dropdown.Item
+                  id={key}
+                  data-testid={key}
+                  key={key}
+                  eventKey={key}
+                  href={localeLink}
+                  hrefLang={key}
+                >
+                  <Flag code={ISO3166(key)} width='35' /> 
+                  {ISO6391.getNativeName(ISO639(key))}
+                </Dropdown.Item>
+              )
+            })}
           </Dropdown.Menu>
         </Dropdown>
       </Form>
