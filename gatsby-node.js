@@ -29,14 +29,14 @@ exports.onCreatePage = ({ page, actions }) => {
     // Check if a localized version of the page exists
     if (page.component.includes('mdx-docs')) {
       if (lang !== 'en') {
-        if (fs.existsSync(`./contents/mdx-docs${page.path}index.${lang}.md`)) {
+        if (fs.existsSync(`./content/mdx-docs${page.path}index.${lang}.md`)) {
           return
         }
       }
     }
 
     // Set the lang as 'en' if a localized version doesn't exist
-    if (page.context.locale) {
+    if (page.component.includes('mdx-docs')) {
       lang = 'en'
     }
 

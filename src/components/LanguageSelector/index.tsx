@@ -48,7 +48,6 @@ const LanguageSelector = (): JSX.Element => {
           </Dropdown.Toggle>
           <Dropdown.Menu className="dropdown-menu">
             {Object.keys(locales).map(function(key) {
-              console.log(locale)
               let localeLink
               if (key === locale) {
                 localeLink = location.pathname
