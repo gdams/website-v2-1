@@ -3,8 +3,8 @@ const fs = require('fs')
 const { pipeline } = require('stream')
 const { promisify } = require('util')
 const { createFilePath } = require('gatsby-source-filesystem')
-
 const locales = require('./locales/i18n')
+
 const { localizedSlug, findKey, removeTrailingSlash } = require('./src/util/gatsby-node-helpers')
 
 exports.onCreatePage = ({ page, actions }) => {
@@ -12,49 +12,53 @@ exports.onCreatePage = ({ page, actions }) => {
 
   // First delete the incoming page that was automatically created by Gatsby
   // So everything in src/pages/
-  // Don't do anything to the page if context has a locale already set
-  if (page.context.locale && page.context.locale !== 'en') {
-    return
+  // Don't do anything to the page if context has a language already set
+  if (page.component.includes('mdx-docs') && (page.context.locale === 'en')) {
+    // Grab the keys ('en' & 'de') of locales and map over them
+    Object.keys(locales).map(lang => {
+      if (lang !== 'en' && !fs.existsSync(`./content/mdx-docs${page.path}index.${lang}.md`)) {
+        // Use the values defined in "locales" to construct the path
+        const localizedPath = locales[lang].default
+        ? page.path
+        : `${locales[lang].path}${page.path}`
+
+        return createPage({
+          // Pass on everything from the original page
+          ...page,
+          // Since page.path returns with a trailing slash (e.g. "/de/")
+          // We want to remove that
+          path: removeTrailingSlash(localizedPath),
+          // Pass in the locale as context to every page
+          // This context also gets passed to the src/components/layout file
+          // This should ensure that the locale is available on every page
+          context: {
+            ...page.context,
+            locale: 'en',
+            language: lang,
+            i18n: {
+              ...page.context.i18n,
+              routed: true,
+              originalPath: page.path,
+              path: removeTrailingSlash(localizedPath),
+              language: lang,
+            }
+          },
+        })
+      }
+    })
   } else {
     deletePage(page)
   }
 
-  // Grab the keys ('en' & 'de') of locales and map over them
-  Object.keys(locales).map( lang=> {
-    // Use the values defined in "locales" to construct the path
-    let localizedPath = locales[lang].default
-    ? page.path
-    : `${locales[lang].path}${page.path}`
-
-    // Check if a localized version of the page exists
-    if (page.component.includes('mdx-docs')) {
-      if (lang !== 'en') {
-        if (fs.existsSync(`./content/mdx-docs${page.path}index.${lang}.md`)) {
-          return
-        }
-      }
-    }
-
-    // Set the lang as 'en' if a localized version doesn't exist
-    if (page.component.includes('mdx-docs')) {
-      lang = 'en'
-    }
-
-    return createPage({
-      // Pass on everything from the original page
-      ...page,
-      // Since page.path returns with a trailing slash (e.g. "/de/")
-      // We want to remove that
-      path: removeTrailingSlash(localizedPath),
-      // Pass in the locale as context to every page
-      // This context also gets passed to the src/components/layout file
-      // This should ensure that the locale is available on every page
-      context: {
-        ...page.context,
-        locale: lang,
-        dateFormat: locales[lang].dateFormat,
-      },
-    })
+  return createPage({
+    // Pass on everything from the original page
+    ...page,
+    // Pass in the locale as context to every page
+    // This context also gets passed to the src/components/layout file
+    // This should ensure that the locale is available on every page
+    context: {
+      ...page.context,
+    },
   })
 }
 

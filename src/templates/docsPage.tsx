@@ -3,6 +3,7 @@ import { convert } from 'html-to-text'
 import React from 'react'
 import { MDXProvider } from '@mdx-js/react';
 
+import Layout from '../components/Layout';
 import EditLink from '../components/EditLink'
 import AuthorsList from '../components/AuthorList'
 import InstallTabs from '../components/InstallTabs'
@@ -19,30 +20,32 @@ const MDXDocTemplate = ({ data, children, pageContext }) => {
   const { fields, frontmatter } = doc;
   const pageAuthorList = frontmatter.authors || ''
   return (
-    <section className='py-5 px-3'>
-      <div className='asciidoc-container container-adoc row' id='asciidoc-container'>
-        <div className='col-lg-3 hide-on-mobile'>
-          {/* Leaving space for a table of contents (side bar) */}
+    <Layout>
+      <section className='py-5 px-3'>
+        <div className='asciidoc-container container-adoc row' id='asciidoc-container'>
+          <div className='col-lg-3 hide-on-mobile'>
+            {/* Leaving space for a table of contents (side bar) */}
+          </div>
+          <div className='asciidoc col-lg-6 col-md-12'>
+            <h1 className='pb-4 fw-light text-center'>{convert(frontmatter.title)}</h1>
+            {fields.slug === '/installation/' && (
+              <section className='adopt-demo-container hide-on-mobile my-5'>
+                <div className='adopt-demo mx-auto'>
+                  <InstallTabs />
+                </div>
+              </section>
+            )}
+            <MDXProvider components={mdxComponents}>
+              {children}
+            </MDXProvider>
+          <hr className='m-5' />
+          <AuthorsList authors={pageAuthorList.split(',')} />
+          <EditLink relativePath={`mdx-docs/${relativePath}`} />
+          </div>
+          <div className='col-lg-3 hide-on-mobile'></div>
         </div>
-        <div className='asciidoc col-lg-6 col-md-12'>
-          <h1 className='pb-4 fw-light text-center'>{convert(frontmatter.title)}</h1>
-          {fields.slug === '/installation/' && (
-            <section className='adopt-demo-container hide-on-mobile my-5'>
-              <div className='adopt-demo mx-auto'>
-                <InstallTabs />
-              </div>
-            </section>
-          )}
-          <MDXProvider components={mdxComponents}>
-            {children}
-          </MDXProvider>
-        <hr className='m-5' />
-        <AuthorsList authors={pageAuthorList.split(',')} />
-        <EditLink relativePath={`mdx-docs/${relativePath}`} />
-        </div>
-        <div className='col-lg-3 hide-on-mobile'></div>
-      </div>
-    </section>
+      </section>
+    </Layout>
   )
 }
 
@@ -57,7 +60,7 @@ export const Head = ({ data: { mdx: { frontmatter } } }) => {
 };
 
 export const pageQuery = graphql`
-  query($locale: String!, $title: String!) {
+  query($locale: String!, $title: String!, $language: String!) {
     mdx(
       frontmatter: { title: { eq: $title } }
       fields: { locale: { eq: $locale } }
@@ -71,6 +74,15 @@ export const pageQuery = graphql`
       }
       frontmatter {
         authors
+      }
+    }
+    locales: allLocale(filter: {language: {eq: $language}}) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
       }
     }
   }

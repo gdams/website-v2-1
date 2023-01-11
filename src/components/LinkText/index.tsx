@@ -1,4 +1,4 @@
-import LocalizedLink from '../LocalizedLink';
+import { Link } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 
 type LinkTextProps = {
@@ -8,7 +8,7 @@ type LinkTextProps = {
 
 const LinkText = ({ href, children }: LinkTextProps) => {
     return (
-        href.startsWith('http') ? <a href={href} target='_blank' rel='noreferrer'>{children}</a> : <LocalizedLink to={href}>{children}</LocalizedLink>
+        href.startsWith('http') ? <a href={href} target='_blank' rel='noreferrer'>{children}</a> : <Link to={href}>{children}</Link>
     )
 }
 

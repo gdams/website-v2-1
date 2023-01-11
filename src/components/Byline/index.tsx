@@ -1,5 +1,5 @@
 import React from 'react';
-import LocalizedLink from '../LocalizedLink';
+import { Link } from 'gatsby-plugin-react-i18next';
 import ProfilePicInline from '../ProfilePicInline';
 import './Byline.scss';
 
@@ -19,7 +19,7 @@ const Byline = (props) => {
       }}
       className='byline'
     >
-      {date} – posted by &nbsp; <LocalizedLink to={href}>{author}</LocalizedLink> <ProfilePicInline identifier={identifier} name={author} />
+      {date} – posted by &nbsp; <Link to={href}>{author}</Link> <ProfilePicInline identifier={identifier} name={author} />
     </div>
   );
 };

@@ -1,14 +1,15 @@
 import React, { useState, useCallback, useEffect } from 'react';
+import { Trans, useI18next } from 'gatsby-plugin-react-i18next'
 import { useLocation } from '@reach/router';
 import queryString from 'query-string';
+
 import DatePicker from 'react-date-picker';
 
-import useTranslations from '../components/useTranslations';
-import { versions, defaultVersion } from '../util/defaults';
+import { versions, defaultVersion } from '../util/defaults'
 import { setURLParam } from '../util/setURLParam';
 
-const VersionSelector = ({updater, releaseType, Table, pageContext}) => {
-  const { dropdown, Version } = useTranslations()
+const VersionSelector = ({updater, releaseType, Table}) => {
+  const { language } = useI18next();
   let selectedVersion = defaultVersion
   const versionParam = queryString.parse(useLocation().search).version;
   if (versionParam) {
@@ -45,9 +46,11 @@ const VersionSelector = ({updater, releaseType, Table, pageContext}) => {
 
   return (
     <>
-      <p className='text-center'>{dropdown}</p>
+      <p className='text-center'>
+        <Trans>Use the drop-down boxes below to filter the list of releases.</Trans>
+      </p>
       <div className="input-group p-3 d-flex justify-content-center">
-        <label className="px-2 fw-bold" htmlFor="version">{Version}</label>
+        <label className="px-2 fw-bold" htmlFor="version"><Trans>Version</Trans></label>
         <select id="version-filter" onChange={(e) => setVersion(e.target.value)} value={version} className="form-select form-select-sm" style={{ maxWidth: '10em' }}>
             {versions.map(
                 (version, i): number | JSX.Element => version && (

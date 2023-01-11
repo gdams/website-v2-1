@@ -1,8 +1,0 @@
-{
-    "prebuiltOpenjdk": "预编译 OpenJDK ",
-    "binariesForFree": "免费下载！",
-    "intro": "Java™ 是世界领先的编程语言和平台。Adoptium 工作推进和支持高质量、TCK 认证的运行时和其相关技术，使其在 Java 生态系统中应用。Eclipse Temurin 是 Adoptium OpenJDK 发行版的名称。",
-    "changeLanguage": "更改语言",
-    "marketplaceDescription": "Java™ 是世界领先的编程语言和平台。Adoptium 工作组推进和支持高质量、TCK 认证, AQAvit 验证的运行时和其相关技术，使其在 Java 生态系统中得以应用。",
-    "sourceCodeArchive": "源代码包"
-}

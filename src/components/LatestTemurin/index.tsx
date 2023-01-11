@@ -1,5 +1,5 @@
 import React, { MutableRefObject, useRef } from 'react';
-import LocalizedLink from '../LocalizedLink';
+import { Link, Trans } from 'gatsby-plugin-react-i18next'
 
 import { FaArrowCircleRight, FaArchive, FaDownload } from 'react-icons/fa';
 
@@ -60,14 +60,14 @@ const LatestTemurin = (props): JSX.Element => {
         {binary ? (
           <>
           <h2 className={`fw-light mt-3 ${textClass}`}>
-            {/* <Trans i18nKey="Download Temurin for" userOSName={userOSName} arch={arch}>
+            <Trans i18nKey="Download Temurin for" userOSName={userOSName} arch={arch}>
               Download Temurin&trade; for {{ userOSName }} {{ arch }}
-            </Trans> */}
+            </Trans>
           </h2>
           {isSafari && (
             <span>
               We have detected that you're using Safari. Because we are <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/a/65412357">unable to detect your architecture</a> we have suggested aarch64 (M1/M2).
-              For x64 builds please see other <LocalizedLink to="/temurin/releases">downloads</LocalizedLink>.
+              For x64 builds please see other <Link to="/temurin/releases">downloads</Link>.
             </span>
           )}
           </>
@@ -77,23 +77,23 @@ const LatestTemurin = (props): JSX.Element => {
         <div className={`btn-group-vertical mx-auto ${buttonClass}`}>
             {binary ? (
               <>
-                <LocalizedLink to="/download" state={{ link: binary.link, os: userOSName, arch: arch, pkg_type: 'JDK', java_version: binary.release_name }} className="btn btn-lg btn-primary mt-3 py-3 text-white">
-                    {/* <FaDownload /> <Trans>Latest LTS Release</Trans> */}
+                <Link to="/download" state={{ link: binary.link, os: userOSName, arch: arch, pkg_type: 'JDK', java_version: binary.release_name }} className="btn btn-lg btn-primary mt-3 py-3 text-white">
+                    <FaDownload /> <Trans>Latest LTS Release</Trans>
                     <br/>
                     <span style={{ fontSize: '.6em'}} className="font-weight-light">{binary.release_name}</span>
-                </LocalizedLink>
-                <LocalizedLink to="/temurin/releases" className="btn btn-outline-dark mt-3">
-                    {/* <Trans>Other platforms and versions</Trans> <FaArrowCircleRight /> */}
-                </LocalizedLink>
+                </Link>
+                <Link to="/temurin/releases" className="btn btn-outline-dark mt-3">
+                    <Trans>Other platforms and versions</Trans> <FaArrowCircleRight />
+                </Link>
               </>
             ) :
-              <LocalizedLink to="/temurin/releases" className="btn btn-lg btn-primary mt-3 py-3 text-white">
+              <Link to="/temurin/releases" className="btn btn-lg btn-primary mt-3 py-3 text-white">
                   <FaDownload /> Latest LTS releases
-              </LocalizedLink>
+              </Link>
             }
-            <LocalizedLink to="/temurin/archive" className="btn btn-outline-dark mt-3">
-                {/* <Trans>Release Archive</Trans> <FaArchive /> */}
-            </LocalizedLink>
+            <Link to="/temurin/archive" className="btn btn-outline-dark mt-3">
+                <Trans>Release Archive</Trans> <FaArchive />
+            </Link>
         </div>
       </div>
     );

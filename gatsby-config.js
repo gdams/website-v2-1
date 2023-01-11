@@ -5,6 +5,7 @@
  */
 
 const path = require('path')
+const locales = require('./locales/i18n')
 
 const markdownSources = [
   'blog',
@@ -39,20 +40,38 @@ module.exports = {
         ignore: ['**/*.md']
       }
     },
-    ...gatsbyFsMarkdownSources,
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        path: path.join(__dirname, 'locales/translations'),
-        name: 'translations',
-        ignore: ['**/*.md']
-      },
+        name: 'locale',
+        path: path.join(__dirname, 'locales'),
+        ignore: ['**/*.md', 'i18n.js']
+      }
     },
+    ...gatsbyFsMarkdownSources,
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'assets',
         path: path.join(__dirname, 'static/images/authors')
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-react-i18next',
+      options: {
+        localeJsonSourceName: 'locale',
+        languages: Object.keys(locales),
+        defaultLanguage: 'en',
+        i18nextOptions: {
+          transSupportBasicHtmlNodes: true,
+          transKeepBasicHtmlNodesFor: ['u', 'a']
+        },
+        pages: [
+          {
+            matchPath: '/:lang?/docs/:uid',
+            getLanguageFromPath: true
+          },
+        ],
       }
     },
     {

@@ -1,5 +1,5 @@
 import React from 'react';
-import LocalizedLink from '../LocalizedLink';
+import { Link } from 'gatsby-plugin-react-i18next';
 
 import { FaExternalLinkAlt } from 'react-icons/fa';
 import './DocumentationCard.scss';
@@ -45,7 +45,7 @@ const DocumentationCard = ({
               // Check if internal or external
               link.link.includes('http')
               ? <a href={link.link} key={link.link} target='_blank' rel='noopener noreferrer' className='list-group-item list-group-item-action'>{link.name} <FaExternalLinkAlt size={13} /></a>
-              : <LocalizedLink to={link.link} key={link.link} className='list-group-item list-group-item-action'>{link.name}</LocalizedLink>
+              : <Link to={link.link} key={link.link} className='list-group-item list-group-item-action'>{link.name}</Link>
             ))}
           </div>
         </div>

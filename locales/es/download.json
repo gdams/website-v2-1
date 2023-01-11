@@ -10,5 +10,6 @@
     "Architecture":"Arquitectura",
     "Download":"Descarga",
     "Checksum":"Checksum",
-    "Package Type":"Tipo de paquete"
+    "Package Type":"Tipo de paquete",
+    "Source Code Archive": "Archivo de codigo fuente"
 }

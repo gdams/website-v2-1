@@ -1,5 +1,5 @@
 import React from 'react';
-import LocalizedLink from '../LocalizedLink';
+import { Link } from 'gatsby-plugin-react-i18next';
 
 import Byline from '../Byline';
 
@@ -19,15 +19,15 @@ const ArticlePreview = (props) => {
         <article className='pb-3'>
             <header>
                 <h2 className='h3'>
-                <LocalizedLink to={postPath}>
+                <Link to={postPath}>
                     {title}
-                </LocalizedLink>
+                </Link>
                 </h2>
                 <Byline author={author} date={date} identifier={identifier}/>
             </header>
             <section>
                 <p>
-                {description || excerpt} <LocalizedLink to={postPath}>Read more</LocalizedLink>
+                {description || excerpt} <Link to={postPath}>Read more</Link>
                 </p>
             </section>
         </article>

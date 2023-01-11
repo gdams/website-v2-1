@@ -1,4 +1,4 @@
-import LocalizedLink from '../LocalizedLink';
+import { Link } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { FaTwitter, FaYoutube, FaGithub, FaSlack } from 'react-icons/fa';
 import RandomContributor from '../RandomContributor';
@@ -77,7 +77,7 @@ const Footer = (): JSX.Element => {
               <li className="ms-3"><a className="text-muted" aria-label="Adoptium Twitter Account" href="https://twitter.com/adoptium"><FaTwitter size={25} /></a></li>
               <li className="ms-3"><a className="text-muted" aria-label="Adoptium YouTube Account" href="https://www.youtube.com/c/EclipseAdoptium"><FaYoutube size={25} /></a></li>
               <li className="ms-3"><a className="text-muted" aria-label="Adoptium GitHub Account" href="https://github.com/adoptium"><FaGithub size={25} /></a></li>
-              <li className="ms-3"><LocalizedLink className="text-muted" aria-label="Adoptium Slack Account" to="/slack"><FaSlack size={25} /></LocalizedLink></li>
+              <li className="ms-3"><Link className="text-muted" aria-label="Adoptium Slack Account" to="/slack"><FaSlack size={25} /></Link></li>
             </ul>
             <div className="col-12 d-flex ">
                 <span className="text-muted">Java and OpenJDK are trademarks or registered trademarks of Oracle and/or its affiliates. Other names may be trademarks of their respective owners.</span>

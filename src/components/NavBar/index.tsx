@@ -1,7 +1,7 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { Link as Noni18nLink } from "gatsby"
-import LocalizedLink from "../LocalizedLink";
+import { Link, useTranslation } from 'gatsby-plugin-react-i18next';
 import { FaTwitter, FaYoutube, FaGithub, FaSlack, FaRss } from 'react-icons/fa';
 
 // @ts-ignore
@@ -12,19 +12,20 @@ const isActive = ({ isCurrent }) => {
 }
 
 const ExactNavLink = props => (
-  <LocalizedLink getProps={isActive}{...props} />
+  <Link getProps={isActive}{...props} />
 )
 
 const NavBar = (): JSX.Element => {
+  const {t} = useTranslation();
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-purple"
       style={{ height: '7rem', paddingTop: '1.25em', paddingBottom: '1.25em', position: 'relative', zIndex: '10000' }}
     >
       <div className="container-fluid">
-        <LocalizedLink to="/" className="navbar-brand ms-5" aria-label="Homepage Link">
+        <Link to="/" className="navbar-brand ms-5" aria-label="Homepage Link">
           <Logo alt="Adoptium Logo" style={{ paddingLeft: '.2em', paddingRight: '.2em', height: '1.9em' }} />
-        </LocalizedLink>
+        </Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navbar"
                 aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
@@ -36,7 +37,7 @@ const NavBar = (): JSX.Element => {
               <ExactNavLink
                 to="/"
               >
-                Home
+                {t('Home')}
               </ExactNavLink>
             </li>
             <li className="nav-item">
@@ -61,9 +62,9 @@ const NavBar = (): JSX.Element => {
               </ExactNavLink>
             </li>
             <li className="nav-item dropdown">
-              <LocalizedLink className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Projects
-              </LocalizedLink>
+              </Link>
               <ul className="dropdown-menu bg-primary" aria-labelledby="navbarDropdown">
                 <li><ExactNavLink className="dropdown-item" to="/temurin">Eclipse Temurin</ExactNavLink></li>
                 <li><ExactNavLink className="dropdown-item" to="/aqavit">Eclipse AQAvit</ExactNavLink></li>
@@ -71,9 +72,9 @@ const NavBar = (): JSX.Element => {
               </ul>
             </li>
             <li className="nav-item dropdown">
-              <LocalizedLink className="nav-link dropdown-toggle" to="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Further Information
-              </LocalizedLink>
+              </Link>
               <ul className="dropdown-menu bg-primary" aria-labelledby="navbarDropdown2">
                 <li><ExactNavLink className="dropdown-item" to="/news">News & Events</ExactNavLink></li>
                 <li><ExactNavLink className="dropdown-item" to="/about">About</ExactNavLink></li>
@@ -94,7 +95,7 @@ const NavBar = (): JSX.Element => {
           <li className="ms-3"><a style={navbarIcon} target="_blank" aria-label="Adoptium Twitter Account" rel="noopener noreferrer" href="https://twitter.com/adoptium"><FaTwitter size={25} /></a></li>
           <li className="ms-3"><a style={navbarIcon} target="_blank" aria-label="Adoptium YouTube Account" rel="noopener noreferrer" href="https://www.youtube.com/c/EclipseAdoptium"><FaYoutube size={25} /></a></li>
           <li className="ms-3"><a style={navbarIcon} target="_blank" aria-label="Adoptium GitHub Account" rel="noopener noreferrer" href="https://github.com/adoptium"><FaGithub size={25} /></a></li>
-          <li className="ms-3"><LocalizedLink style={navbarIcon} aria-label="Adoptium Slack Account" to="/slack"><FaSlack size={25} /></LocalizedLink></li>
+          <li className="ms-3"><Link style={navbarIcon} aria-label="Adoptium Slack Account" to="/slack"><FaSlack size={25} /></Link></li>
         </ul>
       </div>
     </nav>
