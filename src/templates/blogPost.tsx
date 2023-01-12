@@ -140,13 +140,13 @@ export const pageQuery = graphql`
       }
     }
     locales: allLocale(filter: {language: {eq: $language}}) {
-        edges {
-          node {
-            ns
-            data
-            language
-          }
+      edges {
+        node {
+          ns
+          data
+          language
         }
+      }
     }
   }
 `;

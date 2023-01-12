@@ -18,6 +18,7 @@ First, you need to create an Eclipse Foundation account.
 You are one step away from becoming an Eclipse Contributor, we just need to sign the ECA.
 
 ### Sign the ECA
+
 Signing the ECA is straightforward and is done online.
 
 1. Navigate to the [login page](https://accounts.eclipse.org/user/login) of Eclipse Accounts page
@@ -32,17 +33,19 @@ Now the Status panel in the upper right corner should show that you signed the E
 ![one green dot at Eclipse Contributor Agreement](./Status_signed_ECA.png)
 
 ### ECA Sign check failed, but why?
+
 For every pull request, a GitHub Action verifies that the author signed the Eclipse Contributor Agreement.
 This can fail if:
 
 * You have not got an Eclipse Account
 * You have not signed the Eclipse Contributor Agreement
 * You have configured git to use a different E-Mail address than you used to sign the ECA
-    * `user.email` setting for git must equal to that used for your Eclipse Foundation account. See [Setting your commit email address](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-email-preferences/setting-your-commit-email-address) for more information
+  * `user.email` setting for git must equal to that used for your Eclipse Foundation account. See [Setting your commit email address](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-email-preferences/setting-your-commit-email-address) for more information
 
 If none of the above is the case, feel free to reach out to the maintainers.
 
 ### How to change the author E-Mail address for existing commits
+
 In order for the ECA check to pass, all commits in the pull request must have been authored with the E-Mail address used to sign the ECA.
 
 To change the author for the last commit:

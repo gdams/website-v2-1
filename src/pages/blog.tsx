@@ -70,12 +70,10 @@ export const Head = () => (
 
 export const pageQuery = graphql`
   query ($language: String!) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allMdx(sort: {frontmatter: {date: DESC}}, limit: 10) {
+    allMdx(
+      filter: {internal: {contentFilePath: { regex: "/blog/" }}}
+      sort: {frontmatter: {date: DESC}
+    }, limit: 10) {
       totalCount
       edges {
         node {

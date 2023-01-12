@@ -17,11 +17,11 @@ The [AQAvit verification suite](https://projects.eclipse.org/projects/adoptium.a
 
 The following benefits are enjoyed by all producers listed in the Adoptium marketplace.
 
- * Demonstrates that their product is a high quality offering, ready for enterprise usage, having passed the required Java-compatibility and AQAvit quality inclusion criteria.
- * Shows their product meets all the Eclipse Adoptium Working Group requirements for security, scalability, durability, and functional correctness at a specific version and build.
- * Declares the provider is a participant in the Adoptium community and supports the definition and scope of the AQAvit quality criteria across the industry.
- * Listed products benefit from Adoptium Working Group sponsored marketing and promotion initiatives across the industry with the support of the Eclipse Foundation.
- 
+* Demonstrates that their product is a high quality offering, ready for enterprise usage, having passed the required Java-compatibility and AQAvit quality inclusion criteria.
+* Shows their product meets all the Eclipse Adoptium Working Group requirements for security, scalability, durability, and functional correctness at a specific version and build.
+* Declares the provider is a participant in the Adoptium community and supports the definition and scope of the AQAvit quality criteria across the industry.
+* Listed products benefit from Adoptium Working Group sponsored marketing and promotion initiatives across the industry with the support of the Eclipse Foundation.
+
 Inclusion in the marketplace is open to all strategic and enterprise members of the Adoptium working group at no additional cost to the provider, is non-exclusive, and preserves the opportunity to supply paid services alongside the offering.
 
 ## AQAvit Software Product Verification

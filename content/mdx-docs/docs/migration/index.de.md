@@ -43,7 +43,7 @@ IcedTea-Web steht zum Download unter der
 Linux, Windows, MacOS und portablen Paketformaten zur Verfügung.
 
 Verwenden Sie IcedTea-Web genauso wie Java Web Start. Für weitere Informationen,
-schauen Sie sich bitte 
+schauen Sie sich bitte
 [Entwicklung einer Java Web Start Anwendung](https://docs.oracle.com/javase/tutorial/deployment/webstart/developing.html)
 und [Bereitstellen einer Java Web Start Anwendung](https://docs.oracle.com/javase/tutorial/deployment/webstart/deploying.html) an. Während IcedTea-Web so geschrieben ist, dass es sich wie Java Web Start verhält, gibt es dennoch ein paar bekannte Unterschiede, die als Probleme in den folgen Dokumenten angesprochen werden [GitHub-Projekt](https://github.com/AdoptOpenJDK/icedtea-web). Es wird daran gearbeitet daran, diese Unterschiede zu minimieren oder zu beseitigen.
 
@@ -67,7 +67,7 @@ OpenJDK verwendet die quelloffene Freetype Font Rendering Bibliothek anstelle de
 Die Lucida Schriften, welche in Oracle JDK 8 verfügbar sind, haben eine
 proprietäre Lizenz eines Drittanbieters. Adoptium beabsichtigt, neu
 lizensierte Lucida Schriften anzubieten. Es wird daran gearbeitet,
-Darstellungsprobleme zu minimieren, wenn diese Schriftarten mit 
+Darstellungsprobleme zu minimieren, wenn diese Schriftarten mit
 Freetype gerendert werden.
 
 ### Pisces und Marlin

@@ -23,13 +23,11 @@ Adoptium builds source from trusted source repositories, and takes dependencies 
 
 Adoptium collects, safeguards, maintains, and shares provenance data for all components of each software release in a software bill of materials. We regularly verify the integrity and check the provenance of each dependency to identify potential problems.
 
-
 **Version Control and Tagging**
 
 All the code maintained by Adoptium projects is held in GitHub version controlled repositories under the Adoptium organization and administered by the Eclipse Foundation. Our code is open source and available for scrutiny by the community, but access to change the code is limited to elected and strongly authenticated committers. We use the version control features of the repository to track all changes made to the code with accountability to the individual committer's account, and require secondary reviews, additional automated checks, and community oversight to ensure that the changes are safe and secure.
 
 Eclipse Temurin releases are built from version controlled sources that are tagged as release quality in OpenJDK, and the resulting binaries are published as tagged releases in our GitHub repository. These release artifacts are made available directly to end users and redistributors via the Adoptium API, website, and repository.
-
 
 **Infrastructure as Code**
 
@@ -37,13 +35,11 @@ To ensure that our infrastructure is securely managed we define and provision ma
 
 IaC provides resiliance to configure and implement measures to secure the environments’ hosting infrastructures following a zero trust architecture defining the changes in hardware provisioning, and availability to run our infrastrucutre on different suppliers thereby ensuring we have the ability to cross-check results on a daily basis.
 
-
 **Reproducible Builds**
 
 An important part of Adoptium's secure engineering practice is for community members to be able to verify the builds we produce. This is made possible by having binary verified reproducible builds, meaning that with the same sources, tools, and machine configuration anyone can produce a byte-for-byte identical result. We ensure that our source code, build scripts, and infrastrucure is well-defined and version controlled. We publish information on how to reproduce Adoptium binaries, and encourage others to verify those builds by checking that their build results match given the same inputs and processes.
 
 Adoptium provides Software Bill of Material (SBOM) attestations for the provenance of Eclipse Temurin builds. The SBOM is available alongside each of our Temurin release artifacts.
-
 
 **Testing and Code-signing**
 
@@ -52,7 +48,6 @@ Adoptium validates and verifies the Eclipse Temurin releases using an extensive 
 AQAvit tests include both those developed in-house at the project and third-party test suites and applications to ensure that the binary behaves as expected. Quality assurance is staged throughout the release process, with nightly testing of development work to ensure that anomalies are quickly identified and addressed in addition to rigorous release testing.
 
 Java specification compliance tests and AQAvit quality assurance tests must pass before an Eclipse Temurin binary is ready for release. Only when all the release tests have been completed is the binary published, together with the supporting metadata and software bill of materials. Adoptium provides a cryptographically secure code signature that ensures the release binary is uniquely identifiable as being the official Adoptium release.
-
 
 **Audits and Verification**
 

@@ -9,8 +9,8 @@ const locales = require('./locales/i18n')
 
 const markdownSources = [
   'blog',
-  'mdx-docs',
-];
+  'mdx-docs'
+]
 
 const gatsbyFsMarkdownSources = markdownSources.map(name => ({
   resolve: 'gatsby-source-filesystem',
@@ -18,8 +18,8 @@ const gatsbyFsMarkdownSources = markdownSources.map(name => ({
     name,
     path: path.resolve(__dirname, `./content/${name}`),
     ignore: ['**/README.md']
-  },
-}));
+  }
+}))
 
 module.exports = {
   siteMetadata: {
@@ -63,8 +63,8 @@ module.exports = {
           {
             matchPath: '/:lang?/docs/:uid',
             getLanguageFromPath: true
-          },
-        ],
+          }
+        ]
       }
     },
     {
@@ -128,7 +128,7 @@ module.exports = {
         mdxOptions: {
           remarkPlugins: [
             // Add GitHub Flavored Markdown (GFM) support
-            require('remark-gfm'),
+            require('remark-gfm')
           ]
         },
         gatsbyRemarkPlugins: [

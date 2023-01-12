@@ -3,7 +3,6 @@ title: 'Adoptium&reg; Secure Supply Chain Management'
 authors: tellison, sxa, gdams
 ---
 
-
 The [Supply chain Levels for Software Artifacts (SLSA)](https://slsa.dev/) is a security framework that helps to provide confidence that a set of inputs such as source code, libraries, and software packages, lead to a set of well-defined outputs such as a binary and software bill of materials. It is a structured set of technical requirements to help a producer trust the parts of the supply chain that are in their direct control and helps provide confidence in the build process to catch any upstream supply chain attacks.
 
 Adoptium has evaluated the [secure engineering practices of our project](/docs/secure-software)
@@ -18,7 +17,7 @@ This level means that Adoptium's build process is fully scripted and automated, 
 **Build - [Scripted build](https://slsa.dev/spec/v0.1/requirements#scripted-build)**
 
 All steps for producing Eclipse Temurin are defined by version-controlled
-[Jenkins pipelines](https://github.com/adoptium/ci-jenkins-pipelines) that invoke build scripts stored in the 
+[Jenkins pipelines](https://github.com/adoptium/ci-jenkins-pipelines) that invoke build scripts stored in the
 [adoptium/temurin-build](https://github.com/adoptium/temurin-build) repository.
 The pipeines and build scripts are available for anyone to view and verify, and
 [the Jenkins system](https://ci.adoptopenjdk.net/) runs are open to scrutiny.

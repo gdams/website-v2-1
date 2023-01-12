@@ -48,7 +48,7 @@ Außerdem sollten wir alle diese Probleme mit **`help wanted`** und **`Hacktober
 ## Links & Resources
 
 - [List of all issues that are labeled by **`good first issue`**](https://github.com/issues?q=org%3AAdoptium+label%3A%22good+first+issue%22+is%3Aopen)
-- [List of all issues that are labeled by **`good first issue - candidate `**](https://github.com/issues?q=org%3AAdoptium+label%3A%22good+first+issue+-+candidate%22+is%3Aopen)
+- [List of all issues that are labeled by **`good first issue - candidate`**](https://github.com/issues?q=org%3AAdoptium+label%3A%22good+first+issue+-+candidate%22+is%3Aopen)
 - [Current version of the issue template](https://gist.github.com/hendrikebbers/8e4dec9ddea5e2a420080d1314af025f)
 - [Current version of a section about "First timers support" for contributing.md files](https://gist.github.com/hendrikebbers/0f9cdd18076343b3bbe5f2d162733b6e)
 - https://github.com/AdoptOpenJDK/IcedTea-Web/issues/706[An example of a **`good first issue`**]

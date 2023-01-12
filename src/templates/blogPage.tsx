@@ -86,7 +86,10 @@ export const blogPageQuery = graphql`
         title
       }
     }
-    allMdx(sort: {frontmatter: {date: DESC}}, limit: $limit, skip: $skip) {
+    allMdx(
+      filter: {internal: {contentFilePath: { regex: "/blog/" }}},
+      sort: {frontmatter: {date: DESC}
+    }, limit: $limit, skip: $skip) {
       edges {
         node {
           excerpt

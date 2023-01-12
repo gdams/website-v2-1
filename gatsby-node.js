@@ -13,14 +13,15 @@ exports.onCreatePage = ({ page, actions }) => {
   // First delete the incoming page that was automatically created by Gatsby
   // So everything in src/pages/
   // Don't do anything to the page if context has a language already set
-  if (page.component.includes('mdx-docs') && (page.context.locale === 'en')) {
+  if (page.component.includes('mdx-docs') && page.context.locale === 'en') {
     // Grab the keys ('en' & 'de') of locales and map over them
+    // eslint-disable-next-line array-callback-return
     Object.keys(locales).map(lang => {
       if (lang !== 'en' && !fs.existsSync(`./content/mdx-docs${page.path}index.${lang}.md`)) {
         // Use the values defined in "locales" to construct the path
         const localizedPath = locales[lang].default
-        ? page.path
-        : `${locales[lang].path}${page.path}`
+          ? page.path
+          : `${locales[lang].path}${page.path}`
 
         return createPage({
           // Pass on everything from the original page
@@ -40,9 +41,9 @@ exports.onCreatePage = ({ page, actions }) => {
               routed: true,
               originalPath: page.path,
               path: removeTrailingSlash(localizedPath),
-              language: lang,
+              language: lang
             }
-          },
+          }
         })
       }
     })
@@ -57,8 +58,8 @@ exports.onCreatePage = ({ page, actions }) => {
     // This context also gets passed to the src/components/layout file
     // This should ensure that the locale is available on every page
     context: {
-      ...page.context,
-    },
+      ...page.context
+    }
   })
 }
 
@@ -66,14 +67,13 @@ exports.onCreateNode = async ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === 'Mdx') {
-
     // Use path.basename
     // https://nodejs.org/api/path.html#path_path_basename_path_ext
-    const name = path.basename(node.internal.contentFilePath, `.md`)
+    const name = path.basename(node.internal.contentFilePath, '.md')
 
     // Check if post.name is "index" -- because that's the file for default language
     // (In this case "en")
-    const isDefault = name === `index`
+    const isDefault = name === 'index'
 
     // Find the key that has "default: true" set (in this case it returns "en")
     const defaultKey = findKey(locales, o => o.default === true)
@@ -82,10 +82,10 @@ exports.onCreateNode = async ({ node, actions, getNode }) => {
     // name returns "name-with-dashes.lang"
     // So grab the lang from that string
     // If it's the default language, pass the locale for that
-    const lang = isDefault ? defaultKey : name.split(`.`)[1]
+    const lang = isDefault ? defaultKey : name.split('.')[1]
 
-    createNodeField({ node, name: `locale`, value: lang })
-    createNodeField({ node, name: `isDefault`, value: isDefault })
+    createNodeField({ node, name: 'locale', value: lang })
+    createNodeField({ node, name: 'isDefault', value: isDefault })
 
     const slug = createFilePath({ node, getNode })
     const date = new Date(node.frontmatter.date)
@@ -108,11 +108,11 @@ exports.onCreateNode = async ({ node, actions, getNode }) => {
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const templates = path.resolve(__dirname, './src/templates/');
-  const authorPage = `${templates}/authorPage.tsx`;
-  const tagTemplate =`${templates}/tagPage.tsx`;
-  const blogPost = `${templates}/blogPost.tsx`;
-  const mdxdocTemplate = `${templates}/docsPage.tsx`;
+  const templates = path.resolve(__dirname, './src/templates/')
+  const authorPage = `${templates}/authorPage.tsx`
+  const tagTemplate = `${templates}/tagPage.tsx`
+  const blogPost = `${templates}/blogPost.tsx`
+  const mdxdocTemplate = `${templates}/docsPage.tsx`
 
   // Create author pages
   const authorJson = require('./src/json/authors.json')
@@ -193,7 +193,7 @@ exports.createPages = async ({ graphql, actions }) => {
         // in different languages, e.g. because an english phrase is also common in german
         locale,
         title,
-        relativePath,
+        relativePath
       }
     })
   })

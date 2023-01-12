@@ -13,12 +13,12 @@ In the description and examples below we will refer to "files" and "directories"
 
 A repository consists of three types of files, namely *index* files, *release* files and *signature* files.
 
- * Index files : describe the location of release files and index files.
- * Release files : contain a list of marketplace products.
- * Signature files : contain a digital signature associated with an Index or Release file.
- 
+* Index files : describe the location of release files and index files.
+* Release files : contain a list of marketplace products.
+* Signature files : contain a digital signature associated with an Index or Release file.
+
 All files are read assuming UTF-8 encoding.
- 
+
 ## Signature Files
 
 Signature files are used to ensure that the index and release file data has been received correctly, and has not been modified en route. The Adoptium marketplace agent will read a file and check the associated file signature. The file's signature is stored in a file with the same name as the file it is signing, with the suffix `.sha256.sign`.
@@ -127,12 +127,11 @@ Note that although in this example we have created one index file per major Java
 
 TIP: Each index and release file reference is considered relative to the index file path, i.e if `https://release.adoptium.net/repo/17/index.json` contained a release of `jdk_17_0_2_8.json`, the path of `https://release.adoptium.net/repo/17/jdk_17_0_2_8.json` will be examined.
 
-
 ## Release File
 
 The release file contains details about your products, including the Java version, target machine architcture, download location, test result location, and more. The name of the release file is not relevant to the Adoptium marketplace beyond being referenced from an index file as described above.
 
-{/* TODO: fix up URL when schema moves to main branch */}
+{/*TODO: fix up URL when schema moves to main branch*/}
 
 Your products' release file listing must adhere to the
 [marketplace product JSON schema](https://github.com/adoptium/api.adoptium.net/tree/marketplace/marketplace), and Adoptium provides [examples](https://github.com/adoptium/api.adoptium.net/blob/marketplace/marketplace/adoptium-marketplace-schema-tests/src/test/resources/net/adoptium/marketplace/schema/) and

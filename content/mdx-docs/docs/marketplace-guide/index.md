@@ -8,8 +8,7 @@ authors: tellison, gdams, jiekang
 This document provides guidance for publishers that are eligible to market and promote OpenJDK runtimes via the
 [Adoptium Marketplace](/marketplace).
 
-Publishers may be vendors, not-for-profit entities, user groups, and others who share the values embodied in the 
-[Adoptium marketplace policy](/marketplace-policy). Publishers may offer open source or commercially licensed offerings, each usable at no cost or at a fee to the end user. The marketplace does not require specific version, platform, usage or license terms, and the binaries available through the marketplace may also be available elsewhere. All binaires offered through the Adoptium marketplace must meet the compatibility and quality criteria defined in the marketplace policy.
+Publishers may be vendors, not-for-profit entities, user groups, and others who share the values embodied in the [Adoptium marketplace policy](/marketplace-policy). Publishers may offer open source or commercially licensed offerings, each usable at no cost or at a fee to the end user. The marketplace does not require specific version, platform, usage or license terms, and the binaries available through the marketplace may also be available elsewhere. All binaires offered through the Adoptium marketplace must meet the compatibility and quality criteria defined in the marketplace policy.
 
 The marketplace is available to end users as both a [website](/marketplace) and an [application programming interface](https://marketplace-api.adoptium.net/) (API) hosted and maintained by the Adoptium project.
 
@@ -38,12 +37,12 @@ When a download is initiated via the Adoptium marketplace users will be directed
 
 Publishers must provide the following information in order to be included in the marketplace.
 
- * Publisher name : how you would like to be known in the marketplace website and API.
- * Logo image : a visual representation of you as a publisher for use on the website.
- * Listing data location : the base URL that Adoptium will use to retrieve your marketplace listing metadata.
- * Signature public key : the public key we will use to verify your signature.
- * Post-download page : the webpage we should direct website users towards when downloading your product.
- 
+* Publisher name : how you would like to be known in the marketplace website and API.
+* Logo image : a visual representation of you as a publisher for use on the website.
+* Listing data location : the base URL that Adoptium will use to retrieve your marketplace listing metadata.
+* Signature public key : the public key we will use to verify your signature.
+* Post-download page : the webpage we should direct website users towards when downloading your product.
+
 We don't expect you to change these frequently, as Adoptium will be adding these into the marketplace application configuration.
 
 The publisher information is provided by opening a [new publisher request issue](https://github.com/adoptium/adoptium/issues/new/choose) in the Adoptium repository. You can raise a new issue in the same repository if you do subsequently need to change it.
@@ -69,13 +68,13 @@ Your products listing for the marketplace can be hosted anywhere under your dire
 
 The product listing information comprises structured JSON format files, with flexibility to allow for multiple builds and versions. The information is rooted at the listing data location provided in the Providing-Publisher-Information,publisher information in the format described in the [Adoptium Marketplace Publisher Product Listing Repository](/docs/marketplace-listing) documentation.
 
-{/* TODO: How does a publisher check the logs of successful/failed pulls and schema validation? */}
+{/*TODO: How does a publisher check the logs of successful/failed pulls and schema validation?*/}
 
 The product listing information will be rejected if it does not adhere to the [product listing structure](/docs/marketplace-listing), marketplace file schema, or the signature does not verify the content successfully. We will contact you if the listing file is repeatedly failing these validation checks.
 
 ## Post-download page
 
-{/* TODO: Should the post-download be per-publisher or per-product (i.e. embedded in the metadata). */}
+{/*TODO: Should the post-download be per-publisher or per-product (i.e. embedded in the metadata).*/}
 
 When a user chooses to download your product via the marketplace website they will be directed to a post-download page as the download is initiated from your distribution server. The post-download page will thank the user and identify the publisher, including a link to a webpage of your choice. We envisage this webpage will lead the user to information about your product, organization, services, and so on.
 

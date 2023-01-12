@@ -4,7 +4,7 @@ authors: eddumelendez, czelabueno, jdluna, raulmj, tellison, gdams
 ---
 
 Hemos reunido unas cuantas preguntas frecuentes (FAQs) en este documento.
-Si quieres conversar con nosotros sobre estos tópicos, o realizar preguntas adicionales 
+Si quieres conversar con nosotros sobre estos tópicos, o realizar preguntas adicionales
 el mejor lugar es vía [Slack](/slack) o levantando un issue en el
 [canal de soporte](https://github.com/adoptium/adoptium-support).
 
@@ -16,14 +16,13 @@ uso están disponibles en nuestra [última página de versiones](/temurin/releas
 También contamos con todos los gestores de instalación más populares de Java, como:
 [Homebrew](https://formulae.brew.sh/cask/temurin), [SDKMAN](https://sdkman.io/),
 [winget](https://github.com/microsoft/winget-cli), y [Chocolatey](https://chocolatey.org/), nosotros aparecemos en
-[Imágenes docker oficiales](https://hub.docker.com/_/eclipse-temurin), y ud puede usar Temurin mediante el Github
+[Imágenes docker oficiales](https://hub.docker.com/_/eclipse-temurin), y ud puede usar Temurin mediante el GitHub
 ["setup-java"](https://github.com/marketplace/actions/setup-java-jdk#basic)
 action, y parte del soporte de Java de los proveedores de la nube.
 
 Los instaladores de Linux están disponibles en packages.adoptium.net. Para más información ver [esta guía](/installation/linux).
 
-Sí. Los binarios de Eclipse Temurin son proporcionados para su uso sin ningún costo por Adoptium, por siempre, bajo los términos de la "GNU General Public License, version 2 with the
-Classpath Exception". Usted puede utilizar, modificar y compartir libremente el código como se describe en las licencias incluidas en la descarga.
+Sí. Los binarios de Eclipse Temurin son proporcionados para su uso sin ningún costo por Adoptium, por siempre, bajo los términos de la "GNU General Public License, version 2 with the Classpath Exception". Usted puede utilizar,modificar y compartir libremente el código como se describe en las licencias incluidas en la descarga.
 
 ## ¿Cómo puedo ayudar en el proyecto?
 
@@ -36,11 +35,11 @@ El equipo de Adoptium ayuda en muchas maneras. Por ejemplo:
 
 * Recibimos apoyo técnico y creativo en el proyecto para avanzar en nuestras metas
 a través de promociones y marketing, escribiendo blogs sobre experiencias con Adoptium,
-respondiendo preguntas en nuestro [Comunidad de Slack activa](/slack), ayudando en 
-las pruebas de software y diagnosticando problemas, y 
+respondiendo preguntas en nuestro [Comunidad de Slack activa](/slack), ayudando en
+las pruebas de software y diagnosticando problemas, y
 [solucionando algunos issues](/docs/first-timer-support) que han sido reportados.
 
-* Muchas otras formas ya sea como única aventura o miembro de equipo a largo plazo, únete 
+* Muchas otras formas ya sea como única aventura o miembro de equipo a largo plazo, únete
 y comparte tus ideas!
 
 ## ¿Por cuánto tiempo será soportado Eclipse Temurin?
@@ -52,8 +51,8 @@ Nuestra frecuencia de release y nuestra declaración de soporte está disponible
 Sí. Cada release de Temurin ha pasado el relevante Oracle Java Compatibility Kit (JCK)
 para demostrar que es una implementación compatible de la especificación Java.
 Adicionalmente, los releases de Temurin deben pasar el [AQAvit quality verification suite](/aqavit)
-para asegurarse que estan listos para su uso en producción. Las pruebas AQAvit verifican si el release muestra 
-una gran rendimiento, seguridad, resiliencia y resistencia, y la habilidad de pasar una gran variedad de pruebas 
+para asegurarse que estan listos para su uso en producción. Las pruebas AQAvit verifican si el release muestra
+una gran rendimiento, seguridad, resiliencia y resistencia, y la habilidad de pasar una gran variedad de pruebas
 de compatibilidad de aplicaciones.
 
 ## ¿Dónde puedo reportar un error o problema con Eclipse Temurin?
@@ -68,30 +67,28 @@ y los problemas se abordarán sobre la base del mejor esfuerzo. Debe dirigirse a
 Tenemos una lista de variantes en nuestro
 [repositorio oficial de Docker](https://hub.docker.com/_/eclipse-temurin) para asegurar que nosotros
 respondemos a la entrega de nuevas imágenes que contienen Temurin. Los usuarios
-que quieren una distribución de Linux en contenedores que no proporcionamos 
+que quieren una distribución de Linux en contenedores que no proporcionamos
 pueden seguir las instrucciones en [esta guia](/blog/2021/08/using-jlink-in-dockerfiles/).
 
 ## ¿Soportarán mi arquitectura y sistema operativo favoritos?
 
-Eclipse Temurin tiene la gama más amplia de soporte a plataformas a través de las múltiples versiones de 
+Eclipse Temurin tiene la gama más amplia de soporte a plataformas a través de las múltiples versiones de
 la API de Java. Cada nueva plataforma incurre en costos adicionales y de
 demanda en los recursos del proyecto, asi que constantemente
-revisamos la demanda por descargas y uso para asegurarnos que estamos liberando en plataformas relevantes hacia 
-un gran grupo de usuarios. El conjunto actual de plataformas al que nos dirigimos en nuestros procesos de prueba 
+revisamos la demanda por descargas y uso para asegurarnos que estamos liberando en plataformas relevantes hacia
+un gran grupo de usuarios. El conjunto actual de plataformas al que nos dirigimos en nuestros procesos de prueba
 y build está listado [aquí](/supported-platforms).
 
 ## ¿Puedo automatizar la descarga de los binarios de Temurin?
 
 Sí! Se cuenta con una [API](https://api.adoptium.net/q/swagger-ui/)
 que Adoptium provee para la descarga de Eclipse Temurin. Usando la API es posible obtener
-información sobre las últimas compilaciones de Temurin, y obtenerlas en tu propia
-aplicación.
+información sobre las últimas compilaciones de Temurin, y obtenerlas en tu propia aplicación.
 
 ## ¿Qué significa el nombre de "Eclipse Temurin"?
 
 Este es el nombre del proyecto y la marca para los binarios producidos por la Fundación
-de Eclipse.
-Mientras apreciamos que la separación del nombre Adoptium/Temurin es más confusa que solamente
+de Eclipse. Mientras apreciamos que la separación del nombre Adoptium/Temurin es más confusa que solamente
 "Adoptium", esto es similar a como otros fabricantes nombran sus binarios, por ejemplo, Amazon
 tiene Corretto, Azul tiene Zulu (y otros). El proyecto "Adoptium" y grupo de trabajo se
 ocupará de más que solo Temurin, asi que la distinción es importante de mencionar.
@@ -101,7 +98,7 @@ ocupará de más que solo Temurin, asi que la distinción es importante de menci
 Los desarrollos de AdoptOpenJDK se conocen ahora como "Eclipse Temurin by
 Adoptium"([leer el blog post](/blog/2021/08/adoptium-celebrates-first-release/)).
 Sin embargo, no te preocupes, a pesar de los cambios de marca, se tratan de los mismos procesos de desarrollo abiertos,
-suites de prueba de AQAvit y principalmente el mismo equipo de producción que antes, 
+suites de prueba de AQAvit y principalmente el mismo equipo de producción que antes,
 pero hay [compañías mas grandes](/members) que aportan su experiencia
 al grupo de trabajo.
 
@@ -124,7 +121,7 @@ No hay necesidad de preocuparse acerca del cambio - sigue siendo libre.
 
 Los acuerdos en los que nos movemos dentro de la Fundaóion Eclipse significan
 que ya no podemos incluir IcedTea-Web en nuestros instaladores.
-Sin embargo, Ud. todavía puede agregar la funcionalidad si lo necesita usar 
+Sin embargo, Ud. todavía puede agregar la funcionalidad si lo necesita usar
 [instrucciones aquí](https://blog.adoptopenjdk.net/2018/10/using-icedtea-web-browser-plug-in-with-adoptopenjdk/).
 
 ## ¿Puede dar una charla sobre el proyecto?

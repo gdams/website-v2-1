@@ -29,11 +29,11 @@ For the [Temurin project](https://projects.eclipse.org/projects/adoptium.temurin
 
 <img src="https://adoptium.net/images/doc/logo-styleguide/temurin-logos-l-p.png" alt="Temurin logo in landscape and portrait mode" width="100%"/>
 
-### Color Variants
+### Temurin Color Variants
 
 Next to the landscape and portrait mode the logo is provided in 3 different color variants: coloured, grayscale, black&white. For each of the variants you can find different versions to use the logo always with a good contrast to the background.
 
-### Logo Download
+### Temurin Logo Download
 
 You can download the logo in all available variants as PNG images with transparent background [here](https://adoptium.net/images/doc/logo-styleguide/temurin-logo.zip).
 
@@ -43,10 +43,10 @@ For the [AQAvit project](https://projects.eclipse.org/projects/adoptium.temurin)
 
 <img src="https://adoptium.net/images/doc/logo-styleguide/aqavit-logos-l-p.png" alt="AQAvit logo in landscape and portrait mode" width="100%"/>
 
-### Color Variants
+### AQAvit Color Variants
 
 Next to the landscape and portrait mode the logo is provided in 3 different color variants: coloured, grayscale, black&white. For each of the variants you can find different versions to use the logo always with a good contrast to the background.
 
-### Logo Download
+### AQAvit Logo Download
 
 You can download the logo in all available variants as PNG images with transparent background [here](https://adoptium.net/images/doc/logo-styleguide/aqavit-logo.zip).

@@ -12,10 +12,10 @@ authors: zdtsw, gdams, tellison
 Adoptium 的 JDK 称为 Eclipse Temurin，推荐您使用我们的 [最新版本](/temurin/releases/)。
 
 我们还为各大Java 安装管理器提供功能，例如：
-[Homebrew](https://formulae.brew.sh/cask/temurin), 
+[Homebrew](https://formulae.brew.sh/cask/temurin),
 [SDKMAN](https://sdkman.io/),
-[winget](https://github.com/microsoft/winget-cli)， 
-[Chocolatey](https://chocolatey.org/)，
+[winget](https://github.com/microsoft/winget-cli),
+[Chocolatey](https://chocolatey.org/),
 [official Docker images](https://hub.docker.com/_/eclipse-temurin),
 您还可以通过 Github 使用 Temurin ["setup-java"](https://github.com/marketplace/actions/setup-java-jdk#basic) action，
 另外它也是云提供商 Java 支持的一部分。
@@ -48,6 +48,7 @@ Adoptium 提供 [下载 API](https://api.adoptium.net/q/swagger-ui/) 可以自�
 使用API可以获得有关 Temurin 最新版本的信息，并将它们加载到您的应用程序中。
 
 ## 为何命名为"Eclipse Temurin"?
+
 Eclipse Temurin 是 Eclipse Foundation 生成的二进制文件的项目和品牌名称
 
 将名称拆分为 Adoptium/Temurin 比 Adoptium 更令人困惑，但其他供应商也使用类似方式。例如，Amazon 有 Corretto，Azul 有 Zulu 等等。
@@ -63,7 +64,7 @@ Adoptium 项目和工作组将处理的不仅仅是 Temurin，这就是为什么
 
 ## 如何找到 Eclipse OpenJ9 构建?
 
-不幸的是，我们无法继续分发 Eclipse OpenJ9 的构建。 
+不幸的是，我们无法继续分发 Eclipse OpenJ9 的构建。
 IBM 现在已经接管了 OpenJ9，并且命名为 "[IBM Semeru](https://developer.ibm.com/languages/java/semeru-runtimes/)"。
 用户无需担心此项变动 - 它仍然是免费的。
 
