@@ -1,6 +1,7 @@
 ---
 title: 'Linux (RPM/DEB/APK) installer packages'
 authors: gdams, karianna, perlun, TheCrazyLex, TobiX, topaussie, sxa, tellison, luozhenyu
+toc: true
 ---
 
 Eclipse Temurin RPM and DEB packages are now available for installing on your favourite Linux distribution.

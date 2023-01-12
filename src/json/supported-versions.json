@@ -1,0 +1,70 @@
+{
+    "Windows (x64/x86)": {
+        "Windows Server 2022": { "docker": true},
+        "Windows Server 2019": { "docker": true },
+        "Windows Server 2016": {},
+        "Windows Server 2012 R2": {},
+        "Windows 11": {},
+        "Windows 10": {},
+        "Windows 8.1": {}
+    },
+    "Linux (x64)[1]": {
+        "Alpine Linux 3.5 or later (Headless)": { "docker": true },
+        "RHEL 9.x": {},
+        "RHEL 8.x": {},
+        "RHEL/CentOS 7.x": { "docker": true },
+        "SUSE Linux Enterprise Server (SLES) 12": {},
+        "Ubuntu 22.04": { "docker": true },
+        "Ubuntu 20.04": { "docker": true },
+        "Ubuntu 18.04": {}
+    },
+    "Linux (ARM 64-bit)[2]": {
+        "RHEL 9.x": {},
+        "RHEL 8.x": {},
+        "RHEL/CentOS 7.x": { "docker": true },
+        "Ubuntu 22.04": { "docker": true },
+        "Ubuntu 20.04": { "docker": true },
+        "Ubuntu 18.04": {}
+    },
+    "Linux (ARM 32-bit Hard-Float)[2]": {
+        "Ubuntu 22.04": { "docker": true },
+        "Ubuntu 20.04": { "docker": true },
+        "Ubuntu 18.04": {}
+    },
+    "Linux (PowerPC 64-bit Little Endian)[2]": {
+        "RHEL 9.x": {},
+        "RHEL 8.x": {},
+        "RHEL/CentOS 7.x": { "docker": true },
+        "Ubuntu 22.04": { "docker": true },
+        "Ubuntu 20.04": { "docker": true },
+        "Ubuntu 18.04": {}
+    },
+    "Linux (s390x)[2]": {
+        "RHEL 9.x": {"exclude": [8]},
+        "RHEL 8.x": {"exclude": [8]},
+        "RHEL 7.x": { "docker": true, "exclude": [8] },
+        "Ubuntu 22.04": { "docker": true, "exclude": [8] },
+        "Ubuntu 20.04": { "docker": true, "exclude": [8] },
+        "Ubuntu 18.04": {"exclude": [8]}
+    },
+    "macOS (x64)[4]": {
+        "macOS 13": {},
+        "macOS 12": {},
+        "macOS 11": {},
+        "macOS 10.15": {}
+    },
+    "macOS (Apple Silicon)": {
+        "macOS 13": {"exclude": [8]},
+        "macOS 12": {"exclude": [8]},
+        "macOS 11": {"exclude": [8]}
+    },
+    "Solaris (x64 and Sparc)": {
+        "Solaris 11": {"include": [8]},
+        "Solaris 10u11": {"include": [8]}
+    },
+    "AIX (PowerPC 64-bit Big Endian)": {
+        "AIX 7.2": {},
+        "AIX 7.1 TL5 SP5": {},
+        "AIX 7.1 TL4": {}
+    }
+}

@@ -7,7 +7,7 @@ describe('EditLink component', () => {
   it('renders correctly', () => {
     const { container } = render(
       <EditLink
-        relativePath="/fake/path.adoc"
+        relativePath="fake/path.md"
       />
     );
     expect(container).toMatchSnapshot();

@@ -1,6 +1,7 @@
 ---
 title: 'Archive Installation'
 authors: gdams
+toc: true
 ---
 
 ## Linux

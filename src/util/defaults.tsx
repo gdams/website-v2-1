@@ -6,6 +6,8 @@ export const packageTypes = ['JDK', 'JRE']
 export const versions = [19, 18, 17, 16, 11, 8]
 // LTS versions only are listed here
 export const versionsLTS = [17, 11, 8]
+// Versions that are actively in support
+export const versionsActive = [8, 11, 17, 19]
 export const marketplaceDistributions = ['microsoft', 'temurin', 'zulu', 'semeru_certified']
 // The default JDK version to serve up on pages
 export const defaultVersion = 17

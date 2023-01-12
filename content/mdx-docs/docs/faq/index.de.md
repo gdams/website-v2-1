@@ -10,7 +10,6 @@ direkt mit uns sprechen möchten bzw. zusätzliche Fragen haben, ist der beste O
 [Slack-Channel](/slack) oder über einen Issue im
 [Support-Kanal](https://github.com/adoptium/adoptium-support).
 
-
 ## Wo sind die neuesten JDKs?
 
 Die meisten der Eclipse Temurin builds mit HotSpot für 8u322-b06, 11.0.14+9 und

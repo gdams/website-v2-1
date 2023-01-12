@@ -17,16 +17,17 @@ import '@fortawesome/fontawesome-free/css/v4-shims.min.css'
 const MDXDocTemplate = ({ data, children, pageContext }) => {
   const { relativePath } = pageContext;
   const doc = data.mdx;
-  const { fields, frontmatter } = doc;
+  const { fields, frontmatter, tableOfContents } = doc;
+  const toc = frontmatter.toc;
   const pageAuthorList = frontmatter.authors || ''
   return (
     <Layout>
       <section className='py-5 px-3'>
-        <div className='asciidoc-container container-adoc row' id='asciidoc-container'>
+        <div className='container-mdx row'>
           <div className='col-lg-3 hide-on-mobile'>
             {/* Leaving space for a table of contents (side bar) */}
           </div>
-          <div className='asciidoc col-lg-6 col-md-12'>
+          <div className='col-lg-6 col-md-12'>
             <h1 className='pb-4 fw-light text-center'>{convert(frontmatter.title)}</h1>
             {fields.slug === '/installation/' && (
               <section className='adopt-demo-container hide-on-mobile my-5'>
@@ -35,12 +36,22 @@ const MDXDocTemplate = ({ data, children, pageContext }) => {
                 </div>
               </section>
             )}
+            {toc && tableOfContents && (
+              <details className='p-3 my-3 bg-grey'>
+                <summary className="lead">Table of Contents</summary>
+                <ul>
+                  {tableOfContents.items.map((item, index) => (
+                    <li key={index}><a href={item.url}>{item.title}</a></li>
+                  ))}
+                </ul>
+              </details>
+            )}
             <MDXProvider components={mdxComponents}>
               {children}
             </MDXProvider>
           <hr className='m-5' />
           <AuthorsList authors={pageAuthorList.split(',')} />
-          <EditLink relativePath={`mdx-docs/${relativePath}`} />
+          <EditLink relativePath={relativePath} />
           </div>
           <div className='col-lg-3 hide-on-mobile'></div>
         </div>
@@ -74,7 +85,9 @@ export const pageQuery = graphql`
       }
       frontmatter {
         authors
+        toc
       }
+      tableOfContents
     }
     locales: allLocale(filter: {language: {eq: $language}}) {
       edges {

@@ -65,14 +65,7 @@ exports.onCreatePage = ({ page, actions }) => {
 exports.onCreateNode = async ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
-  if (node.internal.type === 'Asciidoc') {
-    const value = createFilePath({ node, getNode })
-    createNodeField({
-      name: 'slug',
-      node,
-      value
-    })
-  } else if (node.internal.type === 'Mdx') {
+  if (node.internal.type === 'Mdx') {
 
     // Use path.basename
     // https://nodejs.org/api/path.html#path_path_basename_path_ext
@@ -120,39 +113,6 @@ exports.createPages = async ({ graphql, actions }) => {
   const tagTemplate =`${templates}/tagPage.tsx`;
   const blogPost = `${templates}/blogPost.tsx`;
   const mdxdocTemplate = `${templates}/docsPage.tsx`;
-  const asciidocTemplate = `${templates}/asciidocTemplate.tsx`;
-
-  // Create Asciidoc pages.
-  const asciidocResults = await graphql(`
-    {
-      allAsciidoc {
-        edges {
-          node {
-            id
-            fields {
-              slug
-            }
-            parent {
-              ... on File {
-                relativePath
-                absolutePath
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
-
-  asciidocResults.data.allAsciidoc.edges.forEach(({ node }) => {
-    createPage({
-      path: node.fields.slug,
-      component: asciidocTemplate,
-      context: {
-        id: node.id
-      }
-    })
-  })
 
   // Create author pages
   const authorJson = require('./src/json/authors.json')

@@ -20,8 +20,7 @@ También contamos con todos los gestores de instalación más populares de Java,
 ["setup-java"](https://github.com/marketplace/actions/setup-java-jdk#basic)
 action, y parte del soporte de Java de los proveedores de la nube.
 
-Los instaladores de Linux están disponibles en packages.adoptium.net. Para más
-información ver link:/installation/linux[esta guía].
+Los instaladores de Linux están disponibles en packages.adoptium.net. Para más información ver [esta guía](/installation/linux).
 
 Sí. Los binarios de Eclipse Temurin son proporcionados para su uso sin ningún costo por Adoptium, por siempre, bajo los términos de la "GNU General Public License, version 2 with the
 Classpath Exception". Usted puede utilizar, modificar y compartir libremente el código como se describe en las licencias incluidas en la descarga.
@@ -30,9 +29,7 @@ Classpath Exception". Usted puede utilizar, modificar y compartir libremente el 
 
 El equipo de Adoptium ayuda en muchas maneras. Por ejemplo:
 
-* Cualquiera puede contribuir a los fondos que mantienen a la ejecución del proyecto, o
-como [única donación](https://www.eclipse.org/donate/adoptium/) o a través de un
-link:/sponsors[patrocinio de proyectos] más estructurado.
+* Cualquiera puede contribuir a los fondos que mantienen a la ejecución del proyecto, o como [única donación](https://www.eclipse.org/donate/adoptium/) o a través de un [patrocinio de proyectos](/sponsors) más estructurado.
 
 * Organizaciones que dependen de Adoptium son bienvenidos a unirse
 [Adoptium Working Group](/members) y ganar una voz en la dirección del proyecto.
@@ -54,7 +51,7 @@ Nuestra frecuencia de release y nuestra declaración de soporte está disponible
 
 Sí. Cada release de Temurin ha pasado el relevante Oracle Java Compatibility Kit (JCK)
 para demostrar que es una implementación compatible de la especificación Java.
-Adicionalmente, los releases de Temurin deben pasar el link:/aqavit[AQAvit quality verification suite]
+Adicionalmente, los releases de Temurin deben pasar el [AQAvit quality verification suite](/aqavit)
 para asegurarse que estan listos para su uso en producción. Las pruebas AQAvit verifican si el release muestra 
 una gran rendimiento, seguridad, resiliencia y resistencia, y la habilidad de pasar una gran variedad de pruebas 
 de compatibilidad de aplicaciones.
@@ -66,7 +63,7 @@ que gestionará y hará un seguimiento privado del problema hasta que se resuelv
 
 Cuando algo simplemente no se comporta como lo espera o tiene preguntas sobre
 cómo configurar Temurin, por favor háganoslo saber públicamente abriendo un
-[support issue](https://github.com/adoptium/adoptium-support/issues/new/choose) y trabajaremos con usted para encontrar una solución. Nuestro link de soporte es link:/support["soporte de comunidad"]
+[support issue](https://github.com/adoptium/adoptium-support/issues/new/choose) y trabajaremos con usted para encontrar una solución. Nuestro link de soporte es ["soporte de comunidad"](/support)
 y los problemas se abordarán sobre la base del mejor esfuerzo. Debe dirigirse a las organizaciones que ofrecen soporte comercial si necesita un nivel de servicio garantizado para su uso en Java.
 Tenemos una lista de variantes en nuestro
 [repositorio oficial de Docker](https://hub.docker.com/_/eclipse-temurin) para asegurar que nosotros

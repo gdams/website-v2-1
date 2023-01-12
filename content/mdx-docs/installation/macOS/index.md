@@ -1,6 +1,7 @@
 ---
 title: 'macOS PKG installer packages'
 authors: gdams, karianna, tellison
+toc: true
 ---
 
 Eclipse Temurin macOS installer packages are available as standard .pkg

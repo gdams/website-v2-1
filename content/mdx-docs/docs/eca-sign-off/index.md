@@ -1,6 +1,7 @@
 ---
 title: 'Sign the Eclipse Contributor Agreement'
 authors: MBoegers, gdams
+toc: true
 ---
 
 To contribute to this project the [Eclipse Contributor Agreement (ECA)](https://www.eclipse.org/legal/ECA.php) must be signed.

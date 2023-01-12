@@ -17,6 +17,7 @@ const gatsbyFsMarkdownSources = markdownSources.map(name => ({
   options: {
     name,
     path: path.resolve(__dirname, `./content/${name}`),
+    ignore: ['**/README.md']
   },
 }));
 
@@ -32,14 +33,6 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-sitemap',
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'asciidoc-pages',
-        path: path.join(__dirname, 'content/asciidoc-pages'),
-        ignore: ['**/*.md']
-      }
-    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -128,7 +121,6 @@ module.exports = {
         ]
       }
     },
-    'gatsby-transformer-asciidoc',
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
@@ -136,7 +128,7 @@ module.exports = {
         mdxOptions: {
           remarkPlugins: [
             // Add GitHub Flavored Markdown (GFM) support
-            require('remark-gfm')
+            require('remark-gfm'),
           ]
         },
         gatsbyRemarkPlugins: [
@@ -181,17 +173,22 @@ module.exports = {
         engine: 'flexsearch',
         query: `
           {
-            allAsciidoc {
+            docs: allFile(filter: {
+              sourceInstanceName: { eq: "mdx-docs" },
+              childMdx: { internal: { type: { eq: "Mdx" } } }
+            }) {
               edges {
                 node {
                   id
-                  document {
-                    title
+                  childMdx {
+                    fields {
+                      slug
+                    }
+                    body
+                    frontmatter {
+                      title
+                    }
                   }
-                  fields {
-                    slug
-                  }
-                  html
                 }
               }
             }
@@ -200,21 +197,12 @@ module.exports = {
         index: ['title', 'body'],
         store: ['id', 'path', 'title'],
         normalizer: ({ data }) =>
-          data.allAsciidoc.edges.map((result) => ({
+          data.docs.edges.map((result) => ({
             id: result.node.id,
-            path: result.node.fields.slug,
-            title: result.node.document.title,
-            body: result.node.html
+            path: result.node.childMdx.fields.slug,
+            title: result.node.childMdx.frontmatter.title,
+            body: result.node.childMdx.body
           }))
-      }
-    },
-    {
-      resolve: 'gatsby-transformer-remark',
-      options: {
-        plugins: [
-          'gatsby-remark-autolink-headers',
-          'gatsby-remark-code-titles'
-        ]
       }
     },
     'gatsby-plugin-netlify',

@@ -2,7 +2,7 @@ name: Contributor Updater
 
 on:
   push:
-    paths: [ content/asciidoc-pages/** ]
+    paths: [ content/mdx-docs/** ]
     branches: [ main ]
 
 concurrency:
@@ -26,8 +26,8 @@ jobs:
     - run: |
         # shellcheck disable=2043
         for changed_file in ${{ steps.files.outputs.all }}; do
-          if [[ ${changed_file} =~ ^content/asciidoc.*.adoc ]]; then
-            current_authors=$(grep ':page-authors:' "${changed_file}" | sed -n -e 's/^.*page-authors: //p')
+          if [[ ${changed_file} =~ ^content/mdx-docs.*.md ]]; then
+            current_authors=$(grep '^authors:' "${changed_file}" | sed -n -e 's/^.*authors: //p')
             contibutors=$(python3 .github/workflows/github-file-contributors.py --file "${changed_file}")
             for contibutor in ${contibutors}; do
               if ! echo "${current_authors}" | grep "${contibutor}"; then
@@ -44,10 +44,10 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.ADOPTIUM_TEMURIN_BOT_TOKEN }}
       with:
-        title: "Update Asciidoc Contributors"
+        title: "Update MDX Contributors"
         body: "This is an automatically generated pull request, it will be automatically merged if all the CI tests pass."
-        path: "content/asciidoc-pages/"
+        path: "content/mdx-docs/"
         branch: "contributor_bot"
-        commit-message: "contributors: update asciidoc contributors"
+        commit-message: "contributors: update mdx contributors"
         labels: automerge
         author: "eclipse-temurin-bot <temurin-bot@eclipse.org>"

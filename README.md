@@ -8,7 +8,7 @@ The main branch contains the source code necessary for development. The producti
 
 ## Tech Stack
 
-This is is a Node.js / npm driven stack with AsciiDoc used for static content and Gatsby as the rendering engine etc.
+This is is a Node.js / npm driven stack with MDX used for static content and Gatsby as the rendering engine etc.
 
 ## How to develop locally
 
@@ -20,7 +20,7 @@ This assumes you already have Node.js and npm installed. Node.js version 18 or a
     npm install --legacy-peer-deps
     ```
 
-1. Start the site up. Gatsby will build all of the various parts of the site (Asciidoc etc). Note that this command takes some time to execute.
+1. Start the site up. Gatsby will build all of the various parts of the site (MDX etc). Note that this command takes some time to execute.
 
     ```shell
     npm start
@@ -36,7 +36,7 @@ This assumes you already have Node.js and npm installed. Node.js version 18 or a
 
 ## Configuring the build
 
-`gatsby-config.js` is effectively your build script and `gatsby-node.js` is where the Asciidoc rendering takes place.
+`gatsby-config.js` is effectively your build script and `gatsby-node.js` is where the MDX rendering takes place.
 
 ## How to contribute
 
