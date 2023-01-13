@@ -16,6 +16,16 @@ describe('Blog page', () => {
     expect(pageContent).toMatchSnapshot();
   });
 
+  it('next page renders correctly', () => {
+    let mockData = createMDXData();
+    mockData.allMdx.totalCount = 11;
+    const { container } = render(<BlogIndex data={mockData}/>);
+    // eslint-disable-next-line
+    const pageContent = container.querySelector('main');
+
+    expect(pageContent).toMatchSnapshot();
+  });
+
   it('head renders correctly', () => {
     const { container } = render(<Head />);
     // eslint-disable-next-line

@@ -60,11 +60,6 @@ export const Head = ({ pageContext }) => {
 
 export const authorPageQuery = graphql`
   query authorPageQuery($author: String!, $limit: Int!, $language: String!) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allMdx(
       filter: {frontmatter: {author: {eq: $author}}}
       sort: {frontmatter: {date: DESC}}

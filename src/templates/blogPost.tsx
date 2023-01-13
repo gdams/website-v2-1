@@ -7,29 +7,11 @@ import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 import BlogAuthor from '../components/BlogAuthor';
 import AuthorData from '../json/authors.json';
-import GuestPost from '../components/GuestPost';
 import Byline from '../components/Byline';
 import ShareButton from '../components/Share';
 import Tags from '../components/Tags';
 import Comments from '../components/Comments';
-
-export const formatDiv = props => {
-  // convert inline code to code blocks
-  if (props.dangerouslySetInnerHTML.__html.includes('class="language-text"')) {
-    return <code {...props} />
-  } else {
-    return <div {...props} />;
-  }
-}
-
-const components = {
-  GuestPost,
-  blockquote: props => <blockquote style={{ paddingLeft: '1.5rem', borderLeft: '.3rem solid hsla(0,0%,0%,0.9)' }} className='blockquote' {...props} />,
-  table: props => <table className='table table-hover' {...props} />,
-  thead: props => <thead className='table-dark' {...props} />,
-  li: props => <li style={{ marginBottom: '1.5em' }} {...props} />,
-  div: formatDiv
-};
+import { mdxComponents } from '../util/mdxComponents';
 
 const BlogPostTemplate = ({ data, pageContext, location, children }) => {
   const post = data.mdx;
@@ -48,7 +30,7 @@ const BlogPostTemplate = ({ data, pageContext, location, children }) => {
                         <Byline date={post.frontmatter.date} author={author.name} identifier={post.frontmatter.author} />
                         <ShareButton location={location} siteMetadata={data.site.siteMetadata} post={post.frontmatter}/>
                         </header>
-                        <MDXProvider components={components}>
+                        <MDXProvider components={mdxComponents}>
                         {children}
                         </MDXProvider>
                         <Tags tags={tags}/>

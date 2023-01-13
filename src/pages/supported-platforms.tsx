@@ -39,32 +39,31 @@ const SupportedPlatformsPage = () => {
                                 </tr>
                                 <tr>
                                     { versionsActive.map((version, index) => (
-                                        <th key={index} className="tableblock halign-center valign-middle"><p className="tableblock">{version}</p></th>
+                                        <th key={`verion-list-${index}`} className="tableblock halign-center valign-middle">
+                                            <p className="tableblock">{version}</p>
+                                        </th>
                                     ))}
                                 </tr>
                             </thead>
-                            <tbody>
-                                { Object.keys(versions).map((os, index) => (
-                                    <>
-                                        <tr key={index} className='bg-grey'>
-                                            <th className="tableblock halign-center valign-middle" colSpan={5}><p className="tableblock">{os}</p></th>
+                            { Object.keys(versions).map((os) => (
+                                <tbody key={os}>
+                                    <tr className='bg-grey'>
+                                        <th className="tableblock halign-center valign-middle" colSpan={5}><p className="tableblock">{os}</p></th>
+                                    </tr>
+                                    {Object.keys(versions[os]).map((platform) => (
+                                        <tr key={`${os}-${platform}`}>
+                                            <td className="tableblock halign-center valign-middle"><p className="tableblock">{platform}</p></td>
+                                            { versionsActive.map((version, index) => (
+                                                <td key={index} className="tableblock halign-center valign-middle">
+                                                    <p className="tableblock">
+                                                        {validator(versions[os][platform], version)}
+                                                    </p>
+                                                </td>
+                                            ))}
                                         </tr>
-                                        {Object.keys(versions[os]).map((platform, index) => (
-                                            <tr key={index}>
-                                                <td className="tableblock halign-center valign-middle"><p className="tableblock">{platform}</p></td>
-                                                { versionsActive.map((version, index) => (
-                                                    <td key={index} className="tableblock halign-center valign-middle">
-                                                        <p className="tableblock">
-                                                            {validator(versions[os][platform], version)}
-                                                        </p>
-                                                    </td>
-                                                ))}
-                                            </tr>
-                                        ))}
-                                    </>
-
-                                ))}
-                            </tbody>
+                                    ))}
+                                </tbody>
+                            ))}
                         </table>
                     <div className='text-start pt-3'>
                         <p>1. These builds should work on any distribution with glibc version 2.12 or higher.</p>

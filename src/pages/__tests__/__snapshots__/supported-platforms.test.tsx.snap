@@ -926,6 +926,8 @@ exports[`Supported Platforms page > renders correctly 1`] = `
                 </p>
               </td>
             </tr>
+          </tbody>
+          <tbody>
             <tr
               class="bg-grey"
             >
@@ -1924,6 +1926,8 @@ exports[`Supported Platforms page > renders correctly 1`] = `
                 </p>
               </td>
             </tr>
+          </tbody>
+          <tbody>
             <tr
               class="bg-grey"
             >
@@ -2676,6 +2680,8 @@ exports[`Supported Platforms page > renders correctly 1`] = `
                 </p>
               </td>
             </tr>
+          </tbody>
+          <tbody>
             <tr
               class="bg-grey"
             >
@@ -3087,6 +3093,8 @@ exports[`Supported Platforms page > renders correctly 1`] = `
                 </p>
               </td>
             </tr>
+          </tbody>
+          <tbody>
             <tr
               class="bg-grey"
             >
@@ -3839,6 +3847,8 @@ exports[`Supported Platforms page > renders correctly 1`] = `
                 </p>
               </td>
             </tr>
+          </tbody>
+          <tbody>
             <tr
               class="bg-grey"
             >
@@ -4549,6 +4559,8 @@ exports[`Supported Platforms page > renders correctly 1`] = `
                 </p>
               </td>
             </tr>
+          </tbody>
+          <tbody>
             <tr
               class="bg-grey"
             >
@@ -4943,6 +4955,8 @@ exports[`Supported Platforms page > renders correctly 1`] = `
                 </p>
               </td>
             </tr>
+          </tbody>
+          <tbody>
             <tr
               class="bg-grey"
             >
@@ -5242,6 +5256,8 @@ exports[`Supported Platforms page > renders correctly 1`] = `
                 </p>
               </td>
             </tr>
+          </tbody>
+          <tbody>
             <tr
               class="bg-grey"
             >
@@ -5446,6 +5462,8 @@ exports[`Supported Platforms page > renders correctly 1`] = `
                 </p>
               </td>
             </tr>
+          </tbody>
+          <tbody>
             <tr
               class="bg-grey"
             >

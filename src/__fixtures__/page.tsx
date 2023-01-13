@@ -1,6 +1,7 @@
 import {
     MDXPage,
     SingleMDXPage,
+    SingleMDXDocPage,
     SiteMetaData
 } from '../types';
 
@@ -50,6 +51,34 @@ export const createSingleMDXData = (): {
             social: {
                 twitter: 'twitter',
             }
+        }
+    }
+});
+
+export const createMDXDocsData = (toc): {
+    mdx: SingleMDXDocPage;
+} => ({
+    mdx: {
+        id: 'mdx-1',
+        fields: {
+            slug: '/mdx/mdx-page-title',
+        },
+        frontmatter: {
+            title: 'MDX Doc Page title',
+            authors: 'pmc, pmc2',
+            toc: toc ? true : false
+        },
+        tableOfContents: {
+            items: [
+                {
+                    url: '#section1',
+                    title: 'Section 1'
+                },
+                {
+                    url: '#section2',
+                    title: 'Section 2'
+                }
+            ],
         }
     }
 });

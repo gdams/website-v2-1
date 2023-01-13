@@ -3,6 +3,7 @@ export interface File {
 }
 
 export interface MDXPage {
+    totalCount?: number;
     edges: MDXPageItem[];
 }
 
@@ -43,6 +44,25 @@ export interface SingleMDXPage {
             }
         }
     }
+}
+
+export interface SingleMDXDocPage {
+    id: string;
+    fields: {
+        slug: string;
+    }
+    frontmatter: {
+    }
+    tableOfContents?: {
+        items: [
+            tableOfContents[]
+        ]
+    }
+}
+
+export interface tableOfContents {
+    title: string;
+    url: string;
 }
 
 export interface SiteMetaData {

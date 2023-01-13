@@ -53,11 +53,6 @@ export const Head = ({ pageContext }) => {
 
 export const tagsPageQuery = graphql`
   query tagsPageQuery($tag: String!, $language: String!) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allMdx(
       filter: {frontmatter: {tags: {eq: $tag}}}
       sort: {frontmatter: {date: DESC}}

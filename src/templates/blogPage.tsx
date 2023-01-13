@@ -81,11 +81,6 @@ export const Head = ({ pageContext }) => {
 
 export const blogPageQuery = graphql`
   query blogPageQuery($skip: Int!, $limit: Int!, $language: String!) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allMdx(
       filter: {internal: {contentFilePath: { regex: "/blog/" }}},
       sort: {frontmatter: {date: DESC}
