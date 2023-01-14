@@ -19,15 +19,6 @@ describe('Docs Template page', () => {
     expect(pageContent).toMatchSnapshot();
   });
 
-  it('installation renders correctly', () => {
-    mockData.mdx.fields.slug = '/installation/';
-    const { container } = render(<DocsPage data={mockData} pageContext={pageContext} children={'sample docs'} />);
-    // eslint-disable-next-line
-    const pageContent = container.querySelector('main');
-
-    expect(pageContent).toMatchSnapshot();
-  });
-
   it('toc renders correctly', () => {
     let mockData = createMDXDocsData(true);
     const { container } = render(<DocsPage data={mockData} pageContext={pageContext} children={'sample docs'} />);

@@ -6,7 +6,6 @@ import { MDXProvider } from '@mdx-js/react';
 import Layout from '../components/Layout';
 import EditLink from '../components/EditLink'
 import AuthorsList from '../components/AuthorList'
-import InstallTabs from '../components/InstallTabs'
 import Seo from '../components/Seo'
 
 import { mdxComponents } from '../util/mdxComponents'
@@ -29,13 +28,6 @@ const MDXDocTemplate = ({ data, children, pageContext }) => {
           </div>
           <div className='col-lg-6 col-md-12'>
             <h1 className='pb-4 fw-light text-center'>{convert(frontmatter.title)}</h1>
-            {fields.slug === '/installation/' && (
-              <section className='adopt-demo-container hide-on-mobile my-5'>
-                <div className='adopt-demo mx-auto'>
-                  <InstallTabs />
-                </div>
-              </section>
-            )}
             {toc && tableOfContents && (
               <details className='p-3 my-3 bg-grey'>
                 <summary className="lead">Table of Contents</summary>

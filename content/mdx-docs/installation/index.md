@@ -2,6 +2,9 @@
 title: 'Install Eclipse Temurin&trade;'
 authors: gdams, karianna, tellison
 ---
+import InstallTabs from '../../../src/components/InstallTabs'
+
+<InstallTabs/>
 
 Eclipse Temurin binaries are available for [download](/temurin/releases) in the following types of installation package:
 
