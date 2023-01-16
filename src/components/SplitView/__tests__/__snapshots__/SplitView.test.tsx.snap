@@ -1,0 +1,26 @@
+// Vitest Snapshot v1
+
+exports[`SplitView component > should render correctly 1`] = `
+<div>
+  <table>
+    <tbody>
+      <tr>
+        <td
+          class="split-view-left p-2"
+        >
+          <div>
+            Left
+          </div>
+        </td>
+        <td
+          class="split-view-right p-2"
+        >
+          <div>
+            Right
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
