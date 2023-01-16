@@ -2,7 +2,7 @@
 
 Most static pages on this site are written as MDX (Markdown) pages. These are similar to Markdown in format but give us more flexibility.
 
-The directory layout of these files is very important as it determines the path to the file in the site. For example a documnet in `/foo/bar/index.md` will be served up as `/foo/bar` on the site.
+The directory layout of these files is very important as it determines the path to the file in the site. For example a document in `/foo/bar/index.md` will be served up as `/foo/bar` on the site.
 
 ```tree
 .
@@ -35,7 +35,7 @@ Additionally you can add the `toc` attribute to the top of the MDX page if you w
 
 ## Localising Documentation
 
-The site has multi-language support which means that documentation can be served up in the users local language. By default, the English version if served if a localised version doesn't exit.
+The site has multi-language support which means that documentation can be served up in the user's local language. By default, the English version if served if a localised version doesn't exit.
 
 Localised documentation is named with the language key in the name so a German version would be `index.de.md` and a Spanish version would be `index.es.md`.
 

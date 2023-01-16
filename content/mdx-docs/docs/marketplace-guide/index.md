@@ -66,7 +66,7 @@ AQAvit is an open source test suite managed at the Adoptium project. Publishers 
 
 Your products listing for the marketplace can be hosted anywhere under your direct control that supports [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) requests and responses, including your own website property, GitHub, and so on. While Adoptium will check that the information is received from you securely by using a digital signature based upon verified information, you are ultimately responsible for the information provided to the marketplace via the listing data location URL.
 
-The product listing information comprises structured JSON format files, with flexibility to allow for multiple builds and versions. The information is rooted at the listing data location provided in the Providing-Publisher-Information,publisher information in the format described in the [Adoptium Marketplace Publisher Product Listing Repository](/docs/marketplace-listing) documentation.
+The product listing information comprises structured JSON format files, with flexibility to allow for multiple builds and versions. The information is rooted at the listing data location provided in the [publisher information](#providing-publisher-information) in the format described in the [Adoptium Marketplace Publisher Product Listing Repository](/docs/marketplace-listing) documentation.
 
 {/*TODO: How does a publisher check the logs of successful/failed pulls and schema validation?*/}
 

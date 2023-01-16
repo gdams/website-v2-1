@@ -17,7 +17,7 @@ The binaries are supported on the architectures and operating systems listed in 
 
 ## Installers
 
-Installers are currently available for Windows® and macOS® JDK and JRE
+Installers are currently available for Windows&reg; and macOS&reg; JDK and JRE
 packages. Installation steps are covered in the following sections:
 
 * [Windows MSI installers packages](/installation/windows)
