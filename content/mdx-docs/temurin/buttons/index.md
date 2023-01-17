@@ -13,7 +13,7 @@ You may modify the html code to display the button at different sizes, but don't
         ![Button 1](https://adoptium.net/images/buttons/button_img_001.png)
     </SplitViewLeft>
     <SplitViewRight>
-```bash
+```html
 <a href="https://adoptium.net/temurin?utm_medium=button">
   <img src="https://adoptium.net/images/buttons/button_img_001.png"
      alt="Get Eclipse Temurin" width="150" height="150" />
@@ -41,7 +41,7 @@ You may modify the html code to display the button at different sizes, but don't
         ![Button 3](https://adoptium.net/images/buttons/button_img_003.png)
     </SplitViewLeft>
     <SplitViewRight>
-```bash
+```html
 <a href="https://adoptium.net/temurin?utm_medium=button">
   <img src="https://adoptium.net/images/buttons/button_img_003.png"
      alt="Get Eclipse Temurin" width="100" height="100" />
@@ -55,7 +55,7 @@ You may modify the html code to display the button at different sizes, but don't
         ![Button 4](https://adoptium.net/images/buttons/button_img_004.png)
     </SplitViewLeft>
     <SplitViewRight>
-```bash
+```html
 <a href="https://adoptium.net/temurin?utm_medium=button">
   <img src="https://adoptium.net/images/buttons/button_img_004.png"
      alt="Get Eclipse Temurin" width="200" height="200" />
@@ -69,7 +69,7 @@ You may modify the html code to display the button at different sizes, but don't
         ![Button 5](https://adoptium.net/images/buttons/button_img_005.png)
     </SplitViewLeft>
     <SplitViewRight>
-```bash
+```html
 <a href="https://adoptium.net/temurin?utm_medium=button">
   <img src="https://adoptium.net/images/buttons/button_img_004.png"
      alt="Get Eclipse Temurin" width="120" height="120" />
@@ -83,7 +83,7 @@ You may modify the html code to display the button at different sizes, but don't
         ![Button 6](https://adoptium.net/images/buttons/button_img_006.png)
     </SplitViewLeft>
     <SplitViewRight>
-```bash
+```html
 <a href="https://adoptium.net/temurin?utm_medium=button">
   <img src="https://adoptium.net/images/buttons/button_img_004.png"
      alt="Get Eclipse Temurin" width="200" height="200" />
