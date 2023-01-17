@@ -50,17 +50,12 @@ The top-level index file must appear at the root of the repository location, and
 
 Here's a simple listing repository example.
 
-```output
-/index.json // <1>
-/index.json.sha256.sign // <2>
-/release.json // <3>
-/release.json.sha256.sign // <4>
+```bash
+/index.json # Main product repository index file
+/index.json.sha256.sign # Digital signature for index file
+/release.json # Product release listing file
+/release.json.sha256.sign # Digital signature for release listing file
 ```
-
-1. Main product repository index file.
-1. Digital signature for index file.
-1. Product release listing file.
-1. Digital signature for release listing file.
 
 The simplest `index.json` file only contains a reference to a single `releases.json` file.
 
