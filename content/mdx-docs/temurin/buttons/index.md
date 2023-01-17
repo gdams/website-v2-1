@@ -27,7 +27,7 @@ You may modify the html code to display the button at different sizes, but don't
         ![Button 2](https://adoptium.net/images/buttons/button_img_002.png)
     </SplitViewLeft>
     <SplitViewRight>
-```bash
+```html
 <a href="https://adoptium.net/temurin?utm_medium=button">
   <img src="https://adoptium.net/images/buttons/button_img_002.png"
      alt="Get Eclipse Temurin" width="120" height="120" />
