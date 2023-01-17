@@ -6,7 +6,7 @@ authors: gdams, karianna, sxa, tellison, SueChaplain, sxa555, mvitz, ParkerM, M-
 ## Community Support
 
 We are prepared to stand behind our release quality binaries, so each build that is identified as a release receives support
-via the Adoptium® community. Our support means that you can [raise an issue](https://github.com/adoptium/adoptium-support/issues/new/choose) to describe a bug you have found in the build, and we will work with you and the appropriate development team to resolve it. Any fixes we identify will be delivered as part of the next Adoptium release.
+via the Adoptium&reg; community. Our support means that you can [raise an issue](https://github.com/adoptium/adoptium-support/issues/new/choose) to describe a bug you have found in the build, and we will work with you and the appropriate development team to resolve it. Any fixes we identify will be delivered as part of the next Adoptium release.
 
 As a community of open source developers, our commitment is to triage any issues raised and champion them in the appropriate source code project. Of course, if the problem arises from the way we build and test the code we can fix that directly. For dedicated support with service level agreements you should contact commercial companies offering
 support on Temurin binaries. Read [Java Is Still Free (3.0.0)](https://medium.com/@javachampions/java-is-still-free-3-0-0-ocrt-2021-bca75c88d23b) for some background information about Java support options.
