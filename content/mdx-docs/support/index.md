@@ -22,15 +22,15 @@ In addition, every two years since 2021 one feature release will be designated a
 Based upon this roadmap, here is the timetable showing the current release dates of the various OpenJDK releases used to build Eclipse Temurin. Note that the dates below are from the [upstream OpenJDK project page](https://www.java.com/releases) and should not be considered the date which the Adoptium project will have binaries available - there will be a short delay relative to these dates while we complete our extensive build and test cycles which can take up to three
 weeks. Our [Google Calendar with our release cycles](https://calendar.google.com/calendar/embed?src=c_56d7263c0ceda87a1678f6144426f23fb53721480b5ff71b073afb51091e5492%40group.calendar.google.com) shows the expected cycle lengths for each of our releases.  We always prioritise the most popular platforms which will typically appear within a few days of these dates.
 
-|Java Version|First Availability| Latest Release               | Next Release Due                  | End of Availability ¹ |
+|Java Version|First Availability| Latest Release               | Next Release Due                  | End of Availability[^1] |
 | ---------- | ---------------- | ---------------------------- | --------------------------------- | ----------------------- |
 | Java 20    | Expected Mar 2023| Not available                | Expected Mar 2023                 | Expected Sep 2023       |
 | Java 19    | Sep 2022     | 20 Oct 2022 <Small>jdk-19.0.1+10</Small> | 17 Jan 2023 <Small>jdk-19.0.2</Small> | Mar 2023    |
-| Java 18    | Mar 2022     | 28 Aug 2022 <Small>jdk-18.0.2.1+1</Small>|  EOSL ²                    | Sep 2022                |
+| Java 18    | Mar 2022     | 28 Aug 2022 <Small>jdk-18.0.2.1+1</Small>|  EOSL[^2]                 | Sep 2022                |
 | Java 17 (LTS)| Sep 2021   | 18 Oct 2022 <Small>jdk-17.0.5+8</Small>  | 17 Jan 2023 <Small>jdk-17.0.6</Small> |At least Oct 2027 |
 | Java 11 (LTS)| Sep 2018   | 18 Oct 2022 <Small>jdk-11.0.17+8</Small> | 17 Jan 2023 <Small>jdk-11.0.18</Small> |At least Oct 2024 |
 | Java 8 (LTS) | Mar 2014   | 20 Oct 2022 <Small>jdk8u352-b08</Small>  | 17 Jan 2023 <Small>jdk8u361</Small> | At least Nov 2026 |
 
-[1]: As a general philosophy, Adoptium will continue to build binaries for LTS releases as long as the corresponding upstream source is actively maintained.
+[^1]: As a general philosophy, Adoptium will continue to build binaries for LTS releases as long as the corresponding upstream source is actively maintained.
 
-[2]: End of Service/Support Life - this code stream is no longer being maintained. No further builds of Eclipse Temurin are planned.
+[^2]: End of Service/Support Life - this code stream is no longer being maintained. No further builds of Eclipse Temurin are planned.

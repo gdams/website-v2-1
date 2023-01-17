@@ -96,3 +96,16 @@ The SBOM provenence informaton cannot be falsified by service users since it is 
 
 Adoptium is working on items required to meet the requirements of SLSA Level 4. These are being tracked via our
 [issue tracking system](https://github.com/adoptium/adoptium/issues/160), and contributions are welcome for those tasks.
+
+{/*
+
+* Source - Two-person reviewed
+* Build - Parameterless
+* Build - Hermetic
+* [x] Build - Reproducible
+* [x] Provenance - Dependencies complete
+* Common - Security
+* Common - Access
+* Common - Superusers
+
+*/}

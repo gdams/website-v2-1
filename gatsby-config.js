@@ -128,7 +128,8 @@ module.exports = {
         mdxOptions: {
           remarkPlugins: [
             // Add GitHub Flavored Markdown (GFM) support
-            require('remark-gfm')
+            require('remark-gfm'),
+            require('remark-footnotes')
           ]
         },
         gatsbyRemarkPlugins: [

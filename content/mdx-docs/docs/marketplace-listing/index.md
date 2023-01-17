@@ -27,7 +27,7 @@ The signature must be a Base64-encoded, RSA encrypted, SHA-256 hash of your enti
 
 There are a number of [tools](https://opensource.com/article/19/6/cryptography-basics-openssl-part-2) and [code examples](https://www.baeldung.com/java-digital-signature) available to help produce such signatures.
 
-Generating, verifying, and encoding a signature usings OpenSSL:
+<Collapsible title='Generating, verifying, and encoding a signature usings OpenSSL'>
 
 ```bash
 # Generate signature
@@ -39,6 +39,8 @@ openssl dgst -sha256 -verify public.pem -signature index.json.sig index.json
 #Base64 encode for publishing
 cat index.json.sig | base64 -w 0 > index.json.sha256.sign
 ```
+
+</Collapsible>
 
 ## Simple Product Listing Repository
 
