@@ -12,6 +12,7 @@ $secondary: #dadada;
 }
 
 body {
+  --black2: #e9edf0;
   --black4: #cbd4d9;
   --black9: #2c3437;
   --brand4: #c52158;
@@ -22,6 +23,7 @@ body {
   --color-fill-banner: #9992;
   --color-text-primary: var(--black9);
   --color-text-accent: var(--color-brand-primary);
+  --font-weight-light: 300;
 
   background-color: var(--bg);
 

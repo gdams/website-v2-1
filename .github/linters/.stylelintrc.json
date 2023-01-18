@@ -7,6 +7,9 @@
         "number-leading-zero": null,
         "color-function-notation": null,
         "no-descending-specificity": null,
-        "selector-class-pattern": null
+        "selector-class-pattern": null,
+        "scss/at-import-partial-extension": null,
+        "property-no-vendor-prefix": null,
+        "selector-pseudo-class-no-unknown": null
     }
 }

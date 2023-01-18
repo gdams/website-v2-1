@@ -23,7 +23,6 @@ const CodeBox = ({ children: { props } }: Props): JSX.Element => {
   const [parsedCode, setParsedCode] = useState('');
   const [copied, copyText] = useCopyToClipboard();
 
-  // eslint-disable-next-line react/prop-types
   const className = props.className || 'text';
 
   // Language Matches in class
@@ -45,7 +44,6 @@ const CodeBox = ({ children: { props } }: Props): JSX.Element => {
     setParsedCode(
       highlight(stringCode, prismLanguage, language)
     );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -58,7 +56,6 @@ const CodeBox = ({ children: { props } }: Props): JSX.Element => {
       </div>
       <div
         className={styles.content}
-        // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: parsedCode }}
       />
     </pre>
