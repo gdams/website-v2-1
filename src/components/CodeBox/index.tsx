@@ -16,6 +16,7 @@ interface Props {
 const replaceLabelLanguages = (language: string) =>
   language
     .replace(/powershell/i, 'pwsh')
+    .replace(/dockerfile/i, 'docker')
     .toUpperCase();
 
 

@@ -7,7 +7,7 @@
       [
         "prismjs",
         {
-          "languages": ["js", "css", "yaml", "bash", "batch", "markup", "json", "powershell"],
+          "languages": ["dockerfile", "java", "js", "css", "yaml", "bash", "batch", "markup", "json", "powershell"],
           "plugins": [],
           "css": false
         }
