@@ -1,0 +1,11 @@
+// Vitest Snapshot v1
+
+exports[`InlineCode component > renders correctly 1`] = `
+<div>
+  <code
+    class="_code_4cf629"
+  >
+    This is some sample code
+  </code>
+</div>
+`;

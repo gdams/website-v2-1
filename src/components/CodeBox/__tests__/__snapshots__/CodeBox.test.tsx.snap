@@ -1,0 +1,27 @@
+// Vitest Snapshot v1
+
+exports[`Codebox component > renders correctly 1`] = `
+<div>
+  <pre
+    class="_pre_4cf629 language-html"
+  >
+    <div
+      class="_top_4cf629"
+    >
+      <span>
+        HTML
+      </span>
+      <button
+        type="button"
+      >
+        copy
+      </button>
+    </div>
+    <div
+      class="_content_4cf629"
+    >
+      [object Object]
+    </div>
+  </pre>
+</div>
+`;

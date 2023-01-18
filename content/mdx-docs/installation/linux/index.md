@@ -14,14 +14,14 @@ Eclipse Temurin RPM and DEB packages are now available for installing on your fa
 
 The following name schema is being used:
 
-```output
+```text
 temurin-<version>-jdk
 e.g temurin-17-jdk or temurin-8-jdk
 ```
 
 ## Deb installation on Debian or Ubuntu
 
-. Ensure the necessary packages are present:
+Ensure the necessary packages are present:
 
 ```bash
 apt install -y wget apt-transport-https

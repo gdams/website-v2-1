@@ -58,28 +58,6 @@ exports[`mdxComponents > cross renders correctly 1`] = `
 </div>
 `;
 
-exports[`mdxComponents > formatDiv renders correctly - inline code block 1`] = `
-<div>
-  <code>
-    <code
-      class="language-text"
-    >
-      test
-    </code>
-  </code>
-</div>
-`;
-
-exports[`mdxComponents > formatDiv renders correctly 1`] = `
-<div>
-  <div>
-    <p>
-      test
-    </p>
-  </div>
-</div>
-`;
-
 exports[`mdxComponents > small renders correctly 1`] = `
 <div>
   <br />

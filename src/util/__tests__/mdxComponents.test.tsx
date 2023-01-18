@@ -3,16 +3,6 @@ import { render } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
 describe('mdxComponents', () => {
-    it('formatDiv renders correctly', () => {
-        const { container } = render(mdxComponents.div({ dangerouslySetInnerHTML: { __html: '<p>test</p>' } }));
-        expect(container).toMatchSnapshot();
-    });
-    
-    it('formatDiv renders correctly - inline code block', () => {
-        const { container } = render(mdxComponents.div({ dangerouslySetInnerHTML: { __html: '<code class="language-text">test</code>' } }));
-        expect(container).toMatchSnapshot();
-    });
-
     it('small renders correctly', () => {
         const { container } = render(mdxComponents.Small({ children: 'test' }));
         expect(container).toMatchSnapshot();

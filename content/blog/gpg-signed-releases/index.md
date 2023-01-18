@@ -88,7 +88,7 @@ signatures.  You can then run the following command to check the signature by su
 
 If you do not currently have the Adoptium project's public signing key you will get a message such as this:
 
-```output
+```text
 gpg: directory '/home/sxa/.gnupg' created
 gpg: keybox '/home/sxa/.gnupg/pubring.kbx' created
 gpg: Signature made Mon Jul  4 18:20:31 2022 UTC
@@ -104,7 +104,7 @@ example to use the Ubuntu key servers run this command:
 
 If you then run the verify command you will get a message indicating that the newly imported key has not been trusted:
 
-```output
+```text
 gpg: Good signature from "Adoptium GPG Key (DEB/RPM Signing Key)
 <temurin-dev@eclipse.org>" [unknown] gpg: WARNING: This key is not certified
 with a trusted signature!  gpg: There is no indication that the signature
@@ -122,7 +122,7 @@ gpg --edit-key 3B04D753C9050D9A5D343F39843C48A565F8F04B trust
 
 The verification should then succeed as follows:
 
-```output
+```text
 gpg: Signature made Mon Jul  4 18:20:31 2022 UTC
 gpg:                using RSA key 3B04D753C9050D9A5D343F39843C48A565F8F04B
 gpg: checking the trustdb

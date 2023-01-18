@@ -62,7 +62,7 @@ the ones which your runtime supports with `java --list-modules`. At the time
 of writing, using the `jdk-17+35` release, the list of extra modules is as
 follows:
 
-```output
+```text
  jdk.attach
  jdk.compiler
  jdk.editpad
