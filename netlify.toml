@@ -1,12 +1,12 @@
 [build]
-publish = "public"
-command = "npm run build"
+  publish = "public"
+  command = "npm run build"
 
 [build.environment]
-NODE_OPTIONS = "--max_old_space_size=4096"
-NODE_VERSION = "18"
-GATSBY_CONCURRENT_DOWNLOAD = "15"
-GATSBY_CPU_COUNT = "1"
+  NODE_OPTIONS = "--max_old_space_size=4096"
+  NODE_VERSION = "18"
+  GATSBY_CONCURRENT_DOWNLOAD = "15"
+  GATSBY_CPU_COUNT = "1"
 
 [[headers]]
   for = "/*"
@@ -15,6 +15,15 @@ GATSBY_CPU_COUNT = "1"
     max-age=63072000;
     includeSubDomains;
     preload'''
+
+[[plugins]]
+package = "netlify-plugin-csp-generator"
+
+  [plugins.inputs]
+  buildDir = "public"
+
+  [plugins.inputs.policies]
+    defaultSrc = "'self'"
 
 [[redirects]]
   from = "https://blog.adoptium.net/*"
