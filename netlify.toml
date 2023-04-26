@@ -24,6 +24,10 @@ package = "netlify-plugin-csp-generator"
 
   [plugins.inputs.policies]
     defaultSrc = "'self'"
+    scriptSrc = "'self' *.adoptium.net *.netlify.app *.eclipse.org https://www.googletagmanager.com"
+    connectSrc = "'self' *.eclipse.org *.adoptium.net *.google-analytics.com https://api.github.com https://www.googletagmanager.com"
+    styleSrc = "'self' 'unsafe-inline' *.eclipse.org"
+    imgSrc = "'self' https://github.com https://avatars.githubusercontent.com"
 
 [[redirects]]
   from = "https://blog.adoptium.net/*"
