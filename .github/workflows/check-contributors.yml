@@ -1,6 +1,7 @@
 name: Contributor Updater
 
 on:
+  workflow_dispatch:
   push:
     paths: [ content/asciidoc-pages/** ]
     branches: [ main ]
@@ -20,12 +21,24 @@ jobs:
 
     - id: files
       uses: jitterbit/get-changed-files@b17fbb00bdc0c0f63fcf166580804b4d2cdc2a42 # v1
+      if: github.event_name == 'push'
+
+    # if worfklow_dispatch, then we need to get all asciidoc files
+    - id: all_files
+      run: |
+        echo "::set-output name=all::$(find content/asciidoc-pages -name '*.adoc' -type f)"
       
     - run: pip3 install bs4
 
     - run: |
+        # if workflow_dispatch, then we need to get all asciidoc files
+        if [[ -z "${{ steps.files.outputs.all }}" ]]; then
+          files="${{ steps.all_files.outputs.all }}"
+        else
+          files="${{ steps.files.outputs.all }}"
+        fi
         # shellcheck disable=2043
-        for changed_file in ${{ steps.files.outputs.all }}; do
+        for changed_file in ${files}; do
           if [[ ${changed_file} =~ ^content/asciidoc.*.adoc ]]; then
             current_authors=$(grep ':page-authors:' "${changed_file}" | sed -n -e 's/^.*page-authors: //p')
             contibutors=$(python3 .github/workflows/github-file-contributors.py --file "${changed_file}")
