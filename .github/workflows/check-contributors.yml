@@ -15,7 +15,6 @@ permissions:
 
 jobs:
   check_contributors:
-    if: github.repository_owner == 'adoptium'
     name: Check Contributors
     runs-on: ubuntu-latest
     steps:
@@ -28,11 +27,11 @@ jobs:
       uses: jitterbit/get-changed-files@b17fbb00bdc0c0f63fcf166580804b4d2cdc2a42 # v1
       if: github.event_name == 'push'
 
-    # if worfklow_dispatch, then we need to get all asciidoc files
     - id: all_files
       run: |
         echo "::set-output name=all::$(find content/asciidoc-pages -name '*.adoc' -type f)"
-      
+      if: github.event_name == 'workflow_dispatch'
+
     - run: pip3 install bs4
 
     - run: |
