@@ -1,12 +1,12 @@
 import {
   Binary,
-  ContributorApiResponse,
   Contributor,
   EventAPI,
   LatestTemurin,
   MarketplaceRelease,
   MockTemurinFeatureReleaseAPI,
   MockTemurinReleaseAPI,
+  ReleaseNoteAPIResponse,
   News,
   NewsResponse,
   ReleaseAsset,
@@ -161,7 +161,7 @@ export const mockEventsAPI = (): EventAPI => ({
   ]
 });
 
-export const createMockTemurinReleaseAPI = (installer): MockTemurinReleaseAPI => ({
+export const createMockTemurinReleaseAPI = (installer, image_type): MockTemurinReleaseAPI => ({
   release_link: new URL('https://release_link_mock'),
   release_name: 'release_name_mock',
   vendor: 'vendor_mock',
@@ -180,7 +180,7 @@ export const createMockTemurinReleaseAPI = (installer): MockTemurinReleaseAPI =>
     download_count: 0,
     updated_at: new Date(Date.UTC(2020, 0, 1)),
     os: 'os_mock',
-    image_type: 'jdk',
+    image_type: image_type? image_type : 'jdk',
     jvm_impl: 'jvm_impl_mock',
     heap_size: 'heap_size_mock',
     package: {
@@ -207,6 +207,28 @@ export const createMockTemurinReleaseAPI = (installer): MockTemurinReleaseAPI =>
       : undefined,
   }
 });
+
+export const createMockReleaseNotesAPI = (number): ReleaseNoteAPIResponse => ({
+  id: 'id_mock',
+  vendor: 'vendor_mock',
+  version_data: {
+    major: 0,
+    minor: 0,
+    security: 0,
+    patch: 0,
+    build: 0,
+    openjdk_version: 'openjdk_version_mock',
+  },
+  release_name: 'release_name_mock',
+  // return an array of length number with the same release notes
+  release_notes: Array.from({ length: number }, (v, i) => ({
+    id: i.toString(),
+    link: new URL('https://link_mock'),
+    title: 'title_mock',
+    priority: '1'
+  }))
+});
+
 
 export const createMockTemurinFeatureReleaseAPI = (installer): MockTemurinFeatureReleaseAPI => ({
   id: 'id_mock',
@@ -252,6 +274,7 @@ export const createRandomTemurinReleases = (installer): TemurinReleases => ({
   release_name: 'release_name_mock',
   release_link: new URL('https://release_link_mock'),
   source_url: new URL('https://source_url_mock'),
+  release_notes: true,
   timestamp: new Date(Date.UTC(2020, 0, 1)),
   platforms: {
     'platform_mock': {

@@ -1,6 +1,6 @@
 = AQAvit(TM) Verification
 :page-authors: gdams, smlambert, llxia, tellison
-:aqavit-branch: v0.9.1-release
+:aqavit-branch: v0.9.6-release
 Version 0.2, 02.03.2022
 
 The AQAvit project was created to “make quality certain to happen.” AQAvit verification is achieved through the process of running and passing a prescribed and versioned set of tests in the AQAvit test suite. The https://www.eclipse.org/legal/eclipse-foundation-quality-verification-suite-license.php[Eclipse Foundation Quality Verification Software License (QVSL)^] requires those who wish to verify their product to share a summary of the test results by which verification was achieved. This document describes how to run the AQAvit verification tests, check verification has passed, and collect the required test results for publication.
@@ -66,7 +66,7 @@ on:
 env:  # Links to the JDK build under test and the native test libs
   USE_TESTENV_PROPERTIES: true
   BINARY_SDK: https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.14.1%2B1/OpenJDK11U-jdk_x64_linux_hotspot_11.0.14.1_1.tar.gz
-  NATIVE_LIBS: https://ci.adoptopenjdk.net/job/build-scripts/job/jobs/job/jdk11u/job/jdk11u-linux-x64-hotspot/lastSuccessfulBuild/artifact/workspace/target/OpenJDK11U-testimage_x64_linux_hotspot_2022-02-12-17-06.tar.gz
+  NATIVE_LIBS: https://ci.adoptium.net/job/build-scripts/job/jobs/job/jdk11u/job/jdk11u-linux-x64-hotspot/lastSuccessfulBuild/artifact/workspace/target/OpenJDK11U-testimage_x64_linux_hotspot_2022-02-12-17-06.tar.gz
 
 jobs:
   run_aqa:

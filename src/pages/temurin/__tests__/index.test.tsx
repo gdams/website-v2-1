@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, waitFor } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest'
 import { useOnScreen } from '../../../hooks/useOnScreen';
 import { fetchLatestForOS } from '../../../hooks/fetchLatestTemurin';
@@ -29,10 +29,7 @@ describe('Temurin Index page', () => {
     const { container } = render(<Head />);
     // eslint-disable-next-line
     const title = container.querySelector('title');
-
-    waitFor(() => {
-      expect(title).toHaveTextContent('Temurin | Adoptium');
-    });
+    expect(title).toHaveTextContent('Temurin | Adoptium');
   });
 
   it('has no accessibility violations', async () => {

@@ -1,0 +1,421 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ReleaseNotesRender component > should render correctly - no release notes 1`] = `
+<div>
+  <div
+    class="text-center"
+  >
+    <h2>
+      version
+    </h2>
+    <div
+      class="pt-3"
+      style="display: flex; height: 100%;"
+    >
+      <div
+        style="flex-grow: 1;"
+      >
+        <h2>
+          Oops... We couldn't find those release notes
+        </h2>
+        <span>
+          Please ensure that you have a specified a version using the version URL parameter: 
+          <code>
+            ?version=x.x.x
+          </code>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ReleaseNotesRender component > should render correctly - version not defined 1`] = `
+<div>
+  <div
+    class="text-center"
+  >
+    <h2>
+      version
+    </h2>
+    <div
+      class="pt-3"
+      style="display: flex; height: 100%;"
+    >
+      <div
+        style="flex-grow: 1;"
+      >
+        <p>
+          This section organizes the changes in the selected update release by the main component under which each issue is filed.
+        </p>
+        <p>
+          <strong>
+            The total number of fixes marked as P1 is: undefined
+          </strong>
+        </p>
+        <div
+          aria-colcount="5"
+          aria-label="Release Notes"
+          aria-multiselectable="false"
+          aria-rowcount="1"
+          class="MuiDataGrid-root MuiDataGrid-autoHeight MuiDataGrid-root--densityStandard MuiDataGrid-withBorderColor css-1bvp8j9-MuiDataGrid-root"
+          role="grid"
+        >
+          <div
+            class="MuiDataGrid-toolbarContainer css-128fb87-MuiDataGrid-toolbarContainer"
+          >
+            <button
+              aria-label="Show filters"
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall css-1knaqv7-MuiButtonBase-root-MuiButton-root"
+              data-mui-internal-clone-element="true"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiButton-startIcon MuiButton-iconSizeSmall css-y6rp3m-MuiButton-startIcon"
+              >
+                <span
+                  class="MuiBadge-root css-1c32n2y-MuiBadge-root"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    data-testid="FilterListIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"
+                    />
+                  </svg>
+                  <span
+                    class="MuiBadge-badge MuiBadge-standard MuiBadge-invisible MuiBadge-anchorOriginTopRight MuiBadge-anchorOriginTopRightRectangular MuiBadge-overlapRectangular MuiBadge-colorPrimary css-1pi4uwz-MuiBadge-badge"
+                  >
+                    0
+                  </span>
+                </span>
+              </span>
+              Filters
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+          <div
+            class="MuiDataGrid-main css-204u17-MuiDataGrid-main"
+          >
+            <div
+              class="MuiDataGrid-columnHeaders MuiDataGrid-withBorderColor css-1iyq7zh-MuiDataGrid-columnHeaders"
+              style="min-height: 56px; max-height: 56px; line-height: 56px;"
+            >
+              <div
+                class="MuiDataGrid-columnHeadersInner css-gl260s-MuiDataGrid-columnHeadersInner"
+                role="rowgroup"
+              />
+            </div>
+          </div>
+          <div
+            class="MuiDataGrid-footerContainer MuiDataGrid-withBorderColor css-wop1k0-MuiDataGrid-footerContainer"
+          >
+            <div />
+            <div
+              class="MuiTablePagination-root css-rtrcn9-MuiTablePagination-root"
+            >
+              <div
+                class="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular MuiTablePagination-toolbar css-78c6dr-MuiToolbar-root-MuiTablePagination-toolbar"
+              >
+                <div
+                  class="MuiTablePagination-spacer css-1psng7p-MuiTablePagination-spacer"
+                />
+                <p
+                  class="MuiTablePagination-selectLabel css-pdct74-MuiTablePagination-selectLabel"
+                  id=":r2:"
+                >
+                  Rows per page:
+                </p>
+                <div
+                  class="MuiInputBase-root MuiInputBase-colorPrimary css-16c50h-MuiInputBase-root-MuiTablePagination-select"
+                >
+                  <div
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-labelledby=":r2: :r1:"
+                    class="MuiSelect-select MuiTablePagination-select MuiSelect-standard MuiInputBase-input css-194a1fa-MuiSelect-select-MuiInputBase-input"
+                    id=":r1:"
+                    role="button"
+                    tabindex="0"
+                  >
+                    20
+                  </div>
+                  <input
+                    aria-hidden="true"
+                    aria-invalid="false"
+                    class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+                    tabindex="-1"
+                    value="20"
+                  />
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiTablePagination-selectIcon MuiSelect-iconStandard css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon"
+                    data-testid="ArrowDropDownIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7 10l5 5 5-5z"
+                    />
+                  </svg>
+                </div>
+                <p
+                  class="MuiTablePagination-displayedRows css-levciy-MuiTablePagination-displayedRows"
+                >
+                  0–0 of 0
+                </p>
+                <div
+                  class="MuiTablePagination-actions"
+                >
+                  <button
+                    aria-label="Go to previous page"
+                    class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-colorInherit MuiIconButton-sizeMedium css-zylse7-MuiButtonBase-root-MuiIconButton-root"
+                    disabled=""
+                    tabindex="-1"
+                    title="Go to previous page"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                      data-testid="KeyboardArrowLeftIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    aria-label="Go to next page"
+                    class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-colorInherit MuiIconButton-sizeMedium css-zylse7-MuiButtonBase-root-MuiIconButton-root"
+                    disabled=""
+                    tabindex="-1"
+                    title="Go to next page"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                      data-testid="KeyboardArrowRightIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ReleaseNotesRender component > should render correctly 1`] = `
+<div>
+  <div
+    class="text-center"
+  >
+    <h2>
+      version
+    </h2>
+    <div
+      class="pt-3"
+      style="display: flex; height: 100%;"
+    >
+      <div
+        style="flex-grow: 1;"
+      >
+        <p>
+          This section organizes the changes in the selected update release by the main component under which each issue is filed.
+        </p>
+        <p>
+          <strong>
+            The total number of fixes marked as P1 is: 1
+          </strong>
+        </p>
+        <div
+          aria-colcount="5"
+          aria-label="Release Notes"
+          aria-multiselectable="false"
+          aria-rowcount="2"
+          class="MuiDataGrid-root MuiDataGrid-autoHeight MuiDataGrid-root--densityStandard MuiDataGrid-withBorderColor css-1bvp8j9-MuiDataGrid-root"
+          role="grid"
+        >
+          <div
+            class="MuiDataGrid-toolbarContainer css-128fb87-MuiDataGrid-toolbarContainer"
+          >
+            <button
+              aria-label="Show filters"
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall css-1knaqv7-MuiButtonBase-root-MuiButton-root"
+              data-mui-internal-clone-element="true"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiButton-startIcon MuiButton-iconSizeSmall css-y6rp3m-MuiButton-startIcon"
+              >
+                <span
+                  class="MuiBadge-root css-1c32n2y-MuiBadge-root"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    data-testid="FilterListIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"
+                    />
+                  </svg>
+                  <span
+                    class="MuiBadge-badge MuiBadge-standard MuiBadge-invisible MuiBadge-anchorOriginTopRight MuiBadge-anchorOriginTopRightRectangular MuiBadge-overlapRectangular MuiBadge-colorPrimary css-1pi4uwz-MuiBadge-badge"
+                  >
+                    0
+                  </span>
+                </span>
+              </span>
+              Filters
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+          <div
+            class="MuiDataGrid-main css-204u17-MuiDataGrid-main"
+          >
+            <div
+              class="MuiDataGrid-columnHeaders MuiDataGrid-withBorderColor css-1iyq7zh-MuiDataGrid-columnHeaders"
+              style="min-height: 56px; max-height: 56px; line-height: 56px;"
+            >
+              <div
+                class="MuiDataGrid-columnHeadersInner css-gl260s-MuiDataGrid-columnHeadersInner"
+                role="rowgroup"
+              />
+            </div>
+          </div>
+          <div
+            class="MuiDataGrid-footerContainer MuiDataGrid-withBorderColor css-wop1k0-MuiDataGrid-footerContainer"
+          >
+            <div />
+            <div
+              class="MuiTablePagination-root css-rtrcn9-MuiTablePagination-root"
+            >
+              <div
+                class="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular MuiTablePagination-toolbar css-78c6dr-MuiToolbar-root-MuiTablePagination-toolbar"
+              >
+                <div
+                  class="MuiTablePagination-spacer css-1psng7p-MuiTablePagination-spacer"
+                />
+                <p
+                  class="MuiTablePagination-selectLabel css-pdct74-MuiTablePagination-selectLabel"
+                  id=":r5:"
+                >
+                  Rows per page:
+                </p>
+                <div
+                  class="MuiInputBase-root MuiInputBase-colorPrimary css-16c50h-MuiInputBase-root-MuiTablePagination-select"
+                >
+                  <div
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-labelledby=":r5: :r4:"
+                    class="MuiSelect-select MuiTablePagination-select MuiSelect-standard MuiInputBase-input css-194a1fa-MuiSelect-select-MuiInputBase-input"
+                    id=":r4:"
+                    role="button"
+                    tabindex="0"
+                  >
+                    20
+                  </div>
+                  <input
+                    aria-hidden="true"
+                    aria-invalid="false"
+                    class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+                    tabindex="-1"
+                    value="20"
+                  />
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiTablePagination-selectIcon MuiSelect-iconStandard css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon"
+                    data-testid="ArrowDropDownIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7 10l5 5 5-5z"
+                    />
+                  </svg>
+                </div>
+                <p
+                  class="MuiTablePagination-displayedRows css-levciy-MuiTablePagination-displayedRows"
+                >
+                  1–1 of 1
+                </p>
+                <div
+                  class="MuiTablePagination-actions"
+                >
+                  <button
+                    aria-label="Go to previous page"
+                    class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-colorInherit MuiIconButton-sizeMedium css-zylse7-MuiButtonBase-root-MuiIconButton-root"
+                    disabled=""
+                    tabindex="-1"
+                    title="Go to previous page"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                      data-testid="KeyboardArrowLeftIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    aria-label="Go to next page"
+                    class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-colorInherit MuiIconButton-sizeMedium css-zylse7-MuiButtonBase-root-MuiIconButton-root"
+                    disabled=""
+                    tabindex="-1"
+                    title="Go to next page"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                      data-testid="KeyboardArrowRightIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

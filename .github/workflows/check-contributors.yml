@@ -10,6 +10,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: write
+
 jobs:
   check_contributors:
     if: github.repository_owner == 'adoptium'
@@ -17,7 +20,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+    - uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3.5.2
+      with:
+        persist-credentials: false
 
     - id: files
       uses: jitterbit/get-changed-files@b17fbb00bdc0c0f63fcf166580804b4d2cdc2a42 # v1
@@ -55,7 +60,7 @@ jobs:
 
     - uses: gr2m/create-or-update-pull-request-action@dc1726cbf4dd3ce766af4ec29cfb660e0125e8ee # v1
       env:
-        GITHUB_TOKEN: ${{ secrets.ADOPTIUM_TEMURIN_BOT_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.ADOPTIUM_BOT_TOKEN }}
       with:
         title: "Update Asciidoc Contributors"
         body: "This is an automatically generated pull request, it will be automatically merged if all the CI tests pass."
@@ -63,4 +68,4 @@ jobs:
         branch: "contributor_bot"
         commit-message: "contributors: update asciidoc contributors"
         labels: automerge
-        author: "eclipse-temurin-bot <temurin-bot@eclipse.org>"
+        author: "adoptium-bot <adoptium-bot@eclipse.org>"

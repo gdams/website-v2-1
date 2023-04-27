@@ -1,4 +1,4 @@
-// Vitest Snapshot v1
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`TemurinDownloadTable component > renders correctly - no data 1`] = `
 <div>
@@ -18,15 +18,31 @@ exports[`TemurinDownloadTable component > renders correctly - no data 1`] = `
 
 exports[`TemurinDownloadTable component > renders correctly - with source 1`] = `
 <div>
-  <span>
+  <p>
     <a
-      href="https://mock-link"
+      href="/temurin/release-notes?version=mock-release-name"
     >
-      mock-release-name
+      <svg
+        fill="currentColor"
+        height="1em"
+        stroke="currentColor"
+        stroke-width="0"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0h24v24H0V0z"
+          fill="none"
+        />
+        <path
+          d="M3 18h12v-2H3v2zM3 6v2h18V6H3zm0 7h18v-2H3v2z"
+        />
+      </svg>
        
       Text
     </a>
-  </span>
+  </p>
   <table
     class="table table-bordered releases-table"
     id="download-table"
@@ -382,6 +398,15 @@ exports[`TemurinDownloadTable component > renders correctly - with source 1`] = 
       </tr>
     </tbody>
   </table>
+  <p>
+    <a
+      href="https://mock-link"
+    >
+      mock-release-name
+       
+      Text
+    </a>
+  </p>
 </div>
 `;
 

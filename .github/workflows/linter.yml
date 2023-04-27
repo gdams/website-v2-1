@@ -16,13 +16,13 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3.5.2
         with:
           fetch-depth: 0
           persist-credentials: false
 
       - name: Lint Code Base
-        uses: github/super-linter/slim@454ba4482ce2cd0c505bc592e83c06e1e37ade61 # v4.10.1
+        uses: github/super-linter/slim@45fc0d88288beee4701c62761281edfee85655d7 # v5.0.0
 
         env:
           VALIDATE_ALL_CODEBASE: false

@@ -1,4 +1,4 @@
-// Vitest Snapshot v1
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Footer component > renders correctly 1`] = `
 <div>
@@ -332,6 +332,21 @@ exports[`Footer component > renders correctly 1`] = `
         <ul
           class="nav col-md-5 col-9 pb-4 justify-content-end list-unstyled d-flex"
         >
+          <li
+            class="ms-3"
+          >
+            <a
+              href="https://www.netlify.com"
+            >
+               
+              <img
+                alt="Deploys by Netlify"
+                src="/images/netlify-light.svg"
+                style="height: 25px;"
+              />
+               
+            </a>
+          </li>
           <li
             class="ms-3"
           >
