@@ -34,7 +34,7 @@ jobs:
           git config --global user.email "action@github.com"
           git add .
           if git diff-index --quiet HEAD; then
-            echo "NO_CHANGES_DETECTED=1" >> $GITHUB_ENV
+            echo "NO_CHANGES_DETECTED=1" >> "${GITHUB_ENV}"
           else
             git commit -m "Update Vitest Snapshots"
             git push
