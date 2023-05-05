@@ -10,14 +10,14 @@ jobs:
     if: startsWith(github.event.comment.body, '/update-snapshot')
     steps:
       - name: Checkout repository
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 #v2.4.2
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3.5.2
         with:
           ref: ${{ github.event.issue.head_ref }}
           repository: ${{ github.event.issue.repository.full_name }}
           fetch-depth: 0
 
       - name: Set up Node.js
-        uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c #v3.6.0
+        uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3.6.0
         with:
           node-version: '18'
           cache: npm
@@ -41,7 +41,7 @@ jobs:
           fi
 
       - name: Add comment
-        uses: peter-evans/create-or-update-comment@5f5d3f3db80d1b8f5130b14658b3c1aa3e3a3770 #v1.4.5
+        uses: peter-evans/create-or-update-comment@ca08ebd5dc95aa0cd97021e9708fcd6b87138c9b # v3.0.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
