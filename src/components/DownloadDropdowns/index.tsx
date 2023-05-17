@@ -27,7 +27,7 @@ const DownloadDropdowns = ({updaterAction, marketplace, Table}) => {
     }
 
     if (marketplace) {
-        versionList = versionsLTS;
+        versionList = versions;
         defaultArch = defaultArchitecture;
         const userOS = detectOS();
         switch (userOS) {
@@ -56,7 +56,7 @@ const DownloadDropdowns = ({updaterAction, marketplace, Table}) => {
     const [arch, updateArch] = useState(defaultArch);
     const [packageType, updatePackageType] = useState(defaultPackageType);
     const [version, udateVersion] = useState(selectedVersion);
-    
+
     // Marketplace vendor selector only
     const checkboxRef = useRef({});
     const [checkbox, updateCheckbox] = useState({checkboxRef});
@@ -80,7 +80,7 @@ const DownloadDropdowns = ({updaterAction, marketplace, Table}) => {
     const setPackageType = useCallback((packageType) => {
         updatePackageType(packageType);
     }, []);
-    
+
     const setVersion = useCallback((version) => {
         setURLParam('version', version);
         udateVersion(version);
