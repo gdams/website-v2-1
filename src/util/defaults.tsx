@@ -19,7 +19,7 @@ fetch(apiUrl)
 
     versions = available_releases; // Use available_releases instead of filtering for non-LTS versions
     versionsLTS = available_lts_releases;
-    defaultVersion = most_recent_lts;
+    defaultVersion = Math.max(...available_lts_releases); // Update defaultVersion to the largest number in available_lts_releases
   })
   .catch(error => {
     console.error('Failed to retrieve Java versions from the API:', error);

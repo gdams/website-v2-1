@@ -27,7 +27,7 @@ const DownloadDropdowns = ({updaterAction, marketplace, Table}) => {
     }
 
     if (marketplace) {
-        versionList = versions;
+        versionList = versionsLTS;
         defaultArch = defaultArchitecture;
         const userOS = detectOS();
         switch (userOS) {
