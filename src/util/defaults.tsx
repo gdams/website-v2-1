@@ -7,8 +7,7 @@ export const packageTypes = ['JDK', 'JRE'];
 const apiUrl = 'https://api.adoptium.net/v3/info/available_releases';
 
 let versions = [];
-let versionsLTS = [];
-let defaultVersion = 17;
+let defaultVersion = '17';
 let defaultPackageType = 'jdk';
 let defaultArchitecture = 'x64';
 
@@ -17,15 +16,20 @@ fetch(apiUrl)
   .then(data => {
     const { available_releases, available_lts_releases, most_recent_lts } = data;
 
-    versions = available_releases; // Use available_releases instead of filtering for non-LTS versions
-    versionsLTS = available_lts_releases;
-    defaultVersion = Math.max(...available_lts_releases);
+    versions = available_releases.map(version => {
+      if (available_lts_releases.includes(version)) {
+        return `${version} - LTS`; // Mark LTS versions with '- LTS'
+      } else {
+        return version;
+      }
+    });
+
+    defaultVersion = `${most_recent_lts} - LTS`;
   })
   .catch(error => {
     console.error('Failed to retrieve Java versions from the API:', error);
-    versions = [20, 19, 18, 17, 16, 11, 8];
-    versionsLTS = [17, 11, 8]; // Fallback LTS versions
-    defaultVersion = 17;
+    versions = ['20', '19', '18', '17', '16', '11', '8']; // Use string values
+    defaultVersion = '17 - LTS';
   });
 
-export { versions, versionsLTS, defaultVersion, defaultPackageType, defaultArchitecture };
+export { versions, defaultVersion, defaultPackageType, defaultArchitecture };

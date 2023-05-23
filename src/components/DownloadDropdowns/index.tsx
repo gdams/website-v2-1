@@ -16,14 +16,14 @@ const DownloadDropdowns = ({updaterAction, marketplace, Table}) => {
     let selectedVersion = defaultVersion;
     const versionParam = queryString.parse(useLocation().search).version;
     if (versionParam) {
-        selectedVersion = Number(versionParam);
+        selectedVersion = Number(versionParam).toString();
     }
     const variantParam = queryString.parse(useLocation().search).variant;
     if (variantParam) {
         // convert openjdk11 to 11
         const parsedVersion = variantParam.toString().replace(/\D/g, '')
         setURLParam('version', parsedVersion)
-        selectedVersion = parseInt(parsedVersion);
+        selectedVersion = parsedVersion;
     }
 
     if (marketplace) {
@@ -62,6 +62,17 @@ const DownloadDropdowns = ({updaterAction, marketplace, Table}) => {
     const [checkbox, updateCheckbox] = useState({checkboxRef});
 
     const [releases, setReleases] = useState(null);
+
+    const getVersion = (version) => {
+        let truncatedVersion = version.toString();
+
+        if (truncatedVersion.endsWith(" - LTS")) {
+          truncatedVersion = truncatedVersion.replace(" - LTS", "");
+        }
+        let convertedVersion = parseInt(truncatedVersion);
+
+        return convertedVersion;
+    }
 
     useEffect(() => {
         (async () => {
@@ -132,7 +143,7 @@ const DownloadDropdowns = ({updaterAction, marketplace, Table}) => {
                     <select id="version-filter" aria-label="Version Filter" data-testid="version-filter" onChange={(e) => setVersion(e.target.value)} value={version} className="form-select form-select-sm">
                         {versionList.map(
                             (version, i): number | JSX.Element => version && (
-                                <option key={version} value={version}>{version}</option>
+                                <option key={version} value={getVersion(version)}>{version}</option>
                             )
                         )}
                     </select>
