@@ -5,6 +5,14 @@ labels: ["draft-blog-post"]
 assignees:
   - octocat
 body:
+  - type: input
+    id: blog-post-description
+    attributes:
+      label: Blog Post Description
+      description: The description of the blog post
+      placeholder: Enter the description of the blog post
+    validations:
+      required: true
   - type: markdown
     attributes:
       value: |
