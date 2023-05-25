@@ -24,13 +24,17 @@ jobs:
         steps:
           - name: Extract issue body and title
             id: extract
-            uses: actions/github-script@d7906e4ad0b1822421a7e6a35d5ca353c962f410 # v6.4.1
+            uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975 # v6.4.0
             with:
                 github-token: ${{ secrets.GITHUB_TOKEN }}
                 script: |
                     const body = context.payload.issue.body;
                     const title = context.payload.issue.title;
                     return { body, title };
+
+                    console.log(`Issue Title: ${title}`);
+                    console.log(`Issue Body: ${body}`);
+                    
                     core.setOutput('body', body);
                     core.setOutput('title', title);
                     
