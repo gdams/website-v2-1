@@ -1,6 +1,5 @@
 import React, { MutableRefObject, useRef } from 'react';
 import { Link, Trans } from 'gatsby-plugin-react-i18next';
-import { useStaticQuery, graphql } from 'gatsby';
 import { FaArrowCircleRight, FaArchive, FaDownload } from 'react-icons/fa';
 
 import { detectOS, UserOS } from '../../util/detectOS';
@@ -12,15 +11,7 @@ let arch: string = 'x64'
 let isSafari: boolean
 
 const LatestTemurin = (props): JSX.Element => {
-  const data = useStaticQuery(graphql`
-    query VersionsQuery {
-      mostRecentLts {
-        version
-      }
-    }
-  `)
-
-  const defaultVersion = data.mostRecentLts.version;
+  const defaultVersion = props.latestLTS
 
   const userOS = detectOS();
   switch (userOS) {
