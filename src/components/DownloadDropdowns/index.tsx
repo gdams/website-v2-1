@@ -1,4 +1,5 @@
 import React, { useRef, useState, useCallback, useEffect } from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import { useLocation } from '@reach/router';
 import queryString from 'query-string';
 import { Trans } from 'gatsby-plugin-react-i18next';
@@ -6,12 +7,32 @@ import VendorSelector from '../VendorSelector'
 import { detectOS, UserOS } from '../../util/detectOS';
 import { setURLParam } from '../../util/setURLParam';
 import { capitalize } from '../../util/capitalize';
-import { oses, arches, packageTypes, versions, versionsLTS, defaultVersion, defaultArchitecture, defaultPackageType} from '../../util/defaults';
+import { oses, arches, packageTypes, defaultArchitecture, defaultPackageType} from '../../util/defaults';
 
 let defaultOS = 'any'
 let defaultArch = 'any'
 
 const DownloadDropdowns = ({updaterAction, marketplace, Table}) => {
+    const data = useStaticQuery(graphql`
+        query VersionsQuery {
+        allVersions(sort: {version: DESC}) {
+            edges {
+            node {
+                version
+                label
+                lts
+            }
+            }
+        }
+        mostRecentLts {
+            version
+        }
+        }
+    `)
+
+    const defaultVersion = data.mostRecentLts.version;
+    const versions = data.allVersions.edges;
+
     let versionList = versions;
     let selectedVersion = defaultVersion;
     const versionParam = queryString.parse(useLocation().search).version;
@@ -27,7 +48,10 @@ const DownloadDropdowns = ({updaterAction, marketplace, Table}) => {
     }
 
     if (marketplace) {
-        versionList = versionsLTS;
+        // filter non LTS versions
+        versionList = versions.filter((version) => {
+            return version.node.lts === true;
+        });
         defaultArch = defaultArchitecture;
         const userOS = detectOS();
         switch (userOS) {
@@ -35,7 +59,9 @@ const DownloadDropdowns = ({updaterAction, marketplace, Table}) => {
                 defaultOS = 'mac'
                 if (typeof document !== 'undefined') {
                     let w = document.createElement("canvas").getContext("webgl");
+                    // @ts-ignore
                     let d = w.getExtension('WEBGL_debug_renderer_info');
+                    // @ts-ignore
                     let g = d && w.getParameter(d.UNMASKED_RENDERER_WEBGL) || "";
                     if (g.match(/Apple/) && !g.match(/Apple GPU/)) {
                         defaultArch = 'aarch64'
@@ -62,17 +88,6 @@ const DownloadDropdowns = ({updaterAction, marketplace, Table}) => {
     const [checkbox, updateCheckbox] = useState({checkboxRef});
 
     const [releases, setReleases] = useState(null);
-
-    const getVersion = (version) => {
-        let truncatedVersion = version.toString();
-
-        if (truncatedVersion.endsWith(" - LTS")) {
-          truncatedVersion = truncatedVersion.replace(" - LTS", "");
-        }
-        let convertedVersion = parseInt(truncatedVersion);
-
-        return convertedVersion;
-    }
 
     useEffect(() => {
         (async () => {
@@ -143,7 +158,7 @@ const DownloadDropdowns = ({updaterAction, marketplace, Table}) => {
                     <select id="version-filter" aria-label="Version Filter" data-testid="version-filter" onChange={(e) => setVersion(e.target.value)} value={version} className="form-select form-select-sm">
                         {versionList.map(
                             (version, i): number | JSX.Element => version && (
-                                <option key={version} value={getVersion(version)}>{version}</option>
+                                <option key={version.node.id} value={version.node.version}>{version.node.label}</option>
                             )
                         )}
                     </select>
