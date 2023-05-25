@@ -2,8 +2,6 @@ name: Create Blog Post
 description: Use this to quickly create a new blog post
 title: "[Blog Post]: "
 labels: ["draft-blog-post"]
-assignees:
-  - octocat
 body:
   - type: input
     id: blog-post-description
@@ -13,10 +11,11 @@ body:
       placeholder: Enter the description of the blog post
     validations:
       required: true
-  - type: input
+  - type: textarea
     id: blog-post-body
     attributes:
       label: Blog Post Body
       description: The body of the blog post
       placeholder: Enter the body of the blog post
-
+    validations:
+      required: true
