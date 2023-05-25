@@ -2,7 +2,7 @@ name: Blog Post Helper
 
 on:
   issues:
-    types: [opened, labeled, unlabeled]
+    types: [opened, labeled]
 
 jobs:
     comment:
@@ -24,14 +24,16 @@ jobs:
         steps:
           - name: Extract issue body and title
             id: extract
-            uses: actions/github-script@d7906e4ad0b1822421a7e6a35d5ca353c962f410 # v6.4.1
+            uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975 # v6.4.0
             with:
                 github-token: ${{ secrets.GITHUB_TOKEN }}
                 script: |
                     const body = context.payload.issue.body;
                     const title = context.payload.issue.title;
                     return { body, title };
-
+                    core.setOutput('body', body);
+                    core.setOutput('title', title);
+                    
           - uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3.5.2
 
           - name: Add markdown file to content/blog/${slug}/index.md
