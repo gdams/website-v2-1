@@ -13,7 +13,10 @@ body:
       placeholder: Enter the description of the blog post
     validations:
       required: true
-  - type: markdown
+  - type: input
+    id: blog-post-body
     attributes:
-      value: |
-        Add the blog post content here. You can use markdown and once created you can continue to edit the blog in the GitHub UI.
+      label: Blog Post Body
+      description: The body of the blog post
+      placeholder: Enter the body of the blog post
+
