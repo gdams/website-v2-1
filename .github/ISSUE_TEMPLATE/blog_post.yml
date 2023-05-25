@@ -1,0 +1,11 @@
+name: Create Blog Post
+description: Use this to quickly create a new blog post
+title: "[Blog Post]: "
+labels: ["draft-blog-post"]
+assignees:
+  - octocat
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Add the blog post content here. You can use markdown and once created you can continue to edit the blog in the GitHub UI.
