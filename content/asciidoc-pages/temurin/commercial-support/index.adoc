@@ -1,8 +1,6 @@
 = Commercial Support Options for Eclipse Temurin(TM)
 :page-authors: gdams
 
-== Introduction
-
 There are a variety of different commercial support options available for Eclipse Temurin. It's important to note that none of these options are officially endorsed by Temurin. Each commercial support provider tends to cater to different typical use-cases, so it is recommended that a company evaluate each option based on its specific needs and requirements.
 
 [cols="1,3"]
