@@ -118,3 +118,8 @@ actively maintained.
 
 ^[2]^ End of Service/Support Life - this code stream is no longer being
 maintained. No further builds of Eclipse Temurin are planned.
+
+
+== Commercial Support
+
+If your company requires commercial support for Eclipse Temurin, please see our link:/temurin/commercial-support[Commercial Support] page where a list of companies offering support is maintained.

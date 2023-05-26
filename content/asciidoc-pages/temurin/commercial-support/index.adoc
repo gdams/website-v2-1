@@ -1,0 +1,48 @@
+= Commercial Support Options for Eclipse Temurin(TM)
+:page-authors: gdams
+
+== Introduction
+
+There are a variety of different commercial support options available for Eclipse Temurin. It's important to note that none of these options are officially endorsed by Temurin. Each commercial support provider tends to cater to different typical use-cases, so it is recommended that a company evaluate each option based on its specific needs and requirements.
+
+[cols="2*"]
+|===
+| 
+| 
+
+^.^|
+image:https://adoptium.net/images/ibm-logo.png[IBM,200]
+|
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Magna etiam tempor orci eu lobortis elementum nibh tellus. Vulputate eu scelerisque felis imperdiet proin fermentum.
+
+More details can be found on the https://www.ibm.com/support/home/[IBM Support Homepage].
+
+^.^|
+image:https://adoptium.net/images/microsoft.svg[Microsoft,200]
+|
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Magna etiam tempor orci eu lobortis elementum nibh tellus. Vulputate eu scelerisque felis imperdiet proin fermentum.
+
+Visit https://www.azul.com/support/[Azul Systems Support] to learn more.
+
+^.^|
+image:https://adoptium.net/images/azul.svg[Azul Systems,200]
+|
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Magna etiam tempor orci eu lobortis elementum nibh tellus. Vulputate eu scelerisque felis imperdiet proin fermentum.
+
+Visit https://www.azul.com/support/[Azul Systems Support] to learn more.
+
+^.^|
+image:https://adoptium.net/images/redhat.svg[Red Hat,200]
+|
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Magna etiam tempor orci eu lobortis elementum nibh tellus. Vulputate eu scelerisque felis imperdiet proin fermentum.
+
+For more information, visit the https://access.redhat.com/documentation/en-us/openjdk/11/html-single/getting_started_with_eclipse_temurin/index[Red Hat Documentation Page].
+
+// add open elements
+^.^|
+image:https://adoptium.net/images/openelements.svg[Open Elements,200]
+|
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Magna etiam tempor orci eu lobortis elementum nibh tellus. Vulputate eu scelerisque felis imperdiet proin fermentum.
+
+For more information, visit the https://openelements.de/[Open Elements Website].
+|===
