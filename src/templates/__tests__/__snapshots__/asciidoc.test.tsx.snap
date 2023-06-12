@@ -252,15 +252,14 @@ exports[`Asciidoc pages > renders correctly - installation slug 1`] = `
           <p>
             Hello World, this is a 
           </p>
-          <pre>
+          <pre
+            class="language-none"
+            tabindex="0"
+          >
             <code
-              class="hljs language-bash"
+              class="language-none"
             >
-              <span
-                class="hljs-built_in"
-              >
-                test
-              </span>
+              test
             </code>
           </pre>
           <p />
@@ -460,15 +459,14 @@ exports[`Asciidoc pages > renders correctly 1`] = `
           <p>
             Hello World, this is a 
           </p>
-          <pre>
+          <pre
+            class="language-none"
+            tabindex="0"
+          >
             <code
-              class="hljs language-bash"
+              class="language-none"
             >
-              <span
-                class="hljs-built_in"
-              >
-                test
-              </span>
+              test
             </code>
           </pre>
           <p />
