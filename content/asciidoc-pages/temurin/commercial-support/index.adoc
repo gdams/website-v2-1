@@ -1,7 +1,9 @@
 = Commercial Support Options for Eclipse Temurin(TM)
 :page-authors: gdams
 
-There are a variety of different commercial support options available for Eclipse Temurin. It's important to note that none of these options are officially endorsed by the Adoptium(R) project. Each commercial support provider tends to cater to different typical use-cases, so it is recommended that a company evaluate each option based on its specific needs and requirements.
+There are a variety of commercial support options available for Eclipse Temurin. A number of support providers are listed below. It's important to note that none of these providers have been evaluated or are officially endorsed by the Adoptium(R) project. Each commercial support provider tends to cater to different typical use-cases, so it is recommended that you evaluate each option carefully based on your specific needs and requirements.
+
+In alphabetical order:
 
 [cols="1,3"]
 |===
@@ -9,38 +11,19 @@ There are a variety of different commercial support options available for Eclips
 | 
 
 ^.^|
-image:https://adoptium.net/images/ibm-logo.png[IBM,150]
+image:https://adoptium.net/images/openelements.svg[Open Elements,150]
 |
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Magna etiam tempor orci eu lobortis elementum nibh tellus. Vulputate eu scelerisque felis imperdiet proin fermentum.
+Purchasing OpenElements Temurin Support & Care provides you with a variety of benefits that enhance the performance and security of your Java applications and optimize your development process. As a member of Adoptium and with our exceptional network within OpenElements, we directly contribute to its development. Through our activities in the Java and Open Source ecosystem, we can provide you with information and insights into the current and future developments within the Eclipse Adoptium Working Group and the OpenJDK.
 
-More details can be found on the https://www.ibm.com/support/home/[IBM Support Homepage].
-
-^.^|
-image:https://adoptium.net/images/microsoft.svg[Microsoft,150]
-|
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Magna etiam tempor orci eu lobortis elementum nibh tellus. Vulputate eu scelerisque felis imperdiet proin fermentum.
-
-Visit https://www.azul.com/support/[Azul Systems Support] to learn more.
-
-^.^|
-image:https://adoptium.net/images/azul.svg[Azul Systems,150]
-|
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Magna etiam tempor orci eu lobortis elementum nibh tellus. Vulputate eu scelerisque felis imperdiet proin fermentum.
-
-Visit https://www.azul.com/support/[Azul Systems Support] to learn more.
+For more details, please visit the https://open-elements.com/temurin-support/[Open Elements Website].
 
 ^.^|
 image:https://adoptium.net/images/redhat.svg[Red Hat,150]
 |
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Magna etiam tempor orci eu lobortis elementum nibh tellus. Vulputate eu scelerisque felis imperdiet proin fermentum.
+https://www.redhat.com[Red Hat] has long been a recognized leader in the Java community, and remains committed to moving Java forward through open, community-driven innovation. Red Hat customers can get professional support for Eclipse Temurin through a subscription, enabling 24x7 worldwide support for the most critical production Java workloads.
 
-For more information, visit the https://access.redhat.com/documentation/en-us/openjdk/11/html-single/getting_started_with_eclipse_temurin/index[Red Hat Documentation Page].
+Visit https://developers.redhat.com/java/red-hat-and-java?utm_source=adoptium[Red Hat & Java] or contact https://www.redhat.com/contact?utm_source=adoptium[Red Hat Sales] for more information.
 
-// add open elements
-^.^|
-image:https://adoptium.net/images/openelements.svg[Open Elements,150]
-|
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Magna etiam tempor orci eu lobortis elementum nibh tellus. Vulputate eu scelerisque felis imperdiet proin fermentum.
-
-For more information, visit the https://openelements.de/[Open Elements Website].
 |===
+
+Commercial support providers may https://github.com/adoptium/adoptium.net/issues/new/choose[open a request] to be added to this list.
