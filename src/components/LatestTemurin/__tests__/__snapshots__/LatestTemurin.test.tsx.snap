@@ -35,7 +35,7 @@ exports[`RandomContributor component > should render correctly - Linux 1`] = `
         Text
         <br />
         <span
-          class="font-weight-light"
+          class="font-weight-light text-white"
           style="font-size: .6em;"
         >
           release_name_mock
@@ -121,7 +121,7 @@ exports[`RandomContributor component > should render correctly - Windows 1`] = `
         Text
         <br />
         <span
-          class="font-weight-light"
+          class="font-weight-light text-white"
           style="font-size: .6em;"
         >
           release_name_mock
@@ -207,7 +207,7 @@ exports[`RandomContributor component > should render correctly 1`] = `
         Text
         <br />
         <span
-          class="font-weight-light"
+          class="font-weight-light text-white"
           style="font-size: .6em;"
         >
           release_name_mock

@@ -57,7 +57,12 @@ const LatestTemurin = (props): JSX.Element => {
   }
 
     return (
-      <div ref={ref} className={props.page === "home" ? "container hide-on-mobile" : "container"}>
+      <div
+        ref={ref}
+        className={props.page === "home" ? "hide-on-mobile" : "container"}
+        // set max width for home page
+        style={props.page === "home" ? { maxWidth: "550px" } : {}}
+      >
         {binary ? (
           <>
           <h2 className={`fw-light mt-3 ${textClass}`}>
@@ -81,7 +86,7 @@ const LatestTemurin = (props): JSX.Element => {
                 <Link to="/download" state={{ link: binary.link, os: userOSName, arch: arch, pkg_type: 'JDK', java_version: binary.release_name }} className="btn btn-lg btn-primary mt-3 py-3 text-white">
                     <FaDownload /> <Trans>Latest LTS Release</Trans>
                     <br/>
-                    <span style={{ fontSize: '.6em'}} className="font-weight-light">{binary.release_name}</span>
+                    <span style={{ fontSize: '.6em'}} className="font-weight-light text-white">{binary.release_name}</span>
                 </Link>
                 <Link to="/temurin/releases" className="btn btn-outline-dark mt-3">
                     <Trans>Other platforms and versions</Trans> <FaArrowCircleRight />

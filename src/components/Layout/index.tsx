@@ -11,14 +11,13 @@ const Layout = ({ children }) => {
       <div
         className='container-fluid p-0'
         style={{
-          backgroundColor: 'var(--bg)',
           color: 'var(--text-normal)',
           transition: 'color 0.2s ease-out, background 0.2s ease-out'
         }}
       >
         <Slice alias='navbar' />
         <Slice alias='banner' />
-        <main>
+        <main style={{paddingTop: '100px'}}>
           {children}
         </main>
         <Slice alias='footer' />

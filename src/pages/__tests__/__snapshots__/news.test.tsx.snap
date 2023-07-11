@@ -1,7 +1,9 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`News page > renders correctly 1`] = `
-<main>
+<main
+  style="padding-top: 100px;"
+>
   <div
     class="docs-header p-5 text-center"
   >
@@ -286,7 +288,9 @@ exports[`News page > renders correctly 1`] = `
 `;
 
 exports[`News page > renders spinner when news not loaded 1`] = `
-<main>
+<main
+  style="padding-top: 100px;"
+>
   <div
     class="docs-header p-5 text-center"
   >

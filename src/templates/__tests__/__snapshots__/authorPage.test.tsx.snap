@@ -1,7 +1,9 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`AuthorPage pages > renders correctly - with next and previous pagination 1`] = `
-<main>
+<main
+  style="padding-top: 100px;"
+>
   <section
     class="py-5 container"
   >
@@ -94,7 +96,9 @@ exports[`AuthorPage pages > renders correctly - with next and previous paginatio
 `;
 
 exports[`AuthorPage pages > renders correctly - with next pagination 1`] = `
-<main>
+<main
+  style="padding-top: 100px;"
+>
   <section
     class="py-5 container"
   >
@@ -180,7 +184,9 @@ exports[`AuthorPage pages > renders correctly - with next pagination 1`] = `
 `;
 
 exports[`AuthorPage pages > renders correctly - with previous pagination 1`] = `
-<main>
+<main
+  style="padding-top: 100px;"
+>
   <section
     class="py-5 container"
   >
@@ -266,7 +272,9 @@ exports[`AuthorPage pages > renders correctly - with previous pagination 1`] = `
 `;
 
 exports[`AuthorPage pages > renders correctly 1`] = `
-<main>
+<main
+  style="padding-top: 100px;"
+>
   <section
     class="py-5 container"
   >

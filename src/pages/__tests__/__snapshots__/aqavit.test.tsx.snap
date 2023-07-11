@@ -1,7 +1,9 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`AQAvit page > renders correctly 1`] = `
-<main>
+<main
+  style="padding-top: 100px;"
+>
   <section
     class="py-5 text-center container"
   >
