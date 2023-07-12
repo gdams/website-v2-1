@@ -29,7 +29,7 @@ exports[`NavBar component > navbar renders correctly 1`] = `
               />
             </a>
             <ul
-              class="nav"
+              class="nav "
             >
               <li>
                 <a
@@ -66,7 +66,7 @@ exports[`NavBar component > navbar renders correctly 1`] = `
                   Projects
                 </a>
                 <ul
-                  class="sub-menu"
+                  class="sub-menu "
                 >
                   <li>
                     <a
@@ -101,7 +101,7 @@ exports[`NavBar component > navbar renders correctly 1`] = `
                   Further Information
                 </a>
                 <ul
-                  class="sub-menu"
+                  class="sub-menu "
                 >
                   <li>
                     <a
@@ -187,7 +187,8 @@ exports[`NavBar component > navbar renders correctly 1`] = `
               </li>
             </ul>
             <a
-              class="menu-trigger"
+              class="menu-trigger "
+              data-testid="menu-trigger"
             >
               <span>
                 Menu

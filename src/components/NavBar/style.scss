@@ -129,6 +129,7 @@ Header Style
     color: #fff;
     position: absolute;
     right: 1px;
+    top: 4em;    
   }
 
   .background-header .main-nav .nav li.has-sub::after {
@@ -406,6 +407,7 @@ Header Style
     }
 
     .header-area .main-nav .nav li.has-sub ul.sub-menu {
+      display: none;
       position: relative;
       visibility: inherit;
       opacity: 1;

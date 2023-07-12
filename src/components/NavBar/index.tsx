@@ -17,10 +17,12 @@ const ExactNavLink = props => (
 
 const NavBar = (): JSX.Element => {
   const [isSticky, setIsSticky] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSubMenu, setActiveSubMenu] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.pageYOffset > 0) {
+      if (window.scrollY > 0) {
         setIsSticky(true);
       } else {
         setIsSticky(false);
@@ -34,6 +36,10 @@ const NavBar = (): JSX.Element => {
     }
   }, []);
 
+  const handleSubMenuClick = (name: string) => {
+    setActiveSubMenu(prevState => prevState === name ? null : name);
+  };
+
   return (
     <header className={`header-area ${isSticky ? 'header-sticky' : ''}`}>
     <div className="container">
@@ -43,7 +49,7 @@ const NavBar = (): JSX.Element => {
             <Link to="/" className="navbar-brand" style={{ marginTop: '2rem' }} aria-label="Homepage Link">
               <Logo alt="Adoptium Logo" style={{ height: '2.5em' }} />
             </Link>
-              <ul className="nav">
+              <ul className={`nav ${isMenuOpen ? 'active' : ''}`}>
               <li>
                 <ExactNavLink
                   to="/"
@@ -72,17 +78,17 @@ const NavBar = (): JSX.Element => {
                   FAQ
                 </ExactNavLink>
               </li>
-              <li className="has-sub">
+              <li className="has-sub" onClick={() => handleSubMenuClick("Projects")}>
                 <a>Projects</a>
-                <ul className="sub-menu">
+                <ul className={`sub-menu ${activeSubMenu === 'Projects' ? 'active' : ''}`}>
                   <li><ExactNavLink className="dropdown-item" to="/temurin">Eclipse Temurin</ExactNavLink></li>
                   <li><ExactNavLink className="dropdown-item" to="/aqavit">Eclipse AQAvit</ExactNavLink></li>
                   <li><ExactNavLink className="dropdown-item" to="/jmc">Eclipse Mission Control</ExactNavLink></li>
                 </ul>
               </li>
-              <li className="has-sub">
+              <li className="has-sub" onClick={() => handleSubMenuClick("Further Information")}>
                 <a>Further Information</a>
-                <ul className="sub-menu">
+                <ul className={`sub-menu ${activeSubMenu === 'Further Information' ? 'active' : ''}`}>
                   <li><ExactNavLink className="dropdown-item" to="/support">Support</ExactNavLink></li>
                   <li><ExactNavLink className="dropdown-item" to="/news">News & Events</ExactNavLink></li>
                   <li><ExactNavLink className="dropdown-item" to="/about">About</ExactNavLink></li>
@@ -96,7 +102,11 @@ const NavBar = (): JSX.Element => {
                 </ul>
               </li>
             </ul>
-            <a className='menu-trigger' onClick={toggleDropdown}>
+            <a
+              className={`menu-trigger ${isMenuOpen ? 'active' : ''}`}
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              data-testid="menu-trigger"
+            >
               <span>Menu</span>
             </a>
           </nav>
@@ -105,29 +115,6 @@ const NavBar = (): JSX.Element => {
     </div>
   </header>
   )
-}
-
-const toggleDropdown = () => {
-  // toggle class to active
-  const menuTrigger = document.querySelector('.menu-trigger');
-  menuTrigger && menuTrigger.classList.toggle('active');
-  // set nav to diospaly block
-  const nav = document.querySelector('.nav');
-  nav && nav.classList.toggle('active');
-
-  // collapse all sub menus unless they have been clicked
-  const subMenus = document.querySelectorAll('.sub-menu');
-  // set all sub menus to display none
-  subMenus.forEach(subMenu => {
-    // @ts-ignore
-    subMenu.style.display = 'none';
-    // add event listener to each parent li that has a sub menu
-    subMenu && subMenu.parentNode && subMenu.parentNode.addEventListener('click', () => {
-      // toggle the display of the sub menu
-      // @ts-ignore
-      subMenu.style.display = subMenu.style.display === 'none' ? 'block' : 'none';
-    });
-  });
 }
 
 NavBar.propTypes = {
