@@ -129,9 +129,8 @@ Header Style
     color: #fff;
     position: absolute;
     right: 1px;
-    top: 45px;
   }
-  
+
   .background-header .main-nav .nav li.has-sub::after {
     top: 32px;
   }
@@ -182,7 +181,7 @@ Header Style
   
   .header-area .main-nav .nav li.has-sub ul li a:hover {
     background: #fff;
-    color: #5b03e4!important;
+    color: #FF1464!important;
     padding-left: 25px;
   }
   
@@ -290,10 +289,14 @@ Header Style
     z-index: 999;
   }
   
-  @media (width <= 1200px) {
+  @media (width <= 1400px) {
     .header-area .main-nav .nav li {
       padding-left: 10px;
       padding-right: 10px;
+    }
+
+    .header-area .main-nav .nav li:first-child {
+      padding-left: 0;
     }
 
     .header-area .main-nav::before {
@@ -301,7 +304,7 @@ Header Style
     }
   }
   
-  @media (width <= 767px) {
+  @media (width <= 1000px) {
     .header-area .main-nav .nav {
       height: auto;
       flex-basis: 100%;
@@ -310,6 +313,8 @@ Header Style
       display: none;
       transition: all 0s ease 0s;
       margin-left: -50%;
+      max-height: 85vh;
+      overflow: auto;
     }
 
     .header-area .main-nav .logo {
@@ -334,7 +339,7 @@ Header Style
 
     .header-area.header-sticky .nav li a:hover,
     .header-area.header-sticky .nav li a.active {
-      color: #5b03e4!important;
+      color: #FF1364!important;
       opacity: 1;
     }
 
@@ -397,7 +402,7 @@ Header Style
 
     .header-area .main-nav .nav li a:hover {
       background: #eee !important;
-      color: #5b03e4!important;
+      color: #FF1364!important;
     }
 
     .header-area .main-nav .nav li.has-sub ul.sub-menu {
@@ -409,7 +414,6 @@ Header Style
       top: 0;
       width: 100%;
       box-shadow: none;
-      height: 0;
       transition: all 0s;
     }
 
@@ -433,7 +437,7 @@ Header Style
       height: 0;
     }
   }
-  
+
   .pre-header {
     background-color: #fff;
     padding: 15px 0;
@@ -472,7 +476,6 @@ Header Style
   .pre-header .social-icons {
     text-align: right;
   }
-  
   
   .pre-header .social-icons ul li {
     margin-left: 10px;
