@@ -51,7 +51,7 @@ Header Style
     position: relative;
     z-index: 999;
   }
-  
+
   .nav {
     justify-content: right;
   }
@@ -120,16 +120,6 @@ Header Style
   .header-area .main-nav .nav li.has-sub {
     position: relative;
     padding-right: 15px;
-  }
-  
-  .header-area .main-nav .nav li.has-sub::after {
-    font-family: FontAwesome, sans-serif;
-    content: "\f107";
-    font-size: 12px;
-    color: #fff;
-    position: absolute;
-    right: 1px;
-    top: 4em;    
   }
 
   .background-header .main-nav .nav li.has-sub::after {
@@ -322,6 +312,12 @@ Header Style
       position: absolute;
       left: 30px;
       top: 0;
+    }
+
+    .header-area .main-nav .nav li.has-sub svg {
+      position: absolute;
+      right: 1em;
+      top: 0.5em;
     }
 
     .background-header .main-nav .logo {

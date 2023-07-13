@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 import { Link } from 'gatsby-plugin-react-i18next';
+import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
 
 import './style.scss';
 
@@ -37,7 +38,10 @@ const NavBar = (): JSX.Element => {
   }, []);
 
   const handleSubMenuClick = (name: string) => {
-    setActiveSubMenu(prevState => prevState === name ? null : name);
+    // only make changes when in isMenuOpen is true
+    if (isMenuOpen) {
+      setActiveSubMenu(prevState => prevState === name ? null : name);
+    }
   };
 
   return (
@@ -79,7 +83,7 @@ const NavBar = (): JSX.Element => {
                 </ExactNavLink>
               </li>
               <li className="has-sub" onClick={() => handleSubMenuClick("Projects")}>
-                <a>Projects</a>
+                <a>Projects{activeSubMenu === 'Projects' ? <RiArrowDropUpLine size={30}/> : <RiArrowDropDownLine size={30} />}</a>
                 <ul className={`sub-menu ${activeSubMenu === 'Projects' ? 'active' : ''}`}>
                   <li><ExactNavLink className="dropdown-item" to="/temurin">Eclipse Temurin</ExactNavLink></li>
                   <li><ExactNavLink className="dropdown-item" to="/aqavit">Eclipse AQAvit</ExactNavLink></li>
@@ -87,7 +91,7 @@ const NavBar = (): JSX.Element => {
                 </ul>
               </li>
               <li className="has-sub" onClick={() => handleSubMenuClick("Further Information")}>
-                <a>Further Information</a>
+                <a>Further Information{activeSubMenu === 'Further Information' ? <RiArrowDropUpLine size={30}/> : <RiArrowDropDownLine size={30} />}</a>
                 <ul className={`sub-menu ${activeSubMenu === 'Further Information' ? 'active' : ''}`}>
                   <li><ExactNavLink className="dropdown-item" to="/support">Support</ExactNavLink></li>
                   <li><ExactNavLink className="dropdown-item" to="/news">News & Events</ExactNavLink></li>
