@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, screen } from '@testing-library/react';
+import { act, render, fireEvent, screen } from '@testing-library/react';
 import { describe, it, expect } from "vitest"
 import NavBar from '..';
 
@@ -38,5 +38,27 @@ describe('NavBar component', () => {
 
     // click the menu-trigger to close the menu
     fireEvent.click(menuTrigger);
+  });
+
+  it('should set isSticky to true when the user scrolls down the page', () => {
+    const { container } = render(<NavBar />);
+    const header = container.querySelector('header');
+
+    expect(header).toBeInTheDocument();
+    expect(header).not.toHaveClass('header-sticky');
+
+    act(() => {
+      window.scrollY = 100;
+      window.dispatchEvent(new Event('scroll'));
+    });
+
+    expect(header).toHaveClass('header-sticky');
+
+    act(() => {
+      window.scrollY = 0;
+      window.dispatchEvent(new Event('scroll'));
+    });
+
+    expect(header).not.toHaveClass('header-sticky');
   });
 });
