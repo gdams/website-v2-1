@@ -20,14 +20,6 @@ exports[`Index page > renders correctly 1`] = `
           <div
             class="caption header-text"
           >
-            <h6
-              class="hide-on-mobile"
-            >
-              ECLIPSE ADOPTIUM®
-            </h6>
-            <div
-              class="line-dec hide-on-mobile"
-            />
             <p
               class="h4 tag-line"
             >

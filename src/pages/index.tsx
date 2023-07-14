@@ -71,8 +71,6 @@ const IndexPage = ({data}) => {
           <div className="row">
             <div className="col-lg-7">
               <div className="caption header-text">
-                <h6 className='hide-on-mobile'>ECLIPSE ADOPTIUM&reg;</h6>
-                <div className="line-dec hide-on-mobile"></div>
                 <p className="h4 tag-line">
                   <Trans
                     i18nKey='Prebuilt OpenJDK'
