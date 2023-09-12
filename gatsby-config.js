@@ -129,7 +129,15 @@ module.exports = {
         ]
       }
     },
-    'gatsby-transformer-asciidoc',
+    {
+      resolve: 'gatsby-transformer-asciidoc',
+      options: {
+        safe: 'unsafe',
+        attributes: {
+          partialDir: path.join(__dirname, 'content/_partials')
+        }
+      }
+    },
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
