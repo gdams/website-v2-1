@@ -1,7 +1,7 @@
 = Temurin(TM) Support
 :page-authors: gdams, karianna, sxa, tellison, SueChaplain, sxa555, mvitz, ParkerM, M-Davies, Malax, lasombra, practicalli-john, jeffalder, hendrikebbers, douph1, andrew-m-leonard, mr-david-owens, DanHeidinga, sophia-guo, zdtsw, adamfarley
 :toc:
-:partialDir: ../../_partials
+:partialDir: _partials
 
 == Community Support
 
@@ -20,7 +20,7 @@ the code we can fix that directly. For dedicated support with service
 level agreements you should contact commercial companies offering
 support on Temurin binaries. Read
 https://medium.com/@javachampions/java-is-still-free-3-0-0-ocrt-2021-bca75c88d23b[Java Is Still Free (3.0.0)]
-for some background information about Java support options.
+for some background information about Java support options.s
 
 == Commercial Support
 
