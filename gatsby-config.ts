@@ -279,7 +279,6 @@ module.exports = {
         ]
       }
     },
-    'gatsby-plugin-netlify',
     'gatsby-plugin-image',
     {
       resolve: 'gatsby-plugin-react-svg',
