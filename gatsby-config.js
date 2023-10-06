@@ -6,8 +6,12 @@
 
 const path = require('path')
 const locales = require('./locales/i18n')
+const adapter = require('gatsby-adapter-netlify')
 
 module.exports = {
+  adapter: adapter({
+    excludeDatastoreFromEngineFunction: false,
+  }),
   siteMetadata: {
     title: 'Adoptium',
     description: 'Eclipse Adoptium provides prebuilt OpenJDK binaries from a fully open source set of build scripts and infrastructure. Supported platforms include Linux, macOS, Windows, ARM, Solaris, and AIX.',
